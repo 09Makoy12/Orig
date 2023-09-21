@@ -1,7 +1,8 @@
 #include "max6675.h"
 #include<Wire.h>
-
+#include <Servo.h>
 #include "HX711.h"
+#define NUM_R4 4
 
 #define calibration_factor 7050.0 //This value is obtained using the SparkFun_HX711_Calibration sketch
 
@@ -9,17 +10,30 @@
 #define LOADCELL_SCK_PIN  2
 
 HX711 scale;
+Servo myservo;
+
+int pos = 0;
+
+//LED 
+int greenled = A5;
+int redled = A4;
+
+//buzzer
+const int buzzer = 7;
 
 const int ENA_PIN = A0  ; // the Arduino pin connected to the EN1 pin L298N
 const int IN1_PIN = 6; // the Arduino pin connected to the IN1 pin L298N
 const int IN2_PIN = 5; // the Arduino pin connected to the IN2 pin L298N
 
 //thermo
-int thermoDO = A0;
-int thermoCS = A1; 
-int thermoCLK = A2; 
+int thermoDO = A1;
+int thermoCS = A2; 
+int thermoCLK = A3; 
 
 MAX6675 thermocouple(thermoCLK, thermoCS, thermoDO);
+
+//heaterANDfan
+const int inArr[NUM_R4] = {8, 9 , 10, 11};
 
 int current_command = -1;
 
@@ -36,6 +50,23 @@ void setup() {
   pinMode(IN2_PIN, OUTPUT);
 
   digitalWrite(ENA_PIN, HIGH);
+
+   myservo.attach(4);
+
+  //buzzer 
+  pinMode(buzzer, OUTPUT);
+
+//led 
+  pinMode(greenled, OUTPUT);
+  pinMode(redled, OUTPUT);
+
+  for(int i=0; i<NUM_R4; i++) {
+    pinMode(inArr[i], OUTPUT);
+  }
+  for (int i=0; i<NUM_R4; i++) { 
+    digitalWrite(inArr[i], HIGH);
+  }
+
 }
 
 void loop() {
@@ -64,7 +95,7 @@ void loop() {
 }
 
 void sendResponse(String response){
-  Serial.println(response);    
+  Serial.println(response);  
 }
  
 void receiveCommand(){
@@ -77,19 +108,82 @@ void receiveCommand(){
 
 void getWeight(){
   float weight = abs(scale.get_units());
+  
+  if (weight >= 1.8 && weight <= 2.6) {
+    ledgo();
+    servo();
+    activateActuator();
+    retractActuator();
+    delay(1000);
+  }
+  else if (weight >= 1.0 && weight <= 1.7) { 
+    lednogo();
+  }
+  else if (weight >= 2.5) { 
+    lednogo();
+  }
   sendResponse(String(weight));
+  delay(1000);
 }
 
-void getTemperature() { 
+void getTemperature() {
+
   float heater = thermocouple.readCelsius();
+        
+  if (heater >= 30) {
+    for(int i = 0; i < NUM_R4; i++){
+      digitalWrite(inArr[i], LOW); 
+    }
+  }
+  else if (heater >=45) {
+    for(int i = 0; i < NUM_R4; i++){
+      digitalWrite(inArr[i], HIGH);
+    }
+  }
   sendResponse(String(heater));
+  delay(1000);
 }
 
-void activateActuator(){
+
+void activateActuator() {
+  digitalWrite(IN1_PIN, LOW);
+  digitalWrite(IN2_PIN, HIGH);
+  delay(20000); 
+}
+
+void retractActuator() {
   digitalWrite(IN1_PIN, HIGH);
   digitalWrite(IN2_PIN, LOW);
   delay(20000); 
-  digitalWrite(IN1_PIN, LOW);
-  digitalWrite(IN2_PIN, HIGH);
-  delay(20000);
+}
+
+void servo() {
+  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+}
+
+void buzzerks() { 
+  tone(buzzer, 5000);
+  delay(3000);
+  noTone(buzzer);
+}
+
+void ledgo() {
+  digitalWrite(greenled, HIGH);
+  delay(2000);
+  digitalWrite(greenled, LOW);
+}
+
+void lednogo() {
+  digitalWrite(redled, HIGH);
+  buzzerks();
+  delay(3000);
+  digitalWrite(redled, LOW);
 }
