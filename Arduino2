@@ -1,0 +1,129 @@
+#include<Wire.h>
+#include<AccelStepper.h>
+
+#define pulvRelay 10
+
+#define PUL1_PIN 6
+#define DIR1_PIN 7
+#define PUL2_PIN 8
+#define DIR2_PIN 9
+
+int stepCount = 500;
+//motor 
+const int relaymotor = 2;
+//
+////conveyor 
+//const int stepPin1 = 6; 
+//const int dirPin1 = 7; 
+//const int enPin1 = A3;
+//
+//const int stepPin2 = 8; 
+//const int dirPin2 = 9; 
+//const int enPin2 = A4;
+
+//comms
+String command = "";
+int current_command = -1;
+
+void setup() {
+  Serial.begin(9600);
+
+  pinMode(PUL1_PIN, OUTPUT);
+  pinMode(DIR1_PIN, OUTPUT);
+  pinMode(PUL2_PIN, OUTPUT);
+  pinMode(DIR2_PIN, OUTPUT);
+
+  digitalWrite(DIR1_PIN, HIGH);
+  digitalWrite(DIR2_PIN, HIGH);
+  
+//  //conveyor1
+//  pinMode(stepPin1,OUTPUT); 
+//  pinMode(dirPin1,OUTPUT);
+//  pinMode(enPin1,OUTPUT);
+//  digitalWrite(enPin1,LOW);
+//
+//   //conveyor2
+//  pinMode(stepPin2,OUTPUT); 
+//  pinMode(dirPin2,OUTPUT);
+//  pinMode(enPin2,OUTPUT);
+//  digitalWrite(enPin2,LOW);
+ 
+  //motor 
+  pinMode(relaymotor, OUTPUT);
+
+}
+
+void loop() {
+  if(current_command == -1){
+    receiveCommand();
+  }
+ 
+  else if(current_command == 6){
+//    turm_pulv();
+    current_command = -1;
+  }
+
+  else if(current_command == 5){
+    onConveyor();
+    current_command = -1;
+  }
+
+  else if(current_command == 4){
+    activate_slicer();
+    current_command = -1;
+  }
+  
+}
+
+void sendResponse(String response){
+  Serial.println(response);    
+}
+ 
+void receiveCommand(){
+  if(Serial.available()){
+    int sent = Serial.readStringUntil('\n').toInt();
+    Serial.println("ok"); 
+    current_command = sent;   
+  }
+}
+
+
+//void turm_pulv() {
+//  
+//}
+
+//void onConveyor() { 
+//  digitalWrite(dirPin1,HIGH); // Enables the motor to move in a particular direction
+//  for(int x = 0; x < 90000; x++) {
+//    digitalWrite(stepPin1,LOW); 
+//    delayMicroseconds(20); 
+//    digitalWrite(stepPin1,HIGH); 
+//    delayMicroseconds(5); 
+//  }
+//  delay(1000); // One second delay
+//  
+//  digitalWrite(dirPin2,LOW); //Changes the direction of rotation
+//  for(int x = 0; x < 90000; x++) {
+//    digitalWrite(stepPin2,HIGH);
+//    delayMicroseconds(20);
+//    digitalWrite(stepPin2,HIGH);
+//    delayMicroseconds(5);
+//  }
+//  delay(1000); 
+//}
+
+void onConveyor() { 
+  for (
+    int i = 0; i < stepCount; i++) { 
+    digitalWrite(PUL1_PIN, HIGH);
+    digitalWrite(PUL2_PIN, HIGH);
+    delayMicroseconds(1800000);
+    digitalWrite(PUL1_PIN, LOW);
+    digitalWrite(PUL2_PIN, LOW);
+    delayMicroseconds(1800000);
+    }
+}
+
+void activate_slicer(){
+  digitalWrite(relaymotor, HIGH);
+}
