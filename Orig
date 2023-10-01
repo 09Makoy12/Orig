@@ -5,7 +5,9 @@ import RPi.GPIO as GPIO
 import time
 from time import sleep
 import datetime
-
+import websocket # pip install websocket-client
+import json
+from threading import Thread
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 
@@ -14,11 +16,51 @@ lcd = LCD()
 class Machine:
 
     def __init__(self):
+        self.ws_host = "ws://192.168.1.9:8000/ws/socket-server/"
+        self.ws = None
         self.arduino = Serial('/dev/ttyUSB0', 9600, timeout = 1)
         self.arduino.reset_input_buffer()
         self.weight = '0'
         self.temperature = '0'
         self.started = False
+        self.start_websocket_listener()
+
+    def start_websocket_listener(self):
+        '''
+            Start the websocket listener on another thread
+        '''
+        def _start():
+            self.ws = websocket.WebSocketApp(self.ws_host,
+                                        on_open = lambda ws: print('Starting websocket listener...'),
+                                        on_message=lambda ws, message: print(message),
+                                        on_error=lambda ws, error: print(error),
+                                        on_close=lambda ws, close_status_code, close_msg: print('Server closing'))
+            self.ws.run_forever()
+        Thread(target=_start).start()
+
+    def update_parameters(self, harvested: float, temperature: float):
+        '''
+            Update parameters and send to server
+        '''
+        data = {
+            'type': 'update_parameter',
+            'harvested': harvested,
+            'water_level': temperature
+        }
+        json_data = json.dumps(data)
+        self.ws.send(json_data)
+
+    def update_harvest(self, amount: float, last_temperature: float):
+        '''
+            Add a new harvest record to the database
+        '''
+        data = {
+            'type': 'update_harvest',
+            'amount': amount,
+            'last_temperature': last_temperature
+        }
+        json_data = json.dumps(data)
+        self.ws.send(json_data)
 
     def safe_exit(signum, frame): 
         exit(1)
