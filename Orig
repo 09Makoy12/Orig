@@ -107,6 +107,12 @@ class Machine:
     def activate_slicer(self):
         self.send_command(4)
 
+    def activate_conveyor(self):
+        self.send_command(5)
+
+    # def activate_pulvurizer(self)
+    #     self.send_command(6)
+
     def switch_arduino_1(self): 
         self.arduino.close()
         self.arduino = Serial('/dev/ttyUSB1', 9600, timeout = 1)
@@ -138,6 +144,7 @@ if __name__ == '__main__':
     GPIO.setup(10, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
     GPIO.add_event_detect(10, GPIO.RISING, callback = machine.button_callback)
     flag = 0
+    state = 0
     while True:
              
         # state = GPIO.input(10)
@@ -152,46 +159,57 @@ if __name__ == '__main__':
         #             state = 1
 
         if machine.started:
+            if state == 0:
+                lcd.text("System", 1)
+                lcd.text("Initializing...", 2)
+                time.sleep(2)
+                lcd.clear()
+                state = 1
+            
+            if state == 1:
+                if actuator_ready:
+                    weight =  machine.get_weight()                        
+                    disweight = "Weight: " + '{:1.2f}'.format(weight) + " lbs" 
+                    lcd.text(disweight, 1)
 
-            state = 1
-            if actuator_ready:
-                weight =  machine.get_weight()
-                
-                lcd.text("Weight(lbs): ", 1)
-                lcd.text(str(weight), 2)
+                    temperature = machine.get_temperature()
+                    distemp = "Temp: " + '{:1.2f}'.format(temperature)  + " C"
+                    lcd.text(distemp, 2)
 
-                if weight >= 1.8 and weight <= 2.6:
-                    # deliver to slicing
+                    sleep(0.1)
 
-                    if not slicer_started and not conveyor_started:
-                        machine.switch_arduino_1()
-                        machine.activate_slicer()
-                        slicer_started = True
-                        # start conveyor
-                        conveyor_started = True
-                        machine.switch_arduino_0()
+                    if weight >= 1.8 and weight <= 2.6:
+                        machine.activate_actuator()
 
-                    machine.activate_actuator()
-                    actuator_ready = False
-                    actuator_start_time = datetime.datetime.now()
+                        if not slicer_started and not conveyor_started:
+                            machine.switch_arduino_1()
+                            machine.activate_slicer()
 
-            if not actuator_ready and datetime.datetime.now() - actuator_start_time >= datetime.timedelta(seconds=10):
-                
-                actuator_ready = True
+                            slicer_started = True
 
-            if datetime.datetime.now() - start >= datetime.timedelta(minutes=30) and not pulverizer_started:
-                # start pulvurizer
-                pulverizer_started = True
-                pulverizer_start_time = datetime.datetime.now()
+                            machine.activate_conveyor()
+                            # start conveyor
+                            conveyor_started = True
+                            machine.switch_arduino_0()
+                                                    
+                        actuator_ready = False
+                        actuator_start_time = datetime.datetime.now()
 
-            if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
-                # stop pulverizer
-                pulverizer_started = False
-                start = datetime.datetime.now()
+                if not actuator_ready and datetime.datetime.now() - actuator_start_time >= datetime.timedelta(seconds=10):
+                    actuator_ready = True
 
-            # if conveyor_started: 
-            #     machine.get_temperature()
+                if datetime.datetime.now() - start >= datetime.timedelta(minutes=30) and not pulverizer_started:
+                    # activate_pulvurizer()
+                    # start pulvurizer
+                    pulverizer_started = True
+                    pulverizer_start_time = datetime.datetime.now()
 
-            # send to server
-            else:
-                pass
+                if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
+                    # exit(activaite_pulverizer)
+                    # stop pulverizer
+                    pulverizer_started = False
+                    start = datetime.datetime.now()
+
+                # send to server
+                else:
+                    pass
