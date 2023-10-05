@@ -16,14 +16,19 @@ lcd = LCD()
 class Machine:
 
     def __init__(self):
-        self.ws_host = "ws://192.168.1.9:8000/ws/socket-server/"
+        # Change self.ws_host to server IP address
         self.ws = None
+        self.ws_host = "ws://192.168.1.9:8000/ws/socket-server/" 
+        
         self.arduino = Serial('/dev/ttyUSB0', 9600, timeout = 1)
         self.arduino.reset_input_buffer()
         self.weight = '0'
         self.temperature = '0'
-        self.started = False
         self.start_websocket_listener()
+
+        # Set to false on start
+        self.update_state(False)
+        self.started = False
 
     def start_websocket_listener(self):
         '''
@@ -32,11 +37,36 @@ class Machine:
         def _start():
             self.ws = websocket.WebSocketApp(self.ws_host,
                                         on_open = lambda ws: print('Starting websocket listener...'),
-                                        on_message=lambda ws, message: print(message),
+                                        on_message=lambda ws, message: self._parse_websocket_message(ws, message),
                                         on_error=lambda ws, error: print(error),
                                         on_close=lambda ws, close_status_code, close_msg: print('Server closing'))
             self.ws.run_forever()
         Thread(target=_start).start()
+
+    def _parse_websocket_message(self, ws, message):
+        '''
+            Parse the websocket message\n
+            Just mainly for listening to state updates
+        '''
+        data = json.loads(message)
+        print(data)
+        if data['type'] == 'get_state':
+            self.started = data['state']
+        # If uncommented, sometimes state will still be on if machine not shutdown correctly
+        # elif data['type'] == 'initialize_parameters':
+        #     self.started = data['state']
+
+    def update_state(self, state: bool):
+        '''
+            Update parameters and send to server
+        '''
+        data = {
+            'type': 'update_state',
+            'state': state
+        }
+        json_data = json.dumps(data)
+        self.ws.send(json_data)
+        self.started = state
 
     def update_parameters(self, harvested: float, temperature: float):
         '''
@@ -46,6 +76,17 @@ class Machine:
             'type': 'update_parameter',
             'harvested': harvested,
             'water_level': temperature
+        }
+        json_data = json.dumps(data)
+        self.ws.send(json_data)
+
+    def update_moisture(self, moisture: float):
+        '''
+            Update moisture and send to server
+        '''
+        data = {
+            'type': 'update_moisture',
+            'moisture': moisture
         }
         json_data = json.dumps(data)
         self.ws.send(json_data)
@@ -67,6 +108,7 @@ class Machine:
 
     def button_callback(self, channel):
         self.started = not self.started
+        self.update_state(self.started)
 
     def send_command(self, command: int):
         while True:
