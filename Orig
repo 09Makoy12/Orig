@@ -18,16 +18,14 @@ class Machine:
     def __init__(self):
         # Change self.ws_host to server IP address
         self.ws = None
-        self.ws_host = "ws://192.168.1.9:8000/ws/socket-server/" 
+        self.ws_host = "ws://192.168.1.9:8000/ws/socket-server/"
+        self.ws_initialized = False
         
         self.arduino = Serial('/dev/ttyUSB0', 9600, timeout = 1)
         self.arduino.reset_input_buffer()
         self.weight = '0'
         self.temperature = '0'
         self.start_websocket_listener()
-
-        # Set to false on start
-        self.update_state(False)
         self.started = False
 
     def start_websocket_listener(self):
@@ -52,9 +50,10 @@ class Machine:
         print(data)
         if data['type'] == 'get_state':
             self.started = data['state']
-        # If uncommented, sometimes state will still be on if machine not shutdown correctly
-        # elif data['type'] == 'initialize_parameters':
-        #     self.started = data['state']
+        elif data['type'] == 'initialize_parameters':
+            if not self.ws_initialized:
+                self.update_state(False)
+                self.ws_initialized = True
 
     def update_state(self, state: bool):
         '''
