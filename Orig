@@ -154,6 +154,9 @@ class Machine:
     # def activate_pulvurizer(self)
     #     self.send_command(6)
 
+    def get_moisture(self):
+        self.send_command(7)
+
     def switch_arduino_1(self): 
         self.arduino.close()
         self.arduino = Serial('/dev/ttyUSB1', 9600, timeout = 1)
@@ -244,6 +247,7 @@ if __name__ == '__main__':
                     # start pulvurizer
                     pulverizer_started = True
                     pulverizer_start_time = datetime.datetime.now()
+                    machine.get_moisture()
 
                 if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
                     # exit(activaite_pulverizer)
