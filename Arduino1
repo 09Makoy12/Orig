@@ -4,18 +4,17 @@
 #include "HX711.h"
 #define NUM_R4 4
 
-#define calibration_factor 7050.0 //This value is obtained using the SparkFun_HX711_Calibration sketch
-
-#define LOADCELL_DOUT_PIN  3
-#define LOADCELL_SCK_PIN  2
-
 const int AirValue = 620;   //you need to replace this value with Value_1
 const int WaterValue = 310;  //you need to replace this value with Value_2
 int soilMoistureValue = 0;
 int soilmoisturepercent=0;
 
-HX711 scale;
+HX711 scale(3, 2);
 Servo myservo;
+
+float calibration_factor = -400;
+float units;
+float weight;
 
 int pos = 0;
 
@@ -45,9 +44,8 @@ int current_command = -1;
 void setup() {
   Serial.begin(9600);
   
-  scale.begin(LOADCELL_DOUT_PIN, LOADCELL_SCK_PIN);
-  scale.set_scale(calibration_factor); //This value is obtained by using the SparkFun_HX711_Calibration sketch
-  scale.tare(); //Assuming there is no weight on the scale at start up, reset the scale to 0
+  scale.set_scale(calibration_factor);
+  scale.tare();
 
   //actuator 
   pinMode(ENA_PIN, OUTPUT);
@@ -117,19 +115,24 @@ void receiveCommand(){
 }
 
 void getWeight(){
-  float weight = abs(scale.get_units());
-  
-  if (weight >= 1.8 && weight <= 2.6) {
+  units = scale.get_units(),10;
+  if (units < 0)
+  {
+    units = 0.00;
+  }
+  weight = units * 0.001;  
+
+  if (weight >= 0.9 && weight <= 1.1) {
     ledgo();
     servo();
     activateActuator();
     retractActuator();
     delay(1000);
   }
-  else if (weight >= 1.0 && weight <= 1.7) { 
+  else if (weight >= 0.5 && weight <= 0.8) { 
     lednogo();
   }
-  else if (weight >= 2.5) { 
+  else if (weight >= 1.2) { 
     lednogo();
   }
   sendResponse(String(weight));
