@@ -151,11 +151,14 @@ class Machine:
     def activate_conveyor(self):
         self.send_command(5)
 
-    # def activate_pulvurizer(self)
-    #     self.send_command(6)
+    def activate_pulvurizer(self)
+        self.send_command(6)
 
     def get_moisture(self):
         self.send_command(7)
+
+    def activate_extraheat(self):
+        self.send_command(8)
 
     def switch_arduino_1(self): 
         self.arduino.close()
