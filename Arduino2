@@ -13,6 +13,9 @@ const int relaymotor = 2;
 //pulverizer
 const int pulvrelay = 10;
 
+//extraheat
+const int heatrelay = 11
+
 ////conveyor 
 //const int stepPin1 = 6; 
 //const int dirPin1 = 7; 
@@ -55,6 +58,8 @@ void setup() {
   //pulv
   pinMode(pulvrelay, OUTPUT);
 
+  //heat
+  pinMode(heatrelay, OUTPUT);
 }
 
 void loop() {
@@ -63,7 +68,7 @@ void loop() {
   }
  
   else if(current_command == 6){
-//    turm_pulv();
+    activate_pulverizer();
     current_command = -1;
   }
 
@@ -74,6 +79,11 @@ void loop() {
 
   else if(current_command == 4){
     activate_slicer();
+    current_command = -1;
+  }
+
+  else if(current_command == 8){
+    activate_extraheat();
     current_command = -1;
   }
   
@@ -91,9 +101,12 @@ void receiveCommand(){
   }
 }
 
-
 void activate_pulverizer(){
   digitalWrite(pulvrelay, HIGH);
+}
+
+void activate_extraheat(){
+  digitalWrite(heatrelay, HIGH);
 }
 
 //void onConveyor() { 
