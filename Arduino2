@@ -1,8 +1,6 @@
 #include<Wire.h>
 #include<AccelStepper.h>
 
-#define pulvRelay 10
-
 #define PUL1_PIN 6
 #define DIR1_PIN 7
 #define PUL2_PIN 8
@@ -11,7 +9,10 @@
 int stepCount = 500;
 //motor 
 const int relaymotor = 2;
-//
+
+//pulverizer
+const int pulvrelay = 10;
+
 ////conveyor 
 //const int stepPin1 = 6; 
 //const int dirPin1 = 7; 
@@ -51,6 +52,9 @@ void setup() {
   //motor 
   pinMode(relaymotor, OUTPUT);
 
+  //pulv
+  pinMode(pulvrelay, OUTPUT);
+
 }
 
 void loop() {
@@ -88,9 +92,9 @@ void receiveCommand(){
 }
 
 
-//void turm_pulv() {
-//  
-//}
+void activate_pulverizer(){
+  digitalWrite(pulvrelay, HIGH);
+}
 
 //void onConveyor() { 
 //  digitalWrite(dirPin1,HIGH); // Enables the motor to move in a particular direction
