@@ -226,12 +226,13 @@ if __name__ == '__main__':
                     sleep(0.1)
 
                     if weight >= 1.8 and weight <= 2.6:
+                        machine.switch_arduino_1()
+                        machine.activate_slicer()
+                        machine.switch_arduino_0()
                         machine.activate_actuator()
 
                         if not slicer_started and not conveyor_started:
                             machine.switch_arduino_1()
-                            machine.activate_slicer()
-
                             slicer_started = True
 
                             machine.activate_conveyor()
@@ -251,6 +252,9 @@ if __name__ == '__main__':
                     pulverizer_started = True
                     pulverizer_start_time = datetime.datetime.now()
                     machine.get_moisture()
+
+                    moisture = machine.get_moisture()
+                    
 
                 if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
                     # exit(activaite_pulverizer)
