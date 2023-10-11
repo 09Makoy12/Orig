@@ -74,7 +74,7 @@ class Machine:
         data = {
             'type': 'update_parameter',
             'harvested': harvested,
-            'water_level': temperature
+            'temperature': temperature
         }
         json_data = json.dumps(data)
         self.ws.send(json_data)
@@ -251,12 +251,25 @@ if __name__ == '__main__':
                     # start pulvurizer
                     pulverizer_started = True
                     pulverizer_start_time = datetime.datetime.now()
+                    parameters = machine.get_weight()
+
+                    machine.update_weight(weight)
+
+                    emperature = machine.get_temperature()
+
+                    machine.update_temperature(temperature)
+
                     machine.get_moisture()
 
                     moisture = machine.get_moisture()
 
                     machine.update_moisture(moisture)
-                    
+
+                    harvest = machine.get_harvest()
+
+                    machine.update_harvest(harvest)
+                
+                
 
                 if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
                     # exit(activaite_pulverizer)
