@@ -254,6 +254,8 @@ if __name__ == '__main__':
                     machine.get_moisture()
 
                     moisture = machine.get_moisture()
+
+                    machine.update_moisture(moisture)
                     
 
                 if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
