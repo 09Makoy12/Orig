@@ -18,7 +18,7 @@ class Machine:
     def __init__(self):
         # Change self.ws_host to server IP address
         self.ws = None
-        self.ws_host = "ws://192.168.1.30:8000/ws/socket-server/"
+        self.ws_host = "ws://192.168.0.100.:8000/ws/socket-server/"
         self.ws_initialized = False
         
         self.arduino = Serial('/dev/ttyUSB0', 9600, timeout = 1)
@@ -78,6 +78,7 @@ class Machine:
         }
         json_data = json.dumps(data)
         self.ws.send(json_data)
+     
 
     def update_moisture(self, moisture: float):
         '''
@@ -151,7 +152,7 @@ class Machine:
     def activate_conveyor(self):
         self.send_command(5)
 
-    def activate_pulvurizer(self)
+    def activate_pulvurizer(self):
         self.send_command(6)
 
     def get_moisture(self):
@@ -225,25 +226,25 @@ if __name__ == '__main__':
 
                     sleep(0.1)
 
-                    if weight >= 1.8 and weight <= 2.6:
-                        machine.switch_arduino_1()
-                        machine.activate_slicer()
-                        machine.switch_arduino_0()
+                    if weight >= 0.8 and weight <= 2.2:
+
                         machine.activate_actuator()
 
                         if not slicer_started and not conveyor_started:
                             machine.switch_arduino_1()
+                            machine.activate_slicer()
                             slicer_started = True
 
                             machine.activate_conveyor()
                             # start conveyor
                             conveyor_started = True
+
                             machine.switch_arduino_0()
                                                     
                         actuator_ready = False
                         actuator_start_time = datetime.datetime.now()
 
-                if not actuator_ready and datetime.datetime.now() - actuator_start_time >= datetime.timedelta(seconds=10):
+                if not actuator_ready and datetime.datetime.now() - actuator_start_time >= datetime.timedelta(seconds=5):
                     actuator_ready = True
 
                 if datetime.datetime.now() - start >= datetime.timedelta(minutes=30) and not pulverizer_started:
@@ -251,13 +252,6 @@ if __name__ == '__main__':
                     # start pulvurizer
                     pulverizer_started = True
                     pulverizer_start_time = datetime.datetime.now()
-                    parameters = machine.get_weight()
-
-                    machine.update_weight(weight)
-
-                    emperature = machine.get_temperature()
-
-                    machine.update_temperature(temperature)
 
                     machine.get_moisture()
 
