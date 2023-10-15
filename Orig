@@ -18,7 +18,7 @@ class Machine:
     def __init__(self):
         # Change self.ws_host to server IP address
         self.ws = None
-        self.ws_host = "ws://192.168.0.100.:8000/ws/socket-server/"
+        self.ws_host = "ws://192.168.0.100:8000/ws/socket-server/"
         self.ws_initialized = False
         
         self.arduino = Serial('/dev/ttyUSB0', 9600, timeout = 1)
@@ -161,6 +161,12 @@ class Machine:
     def activate_extraheat(self):
         self.send_command(8)
 
+    def off_pulvurizer(self):
+        self.send_command(9)
+
+    def retract_conveyor(self):
+        self.send_command(10)
+
     def switch_arduino_1(self): 
         self.arduino.close()
         self.arduino = Serial('/dev/ttyUSB1', 9600, timeout = 1)
@@ -223,32 +229,32 @@ if __name__ == '__main__':
                     temperature = machine.get_temperature()
                     distemp = "Temp: " + '{:1.2f}'.format(temperature)  + " C"
                     lcd.text(distemp, 2)
-
+                    print(temperature)
+                    machine.update_parameters(0,temperature)
                     sleep(0.1)
 
                     if weight >= 0.8 and weight <= 2.2:
 
-                        machine.activate_actuator()
-
                         if not slicer_started and not conveyor_started:
                             machine.switch_arduino_1()
-                            machine.activate_slicer()
-                            slicer_started = True
 
+                            machine.activate_slicer()
                             machine.activate_conveyor()
-                            # start conveyor
+                            slicer_started = True
                             conveyor_started = True
 
                             machine.switch_arduino_0()
+                            machine.activate_actuator()
+                            machine.retract_conveyor()
                                                     
                         actuator_ready = False
                         actuator_start_time = datetime.datetime.now()
 
-                if not actuator_ready and datetime.datetime.now() - actuator_start_time >= datetime.timedelta(seconds=5):
+                if not actuator_ready and datetime.datetime.now() - actuator_start_time >= datetime.timedelta(seconds=10):
                     actuator_ready = True
 
                 if datetime.datetime.now() - start >= datetime.timedelta(minutes=30) and not pulverizer_started:
-                    # activate_pulvurizer()
+                    machine.activate_pulvurizer()
                     # start pulvurizer
                     pulverizer_started = True
                     pulverizer_start_time = datetime.datetime.now()
@@ -259,14 +265,8 @@ if __name__ == '__main__':
 
                     machine.update_moisture(moisture)
 
-                    harvest = machine.get_harvest()
-
-                    machine.update_harvest(harvest)
-                
-                
-
                 if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
-                    # exit(activaite_pulverizer)
+                    machine.off_pulvurizer()
                     # stop pulverizer
                     pulverizer_started = False
                     start = datetime.datetime.now()
