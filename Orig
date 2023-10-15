@@ -229,8 +229,7 @@ if __name__ == '__main__':
                     temperature = machine.get_temperature()
                     distemp = "Temp: " + '{:1.2f}'.format(temperature)  + " C"
                     lcd.text(distemp, 2)
-                    print(temperature)
-                    machine.update_parameters(0,temperature)
+                    
                     sleep(0.1)
 
                     if weight >= 0.8 and weight <= 2.2:
