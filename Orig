@@ -10,6 +10,7 @@ import json
 from threading import Thread
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
+GPIO.setup(12, GPIO.OUT)
 
 lcd = LCD() 
 
@@ -164,8 +165,12 @@ class Machine:
     def off_pulvurizer(self):
         self.send_command(9)
 
-    def retract_conveyor(self):
+    def retract_actuator(self):
         self.send_command(10)
+
+    def get_wfinish(self):
+        self.send_command(12)
+        #finish
 
     def switch_arduino_1(self): 
         self.arduino.close()
@@ -232,7 +237,10 @@ if __name__ == '__main__':
                     
                     sleep(0.1)
 
-                    if weight >= 0.8 and weight <= 2.2:
+                    if weight >= 0.9 and weight <= 1.1:
+                        GPIO.output(12, GPIO.HIGH)
+                        time.sleep(1)
+                        GPIO.output(12, GPIO.LOW)
 
                         if not slicer_started and not conveyor_started:
                             machine.switch_arduino_1()
@@ -244,7 +252,7 @@ if __name__ == '__main__':
 
                             machine.switch_arduino_0()
                             machine.activate_actuator()
-                            machine.retract_conveyor()
+                            machine.retract_actuator()
                                                     
                         actuator_ready = False
                         actuator_start_time = datetime.datetime.now()
@@ -262,9 +270,13 @@ if __name__ == '__main__':
 
                     moisture = machine.get_moisture()
 
-                    machine.update_moisture(moisture)
+                    #machine.update_moisture(moisture)
 
                 if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
+                    weight2 = machine.get_wfinish()
+                    if weight2 == 0.8:
+                        machine.get_wfinish()
+
                     machine.off_pulvurizer()
                     # stop pulverizer
                     pulverizer_started = False
