@@ -2,13 +2,13 @@
 #include<Wire.h>
 #include <Servo.h>
 #include "HX711.h"
-#define NUM_R4 4
 
+#define NUM_R2 2
 
-const int AirValue = 620;   //you need to replace this value with Value_1
-const int WaterValue = 310;  //you need to replace this value with Value_2
+const int AirValue = 620;   // you need to replace this value with Value_1
+const int WaterValue = 310;  // you need to replace this value with Value_2
 int soilMoistureValue = 0;
-int soilmoisturepercent=0;
+int soilmoisturepercent = 0;
 
 HX711 scale1(3, 2);
 HX711 scale2(12, 13);
@@ -23,38 +23,42 @@ float weight2;
 
 int pos = 0;
 
-//LED 
+// LED 
 int greenled = A5;
-const int redled = 1;
+const int redled = 22;
 
-//buzzer
+// LED FAN
+const int fan1Led = 23;
+const int fan2Led = 24;
+
+// Buzzer
 const int buzzer = 7;
 
 const int ENA_PIN = A0; // the Arduino pin connected to the EN1 pin L298N
-const int IN1_PIN = 6; // the Arduino pin connected to the IN1 pin L298N
-const int IN2_PIN = 5; // the Arduino pin connected to the IN2 pin L298N
+const int IN1_PIN = 6;  // the Arduino pin connected to the IN1 pin L298N
+const int IN2_PIN = 5;  // the Arduino pin connected to the IN2 pin L298N
 
-//thermo
+// Thermo
 int thermoDO = A1;
-int thermoCS = A2; 
-int thermoCLK = A3; 
+int thermoCS = A2;
+int thermoCLK = A3;
 
 MAX6675 thermocouple(thermoCLK, thermoCS, thermoDO);
 
-//heaterANDfan
-const int inArr[NUM_R4] = {8, 9 , 10, 11};
+// Heater and Fan
+const int inArr[NUM_R2] = {8, 9};
 
 int current_command = -1;
 
 void setup() {
   Serial.begin(9600);
-  
+
   scale1.set_scale(calibration_factor);
   scale2.set_scale(calibration_factor2);
   scale1.tare();
   scale2.tare();
 
-  //actuator 
+  // Actuator 
   pinMode(ENA_PIN, OUTPUT);
   pinMode(IN1_PIN, OUTPUT);
   pinMode(IN2_PIN, OUTPUT);
@@ -63,111 +67,85 @@ void setup() {
 
   myservo.attach(4);
 
-  //buzzer 
+  // Buzzer 
   pinMode(buzzer, OUTPUT);
 
-//led 
+  // LED 
   pinMode(greenled, OUTPUT);
   pinMode(redled, OUTPUT);
 
-  for(int i=0; i<NUM_R4; i++) {
+  // LED FAN
+  pinMode(fan1Led, OUTPUT);
+  pinMode(fan2Led, OUTPUT);
+
+  for (int i = 0; i < NUM_R2; i++) {
     pinMode(inArr[i], OUTPUT);
   }
-  for (int i=0; i<NUM_R4; i++) { 
+  for (int i = 0; i < NUM_R2; i++) {
     digitalWrite(inArr[i], HIGH);
   }
-
 }
 
 void loop() {
-  if(current_command == -1){
+  if (current_command == -1) {
     receiveCommand();
-  }
- 
-  else if(current_command == 1){
+  } else if (current_command == 1) {
     getWeight();
     current_command = -1;
-  }
-
-  else if(current_command == 10){
+  } else if (current_command == 10) {
     activateActuator();
     current_command = -1;
-  }
-
-  else if(current_command == 3){
+  } else if (current_command == 3) {
     getTemp();
     current_command = -1;
-  }
-
-  else if(current_command == 7){
+  } else if (current_command == 7) {
     getMoisture();
     current_command = -1;
-  }
-
-  else if(current_command == 2){
+  } else if (current_command == 2) {
     retractActuator();
     current_command = -1;
-  }
-
-   else if(current_command == 11){
-   turn_on_fan1();
-   current_command = -1;
-  }
-
-   else if(current_command == 12){
-   turn_off_fan1();
-   current_command = -1;
-  }
-
-   else if(current_command == 13){
-   turn_on_fan2();
-   current_command = -1;
-  }
-
-   else if(current_command == 14){
-   turn_off_fan2();
-   current_command = -1;
-  }
-
-
-//  else if(current_command == 12){
-//    getWfinish();
-//    current_command = -1;
-//  }
-  
-  else{
+  } else if (current_command == 11) {
+    turnOnFan1();
+    current_command = -1;
+  } else if (current_command == 12) {
+    turnOnFan2();
+    current_command = -1;
+  } else if (current_command == 13) {
+    turnOffFan1();
+    current_command = -1;
+  } else if (current_command == 14) {
+    turnOffFan2();
+    current_command = -1;
+  } else {
     current_command = -1;
   }
 }
 
-void sendResponse(String response){
-  Serial.println(response);  
+void sendResponse(String response) {
+  Serial.println(response);
 }
- 
-void receiveCommand(){
-  if(Serial.available()){
+
+void receiveCommand() {
+  if (Serial.available()) {
     int sent = Serial.readStringUntil('\n').toInt();
-    Serial.println("ok"); 
-    current_command = sent;   
+    Serial.println("ok");
+    current_command = sent;
   }
 }
 
-void getWeight(){
-  units = scale1.get_units(),10;
-  if (units < 0)
-  {
+void getWeight() {
+  units = scale1.get_units(), 10;
+  if (units < 0) {
     units = 0.00;
   }
-  weight = units * 0.001;  
+  weight = units * 0.001;
   if (weight >= 0.9 && weight <= 1.1) {
     ledgo();
     servo();
     activateActuator();
-  }
-  else if (weight >= 0.5 && weight <= 0.8) { 
+  } else if (weight >= 0.5 && weight <= 0.8) {
     lednogo();
-  }
-  else if (weight >= 1.2) { 
+  } else if (weight >= 1.2) {
     lednogo();
   }
   sendResponse(String(weight));
@@ -175,23 +153,19 @@ void getWeight(){
 }
 
 void getTemp() {
-
   float heater = thermocouple.readCelsius();
-        
   if (heater >= 30) {
-    for(int i = 0; i < NUM_R4; i++){
-      digitalWrite(inArr[i], LOW); 
+    for (int i = 0; i < NUM_R2; i++) {
+      digitalWrite(inArr[i], LOW);
     }
-  }
-  else if (heater >=45) {
-    for(int i = 0; i < NUM_R4; i++){
+  } else if (heater >= 45) {
+    for (int i = 0; i < NUM_R2; i++) {
       digitalWrite(inArr[i], HIGH);
     }
   }
   sendResponse(String(heater));
   delay(1000);
 }
-
 
 void activateActuator() {
   digitalWrite(IN1_PIN, HIGH);
@@ -206,18 +180,17 @@ void retractActuator() {
 }
 
 void servo() {
-  for (pos = 0; pos <= 180; pos += 1) { // goes from 0 degrees to 180 degrees
-    // in steps of 1 degree
-    myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15ms for the servo to reach the position
+  for (pos = 0; pos <= 180; pos += 1) {
+    myservo.write(pos);
+    delay(15);
   }
-  for (pos = 180; pos >= 0; pos -= 1) { // goes from 180 degrees to 0 degrees
-    myservo.write(pos);              // tell servo to go to position in variable 'pos'
-    delay(15);                       // waits 15ms for the servo to reach the position
+  for (pos = 180; pos >= 0; pos -= 1) {
+    myservo.write(pos);
+    delay(15);
   }
 }
 
-void buzzerks() { 
+void buzzerks() {
   tone(buzzer, 5000);
   delay(3000);
   noTone(buzzer);
@@ -236,57 +209,49 @@ void lednogo() {
   analogWrite(redled, LOW);
 }
 
-void getMoisture() { 
-  soilMoistureValue = analogRead(A4);  //put Sensor insert into soil
+void getMoisture() {
+  soilMoistureValue = analogRead(A4);
   soilmoisturepercent = map(soilMoistureValue, AirValue, WaterValue, 0, 100);
-  if(soilmoisturepercent >= 100)
-    {
-      Serial.println("100 %");
-    }
-  else if(soilmoisturepercent <=0)
-    {
-      Serial.println("0 %");
-    }
-  else if(soilmoisturepercent >0 && soilmoisturepercent < 100)
-    {
-      Serial.print(soilmoisturepercent);
-      Serial.println("%");  
+  if (soilmoisturepercent >= 100) {
+    Serial.println("100 %");
+  } else if (soilmoisturepercent <= 0) {
+    Serial.println("0 %");
+  } else if (soilmoisturepercent > 0 && soilmoisturepercent < 100) {
+    Serial.print(soilmoisturepercent);
+    Serial.println("%");
   }
   sendResponse(String(soilmoisturepercent));
   delay(1000);
-  
-} 
+}
 
-void turn_on_fan1() {
-  digitalWrite(10, HIGH);
-  }
+void turnOnFan() {
+  digitalWrite(greenled, HIGH);
+  digitalWrite(redled, LOW);
+  digitalWrite(fan1Led, HIGH);
+  digitalWrite(fan2Led, HIGH);
+  delay(1000);
+}
 
-void turn_off_fan1(){
-  digitalWrite(10, LOW);
+void turnOffFan() {
+  digitalWrite(greenled, LOW);
+  digitalWrite(redled, HIGH);
+  digitalWrite(fan1Led, LOW);
+  digitalWrite(fan2Led, LOW);
+  delay(1000);
+}
+float getWfinish() {
+  units2 = scale2.get_units(), 1;
+  if (units2 < 0) {
+    units2 = 0.00;
   }
+  weight2 = units2 * 0.001;
+  if (weight2 >= 0.79 && weight2 <= 0.81) {
+    buzzerks();
+  } else if (weight2 >= 5.00 && weight2 <= 5.01) {
+    ledgo();
+  }
+  sendResponse(String(weight2));
 
-void turn_on_fan2() {
-  digitalWrite(11, HIGH);
-  }
-
-void turn_off_fan2(){
-  digitalWrite(11, LOW);
-  }
-//float getWfinish(){
-//  units2 = scale2.get_units(), 1;
-//  if (units2 < 0)
-//  {
-//    units2 = 0.00;
-//  }
-//  weight2 = units2 * 0.001; 
-//  if (weight2 >= 0.79 && weight2 <= 0.81 ) {
-//    buzzerks();
-//  }
-//  else if (weight2 >= 5.00 && weight2 <= 5.01) { 
-//    ledgo();
-//  }
-//  sendResponse(String(weight2));
-//
-//  return weight2;
-//  delay(1000);
-//}
+  delay(1000);  
+  return weight2;
+}

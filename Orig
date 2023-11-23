@@ -57,6 +57,20 @@ class Machine:
             if not self.ws_initialized:
                 self.update_state(False)
                 self.ws_initialized = True
+    
+
+        GPIO.setup(FAN_PIN, GPIO.OUT)
+        GPIO.output(FAN_PIN, GPIO.LOW)  # Initially turn off the fan
+
+    def fan_button_callback(self, channel):
+        fan_state = GPIO.input(FAN_PIN)
+        GPIO.output(FAN_PIN, not fan_state)
+        print(f"Fan {'On' if not fan_state else 'Off'}")
+
+    def setup_fan_button(self):
+        GPIO.setup(FAN_BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.add_event_detect(FAN_BUTTON_PIN, GPIO.RISING, callback=self.fan_button_callback)
+
 
     def update_state(self, state: bool):
         '''
@@ -170,6 +184,19 @@ class Machine:
     def retract_actuator(self):
         self.send_command(2)
 
+    def turnOnFan1(self):
+        self.send_command(11)
+    
+    def turnOnFan2(self):
+        self.send_command(15)
+    
+    def turnOffFan2(self):
+        self.send_command(13)
+
+    def turnOffFan2(self):
+        self.send_command(14)
+
+
     def get_wfinish(self):
         self.send_command(12)
         #finish
@@ -202,6 +229,12 @@ if __name__ == '__main__':
 
     lcd.text("Press the Button", 1)
 
+    # Define GPIO pins for the fan button and control
+    FAN_BUTTON_PIN = 11  # Replace with your desired GPIO pin
+    FAN_PIN = 22  # Replace with your desired GPIO pin for the fan control
+
+    machine = Machine()
+    machine.setup_fan_button()
   
 
     GPIO.setup(10, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
