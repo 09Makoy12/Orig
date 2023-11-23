@@ -4,28 +4,33 @@
 #include "HX711.h"
 #define NUM_R4 4
 
+
 const int AirValue = 620;   //you need to replace this value with Value_1
 const int WaterValue = 310;  //you need to replace this value with Value_2
 int soilMoistureValue = 0;
 int soilmoisturepercent=0;
 
-HX711 scale(3, 2);
+HX711 scale1(3, 2);
+HX711 scale2(12, 13);
 Servo myservo;
 
-float calibration_factor = -400;
+float calibration_factor = -412;
+float calibration_factor2 = -440;
 float units;
 float weight;
+float units2;
+float weight2;
 
 int pos = 0;
 
 //LED 
 int greenled = A5;
-int redled = A4;
+const int redled = 1;
 
 //buzzer
 const int buzzer = 7;
 
-const int ENA_PIN = A0  ; // the Arduino pin connected to the EN1 pin L298N
+const int ENA_PIN = A0; // the Arduino pin connected to the EN1 pin L298N
 const int IN1_PIN = 6; // the Arduino pin connected to the IN1 pin L298N
 const int IN2_PIN = 5; // the Arduino pin connected to the IN2 pin L298N
 
@@ -44,8 +49,10 @@ int current_command = -1;
 void setup() {
   Serial.begin(9600);
   
-  scale.set_scale(calibration_factor);
-  scale.tare();
+  scale1.set_scale(calibration_factor);
+  scale2.set_scale(calibration_factor2);
+  scale1.tare();
+  scale2.tare();
 
   //actuator 
   pinMode(ENA_PIN, OUTPUT);
@@ -54,7 +61,7 @@ void setup() {
 
   digitalWrite(ENA_PIN, HIGH);
 
-   myservo.attach(4);
+  myservo.attach(4);
 
   //buzzer 
   pinMode(buzzer, OUTPUT);
@@ -82,13 +89,13 @@ void loop() {
     current_command = -1;
   }
 
-  else if(current_command == 2){
+  else if(current_command == 10){
     activateActuator();
     current_command = -1;
   }
 
   else if(current_command == 3){
-    getTemperature();
+    getTemp();
     current_command = -1;
   }
 
@@ -96,6 +103,37 @@ void loop() {
     getMoisture();
     current_command = -1;
   }
+
+  else if(current_command == 2){
+    retractActuator();
+    current_command = -1;
+  }
+
+   else if(current_command == 11){
+   turn_on_fan1();
+   current_command = -1;
+  }
+
+   else if(current_command == 12){
+   turn_off_fan1();
+   current_command = -1;
+  }
+
+   else if(current_command == 13){
+   turn_on_fan2();
+   current_command = -1;
+  }
+
+   else if(current_command == 14){
+   turn_off_fan2();
+   current_command = -1;
+  }
+
+
+//  else if(current_command == 12){
+//    getWfinish();
+//    current_command = -1;
+//  }
   
   else{
     current_command = -1;
@@ -115,19 +153,16 @@ void receiveCommand(){
 }
 
 void getWeight(){
-  units = scale.get_units(),10;
+  units = scale1.get_units(),10;
   if (units < 0)
   {
     units = 0.00;
   }
   weight = units * 0.001;  
-
   if (weight >= 0.9 && weight <= 1.1) {
     ledgo();
     servo();
     activateActuator();
-    retractActuator();
-    delay(1000);
   }
   else if (weight >= 0.5 && weight <= 0.8) { 
     lednogo();
@@ -139,7 +174,7 @@ void getWeight(){
   delay(1000);
 }
 
-void getTemperature() {
+void getTemp() {
 
   float heater = thermocouple.readCelsius();
         
@@ -159,15 +194,15 @@ void getTemperature() {
 
 
 void activateActuator() {
-  digitalWrite(IN1_PIN, LOW);
-  digitalWrite(IN2_PIN, HIGH);
-  delay(20000); 
+  digitalWrite(IN1_PIN, HIGH);
+  digitalWrite(IN2_PIN, LOW);
+  delay(10000);
 }
 
 void retractActuator() {
-  digitalWrite(IN1_PIN, HIGH);
-  digitalWrite(IN2_PIN, LOW);
-  delay(20000); 
+  digitalWrite(IN1_PIN, LOW);
+  digitalWrite(IN2_PIN, HIGH);
+  delay(10000);
 }
 
 void servo() {
@@ -195,14 +230,14 @@ void ledgo() {
 }
 
 void lednogo() {
-  digitalWrite(redled, HIGH);
+  analogWrite(redled, 247);
   buzzerks();
   delay(3000);
-  digitalWrite(redled, LOW);
+  analogWrite(redled, LOW);
 }
 
 void getMoisture() { 
-  soilMoistureValue = analogRead(A0);  //put Sensor insert into soil
+  soilMoistureValue = analogRead(A4);  //put Sensor insert into soil
   soilmoisturepercent = map(soilMoistureValue, AirValue, WaterValue, 0, 100);
   if(soilmoisturepercent >= 100)
     {
@@ -217,7 +252,41 @@ void getMoisture() {
       Serial.print(soilmoisturepercent);
       Serial.println("%");  
   }
-  sendResponse(String(soilmoisturepercent))
+  sendResponse(String(soilmoisturepercent));
   delay(1000);
-  }
+  
 } 
+
+void turn_on_fan1() {
+  digitalWrite(10, HIGH);
+  }
+
+void turn_off_fan1(){
+  digitalWrite(10, LOW);
+  }
+
+void turn_on_fan2() {
+  digitalWrite(11, HIGH);
+  }
+
+void turn_off_fan2(){
+  digitalWrite(11, LOW);
+  }
+//float getWfinish(){
+//  units2 = scale2.get_units(), 1;
+//  if (units2 < 0)
+//  {
+//    units2 = 0.00;
+//  }
+//  weight2 = units2 * 0.001; 
+//  if (weight2 >= 0.79 && weight2 <= 0.81 ) {
+//    buzzerks();
+//  }
+//  else if (weight2 >= 5.00 && weight2 <= 5.01) { 
+//    ledgo();
+//  }
+//  sendResponse(String(weight2));
+//
+//  return weight2;
+//  delay(1000);
+//}
