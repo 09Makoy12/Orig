@@ -183,7 +183,7 @@ class Machine:
 
 
         
-    def update_harvest(self, amount: float, last_temperature: float):
+    def add_harvest(self, amount: float, last_temperature: float):
         '''
         Add a new harvest record to the database
 
