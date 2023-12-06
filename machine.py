@@ -319,19 +319,29 @@ class Machine:
     
 
 
-    def extend_actuator(self):
+    def extend_actuator(self, wait: bool = False):
         '''
         Explicit function for extendActuator on Arduino
+
+        Parameters:
+        wait (bool) : Wait to finish (blocking)
         '''
         self.send_command(15)
+        if wait:
+            time.sleep(10.5)
 
 
 
-    def retract_actuator(self):
+    def retract_actuator(self, wait: bool = False):
         '''
         Explicit function for retractActuator on Arduino
+
+        Parameters:
+        wait (bool) : Wait to finish (blocking)
         '''
         self.send_command(16)
+        if wait:
+            time.sleep(10.5)
 
 
 
