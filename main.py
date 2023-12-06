@@ -1,111 +1,96 @@
-from signal import signal, SIGTERM, SIGHUP
-from rpi_lcd import LCD 
-from serial import Serial
-import RPi.GPIO as GPIO
-import time
-from time import sleep
-import datetime
-import websocket # pip install websocket-client
 from machine import Machine
-import RPi.GPIO as GPIO
-import time
-from time import sleep
-import datetime
+from datetime import datetime, timedelta
 
-lcd = LCD() 
+import time
 
 if __name__ == '__main__':
 
     machine = Machine()
 
+    initialized = False
     actuator_ready = True
     slicer_started = False
     conveyor_started = False
     pulverizer_started = False
     
-    actuator_start_time = datetime.datetime.now()
-    pulverizer_start_time = datetime.datetime.now()
+    actuator_last_extended = datetime.now() 
+    actuator_last_retracted = datetime.now() - timedelta(seconds=10)
+    pulverizer_last_started = datetime.now() 
+    pulverizer_last_stopped = datetime.now() - timedelta(minutes=10)
 
-    start = datetime.datetime.now()
-    true_start = datetime.datetime.now()
+    machine.lcd.text("Press the Button", 1)
 
-    lcd.text("Press the Button", 1)
+    while True: 
+        if machine.started and not initialized:
+            machine.lcd.text("System", 1)
+            machine.lcd.text("Initializing...", 2)
+            time.sleep(2)
+            machine.lcd.clear()
+            state = 1
+            
+        if machine.started and initialized:
+            temperature = machine.get_temperature()
+            machine.lcd.text(f'Temp: {temperature:.2f} C', 1)
+            moisture = machine.get_moisture()
+            machine.lcd.text(f'Moisture: {moisture:.2f} %', 2)
+            time.sleep(2)
 
-    GPIO.setup(10, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
-    GPIO.add_event_detect(10, GPIO.RISING, callback = machine.button_callback)
-    flag = 0
-    state = 0
-    while True:
-             
-       if machine:
+            if temperature >= 30:
+                machine.set_fan(True)
+            else:
+                machine.set_fan(False)
 
-            if machine.started:
-                if state == 0:
-                    lcd.text("System", 1)
-                    lcd.text("Initializing...", 2)
-                    time.sleep(2)
-                    lcd.clear()
-                    state = 1
-                
-                if state == 1:
-                    if actuator_ready:
-                        weight =  machine.get_weight()                        
-                        disweight = "Weight: " + '{:1.2f}'.format(weight) + " kg" 
-                        lcd.text(disweight, 1)
+            if actuator_ready \
+                and datetime.now() - actuator_last_retracted >= timedelta(seconds=11):
+                machine.lcd.clear()
+                weight =  machine.get_weight()
+                machine.lcd.text(f'Weight: {weight:.2f} kg', 1)
+                time.sleep(0.1)
 
-                        temperature = machine.get_temperature()
-                        distemp = "Temp: " + '{:1.2f}'.format(temperature)  + " C"
-                        lcd.text(distemp, 2)
-                        
-                        sleep(0.1)
+                if weight >= 0.9 and weight <= 1.1:
+                    if not slicer_started and not conveyor_started:
+                        machine.switch_arduino_2()
 
-                        if weight >= 0.9 and weight <= 1.1:
+                        machine.activate_slicer()
+                        machine.activate_conveyor()
+                        machine.activate_heat()
+                        machine.switch_arduino_1()
+                        slicer_started = True
+                        conveyor_started = True
+                    
+                    machine.extend_actuator()
+                    actuator_ready = False
+                    actuator_last_extended = datetime.now()
 
-                            if not slicer_started and not conveyor_started:
-                                machine.switch_arduino_1()
+            if not actuator_ready \
+                and datetime.now() - actuator_last_extended >= timedelta(seconds=11):
+                machine.retract_actuator()
+                actuator_ready = True
+                actuator_last_retracted = datetime.now()
 
-                                machine.activate_slicer()
-                                machine.activate_conveyor()
-                                slicer_started = True
-                                conveyor_started = True
+            if not pulverizer_started \
+                and datetime.now() - pulverizer_last_stopped >= timedelta(minutes=10):
+                machine.activate_pulverizer()
+                pulverizer_started = True
+                pulverizer_last_started = datetime.now()
 
-                                machine.switch_arduino_0()
-                                machine.activate_actuator()
-                                machine.retract_actuator()
-                                                        
-                            actuator_ready = False
-                            actuator_start_time = datetime.datetime.now()
+            if pulverizer_started and datetime.now() - pulverizer_last_started >= timedelta(minutes=10):
+                machine.deactivate_pulverizer()
+                pulverizer_started = False
+                pulverizer_last_stopped = datetime.now()
 
-                    if not actuator_ready and datetime.datetime.now() - actuator_start_time >= datetime.timedelta(seconds=10):
-                        actuator_ready = True
+            harvested_amount = machine.get_harvest_weight()
+            machine.update_parameters(harvested_amount, temperature)
+            machine.update_moisture(moisture)
 
-                    if datetime.datetime.now() - start >= datetime.timedelta(minutes=30) and not pulverizer_started:
-                        machine.activate_pulvurizer()
-                        # start pulvurizer
-                        pulverizer_started = True
-                        pulverizer_start_time = datetime.datetime.now()
+            if harvested_amount >= 15:
+                machine.activate_buzzer()
+                machine.spin_servo()
+                machine.lcd.clear()
+                machine.lcd.text('Harvest threshold reached.')
+                machine.add_harvest(harvested_amount)
+                machine.set_state(False)
 
-                        parameters = machine.get_parameters()
-                        machine.update_parameters(parameters)
-
-                        moisture = machine.get_moisture()
-                        machine.update_moisture(moisture)
-
-                        harvest = machine.get_harvest()
-                        machine.update_harvest(harvest)
-                        
-
-                    if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
-                        machine.off_pulvurizer()
-                        # stop pulverizer
-                        pulverizer_started = False
-                        start = datetime.datetime.now()
-
-                        weight2 = machine.get_wfinish()
-                        if weight2 == 0.8:
-                            machine.get_wfinish()
-
-
-                # send to server
-                else:
-                    pass
+        if not machine.started and initialized:
+            pass
+        
