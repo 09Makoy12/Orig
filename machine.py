@@ -458,3 +458,48 @@ class Machine:
         Explicit function for deactivatePulverizer on Arduino
         '''
         self.send_command(7)
+
+
+
+    #############################################
+    #                                           #
+    #             Derived Functions             #
+    #                                           #
+    #############################################
+
+
+    def set_state(self, state: bool):
+        '''
+        Set power state.
+        Has no effect if already set as state
+
+        Parameters:
+        state (bool) : Power state
+        '''
+        if state and not self.started:
+            self.started = True
+            self.update_state(True)
+        if not state and self.started:
+            self.started = False
+            self.update_state(False)
+
+
+
+    def set_fan(self, state: bool):
+        '''
+        Set fan state.
+        Has no effect if already set as state
+
+        Parameters:
+        state (bool) : Fan state
+        '''
+        if state and not self.fan_on:
+            self.fan_on = True
+            self.turn_on_fan()
+            self._set_fan_led(True)
+            self.update_fan(True)
+        if not state and self.fan_on:
+            self.fan_on = False
+            self.turn_off_fan()
+            self._set_fan_led(False)
+            self.update_fan(False)
