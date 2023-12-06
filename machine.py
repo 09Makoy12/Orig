@@ -60,6 +60,7 @@ class Machine:
         self.fan_on = not self.fan_on
         self.turn_on_fan if self.fan_on else self.turn_off_fan()
         self._set_fan_led(self.fan_on)
+        self.update_fan(self.fan_on)
 
 
 
