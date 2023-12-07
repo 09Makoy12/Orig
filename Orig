@@ -1,0 +1,337 @@
+from signal import signal, SIGTERM, SIGHUP
+from rpi_lcd import LCD 
+from serial import Serial
+import RPi.GPIO as GPIO
+import time
+from time import sleep
+import datetime
+import websocket # pip install websocket-client
+import json
+from threading import Thread
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(16, GPIO.OUT)
+GPIO.setup(18, GPIO.OUT)
+GPIO.setup(25 , GPIO.OUT)
+GPIO.setup(24, GPIO.OUT)
+
+lcd = LCD() 
+
+class Machine:
+
+    def __init__(self):
+        # Change self.ws_host to server IP address
+        self.ws = None
+        self.ws_host = "ws://192.168.1.7:8000/ws/socket-server/"
+        self.ws_initialized = False
+        
+        self.arduino = Serial('/dev/ttyUSB0', 9600, timeout = 1)
+        self.arduino.reset_input_buffer()
+        self.weight = '0'
+        self.temperature = '0'
+        self.start_websocket_listener()
+        self.started = False
+
+   
+        # self.FAN_BUTTON_PIN = 11
+        # self.FAN_PIN = 22
+
+        # self.setup_fan_button()
+
+    def start_websocket_listener(self):
+        '''
+            Start the websocket listener on another thread
+        '''
+        def _start():
+            self.ws = websocket.WebSocketApp(self.ws_host,
+                                        on_open = lambda ws: print('Starting websocket listener...'),
+                                        on_message=lambda ws, message: self._parse_websocket_message(ws, message),
+                                        on_error=lambda ws, error: print(error),
+                                        on_close=lambda ws, close_status_code, close_msg: print('Server closing'))
+            self.ws.run_forever()
+        Thread(target=_start).start()
+
+    def _parse_websocket_message(self, ws, message):
+        '''
+            Parse the websocket message\n
+            Just mainly for listening to state updates
+        '''
+        data = json.loads(message)
+        print(data)
+        if data['type'] == 'get_state':
+            self.started = data['state']
+        elif data['type'] == 'initialize_parameters':
+            if not self.ws_initialized:
+                self.update_state(False)
+                self.ws_initialized = True
+    
+
+        # GPIO.setup(self.FAN_PIN, GPIO.OUT)
+        # GPIO.output(self.FAN_PIN, GPIO.LOW)  
+
+    # def fan_button_callback(self, channel):
+    #     fan_state = GPIO.input(FAN_PIN)
+    #     GPIO.output(FAN_PIN, not fan_state)
+    #     print(f"Fan {'On' if not fan_state else 'Off'}")
+
+    # def setup_fan_button(self):
+    #     GPIO.setup(FAN_BUTTON_PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+    #     GPIO.add_event_detect(FAN_BUTTON_PIN, GPIO.RISING, callback=self.fan_button_callback)
+
+
+    def update_state(self, state: bool):
+        '''
+            Update parameters and send to server
+        '''
+        data = {
+            'type': 'update_state',
+            'state': state
+        }
+        json_data = json.dumps(data)
+        self.ws.send(json_data)
+        self.started = state
+
+    def update_parameters(self, harvested: float, temperature: float):
+        '''
+            Update parameters and send to server
+        '''
+        data = {
+            'type': 'update_parameter',
+            'harvested': harvested,
+            'temperature': temperature
+        }
+        json_data = json.dumps(data)
+        self.ws.send(json_data)
+     
+
+    def update_moisture(self, moisture: float):
+        '''
+            Update moisture and send to server
+        '''
+        data = {
+            'type': 'update_moisture',
+            'moisture': moisture
+        }
+        json_data = json.dumps(data)
+        self.ws.send(json_data)
+
+    def update_harvest(self, amount: float, last_temperature: float):
+        '''
+            Add a new harvest record to the database
+        '''
+        data = {
+            'type': 'update_harvest',
+            'amount': amount,
+            'last_temperature': last_temperature
+        }
+        json_data = json.dumps(data)
+        self.ws.send(json_data)
+
+    def safe_exit(signum, frame): 
+        exit(1)
+
+    def button_callback(self, channel):
+        self.started = not self.started
+        self.update_state(self.started)
+
+    def send_command(self, command: int):
+        while True:
+            self.arduino.write(bytes(str(command)+'\n','utf-8'))
+            response = self.get_arduino_response()
+            if(response == 'ok'):
+                break
+ 
+    def get_arduino_response(self):
+        try:
+            response = self.arduino.readline().decode('utf-8').rstrip()
+        except UnicodeDecodeError:
+            response = self.arduino.readline().decode('utf-8').rstrip()
+        print(response)
+        return response
+ 
+    def lcd_show(self, message1, message2):
+        signal(SIGTERM, self.safe_exit)
+        signal(SIGHUP, self.safe_exit)
+        self.lcd.clear()
+
+    def get_weight(self):
+        self.send_command(1)
+        response = self.get_arduino_response()
+        while not response:
+            response = self.get_arduino_response()
+        weight = float(response)
+        return weight
+    
+    def get_temperature(self):
+        self.send_command(3)
+        temperature = float(self.get_arduino_response())
+        return temperature
+    
+    def activate_actuator(self):
+        self.send_command(10)
+
+    def activate_slicer(self):
+        self.send_command(4)
+
+    def activate_conveyor(self):
+        self.send_command(5)
+
+    def activate_pulvurizer(self):
+        self.send_command(6)
+
+    def get_moisture(self):
+        self.send_command(7)
+
+    def activate_extraheat(self):
+        self.send_command(8)
+
+    def off_pulvurizer(self):
+        self.send_command(9)
+
+    def retract_actuator(self):
+        self.send_command(2)
+
+    def turnOnFan(self):
+        self.send_command(13)
+
+    def turnOffFan(self):
+        self.send_command(14)
+
+
+    def get_wfinish(self):
+        self.send_command(12)
+        #finish
+
+    def switch_arduino_1(self): 
+        self.arduino.close()
+        self.arduino = Serial('/dev/ttyUSB1', 9600, timeout = 1)
+        self.arduino.flush()
+
+    def switch_arduino_0(self): 
+        self.arduino.close()
+        self.arduino = Serial('/dev/ttyUSB0', 9600, timeout = 1)
+        self.arduino.flush()
+    
+
+if __name__ == '__main__':
+
+    machine = Machine()
+
+    actuator_ready = True
+    slicer_started = False
+    conveyor_started = False
+    pulverizer_started = False
+    
+    actuator_start_time = datetime.datetime.now()
+    pulverizer_start_time = datetime.datetime.now()
+
+    start = datetime.datetime.now()
+    true_start = datetime.datetime.now()
+
+    lcd.text("Press the Button", 1)
+
+    
+
+    machine = Machine()
+   
+  
+
+    GPIO.setup(10, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+    GPIO.add_event_detect(10, GPIO.RISING, callback = machine.button_callback)
+    GPIO.setup(12, GPIO.IN, pull_up_down = GPIO.PUD_DOWN)
+    GPIO.add_event_detect(12, GPIO.RISING, callback = machine.button_callback)
+    flag = 0
+    state = 0
+
+    fan_state = 0
+    state1 = 0
+
+    while True:
+             
+       if machine:
+            if fan_state == 0: 
+                machine.turnOnFan()
+                GPIO.output(24 , GPIO.HIGH)
+                sleep(1)
+            elif fan_state == 1: 
+                machine.turnOffFan()
+                GPIO.output(24 , GPIO.HIGH)
+                sleep(1)
+            
+            if machine.started:
+                if state == 0:
+                    lcd.text("System", 1)
+                    lcd.text("Initializing...", 2)
+                    time.sleep(2)
+                    lcd.clear()
+                    state = 1
+                
+                if state == 1:
+                    if actuator_ready:
+                        weight =  machine.get_weight()                        
+                        disweight = "Weight: " + '{:1.2f}'.format(weight) + " kg" 
+                        lcd.text(disweight, 1)
+
+                        temperature = machine.get_temperature()
+                        distemp = "Temp: " + '{:1.2f}'.format(temperature)  + " C"
+                        lcd.text(distemp, 2)
+                        
+                        sleep(0.1)
+
+                        if weight >= 0.9 and weight <= 1.1:
+                            GPIO.output(16, GPIO.HIGH)
+                            sleep(1)
+                            GPIO.output(16, GPIO.LOW)
+                        elif weight <= 0.8 and weight >= 1.2:
+                             GPIO.output(18, GPIO.HIGH)
+                             sleep(1)
+                             GPIO.output(18, GPIO.LOW)
+
+                        if not slicer_started and not conveyor_started:
+                                machine.switch_arduino_1()
+
+                                machine.activate_slicer()
+                                machine.activate_conveyor()
+                                slicer_started = True
+                                conveyor_started = True
+
+                                machine.switch_arduino_0()
+                                machine.activate_actuator()
+                                machine.retract_actuator()
+                                                        
+                        actuator_ready = False
+                        actuator_start_time = datetime.datetime.now()
+
+                    if not actuator_ready and datetime.datetime.now() - actuator_start_time >= datetime.timedelta(seconds=10):
+                        actuator_ready = True
+
+                    if datetime.datetime.now() - start >= datetime.timedelta(minutes=30) and not pulverizer_started:
+                        machine.activate_pulvurizer()
+                        # start pulvurizer
+                        pulverizer_started = True
+                        pulverizer_start_time = datetime.datetime.now()
+
+                        parameters = machine.get_parameters()
+                        machine.update_parameters(parameters)
+
+                        moisture = machine.get_moisture()
+                        machine.update_moisture(moisture)
+
+                        harvest = machine.get_harvest()
+                        machine.update_harvest(harvest)
+                        
+
+                    if pulverizer_started and datetime.datetime.now() - pulverizer_start_time >= datetime.timedelta(minutes=10):
+                        machine.off_pulvurizer()
+                        # stop pulverizer
+                        pulverizer_started = False
+                        start = datetime.datetime.now()
+
+                        weight2 = machine.get_wfinish()
+                        if weight2 == 0.8:
+                            machine.get_wfinish()
+
+
+                # send to server
+                else:
+                    pass
