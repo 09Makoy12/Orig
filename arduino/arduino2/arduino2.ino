@@ -52,17 +52,7 @@ void loop() {
     deactivateSlicer();
     current_command = -1;
   }
-
-  else if(current_command == 4){
-    activateHeat();
-    current_command = -1;
-  }
-
-  else if(current_command == 5){
-    deactivateHeat();
-    current_command = -1;
-  }
-
+  
   else if(current_command == 6){
     activatePulverizer();
     current_command = -1;

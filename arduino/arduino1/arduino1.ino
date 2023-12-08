@@ -134,6 +134,16 @@ void loop() {
     signalRedLed();
     current_command = -1;
   } 
+  
+  else if(current_command == 4){
+    activateHeat();
+    current_command = -1;
+  }
+
+  else if(current_command == 5){
+    deactivateHeat();
+    current_command = -1;
+  }
 
   else if (current_command == 22) {
     spinServo();
