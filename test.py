@@ -1,9 +1,8 @@
 from machine import Machine
-from machine import lcd
 import time
 
-if __name__ == '__main__':  # Fix the if statement
+if __name__ == '__main__': 
 
     machine = Machine()
 
-    machine.activate_actuator()
+    machine.get_temperature()

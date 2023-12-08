@@ -11,10 +11,10 @@ class Machine:
 
     def __init__(self):
         self.ws = None
-        self.ws_host = "ws://192.168.1.25:8000/ws/socket-server/"
+        self.ws_host = "ws://192.168.1.22:8000/ws/socket-server/"
         self.ws_initialized = False
         
-        self.arduino = Serial('/dev/ttyUSB0', 9600, timeout = 1)
+        self.arduino = Serial('/dev/ttyACM0', 9600, timeout = 1)
         self.arduino.reset_input_buffer()
 
         self.started = False
@@ -26,12 +26,12 @@ class Machine:
         power_pin = 10
         fan_pin = 12
         self.fan_led_1 = 24
-        self.fan_led_2 = 25
-        GPIO.setmode(GPIO.BOARD)
+        self.fan_led_2 = 23
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(power_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-        GPIO.setup(fan_pin, GPIO.OUT)
-        GPIO.setup(self.fan_led_1, GPIO.OUT)
-        GPIO.setup(self.fan_led_2, GPIO.OUT)
+        GPIO.setup(fan_pin, GPIO.IN)
+        GPIO.setup(self.fan_led_1, GPIO.IN)
+        GPIO.setup(self.fan_led_2, GPIO.IN)
         GPIO.add_event_detect(power_pin, GPIO.RISING, callback=self._switch_state)
         GPIO.add_event_detect(fan_pin, GPIO.RISING, callback=self._switch_fan)
       
@@ -212,7 +212,7 @@ class Machine:
         Switch current to Arduino 1
         '''
         self.arduino.close()
-        self.arduino = Serial('/dev/ttyUSB0', 9600, timeout = 1)
+        self.arduino = Serial('/dev/ttyACM0', 9600, timeout = 1)
         self.arduino.flush()
 
 
@@ -222,7 +222,7 @@ class Machine:
         Switch current to Arduino 2
         '''
         self.arduino.close()
-        self.arduino = Serial('/dev/ttyUSB1', 9600, timeout = 1)
+        self.arduino = Serial('/dev/ttyACM1', 9600, timeout = 1)
         self.arduino.flush()
 
 
