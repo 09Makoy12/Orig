@@ -5,4 +5,4 @@ if __name__ == '__main__':
     machine = Machine()
 
   
-    machine.get_weight()
+    machine.get_temperature()
