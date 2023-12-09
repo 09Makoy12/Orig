@@ -37,8 +37,10 @@ if __name__ == '__main__':
 
             if temperature >= 30:
                 machine.set_fan(True)
+                machine.activate_heater()
             else:
                 machine.set_fan(False)
+                machine.deactivate_heater()
 
             if actuator_ready \
                 and datetime.now() - actuator_last_retracted >= timedelta(seconds=11):
@@ -53,7 +55,6 @@ if __name__ == '__main__':
 
                         machine.activate_slicer()
                         machine.activate_conveyor()
-                        machine.activate_heat()
                         machine.switch_arduino_1()
                         slicer_started = True
                         conveyor_started = True

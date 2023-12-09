@@ -25,9 +25,13 @@ class Machine:
 
         power_pin = 10
         fan_pin = 12
+        self.green_led = 10
+        self.red_led = 15
         self.fan_led_1 = 24
         self.fan_led_2 = 23
         GPIO.setmode(GPIO.BCM)
+        GPIO.setup(self.green_led, GPIO.OUT)
+        GPIO.setup(self.red_led, GPIO.OUT)
         GPIO.setup(power_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
         GPIO.setup(fan_pin, GPIO.IN)
         GPIO.setup(self.fan_led_1, GPIO.IN)
@@ -78,6 +82,33 @@ class Machine:
             GPIO.output(self.fan_led_1, GPIO.LOW)
             GPIO.output(self.fan_led_2, GPIO.LOW)
         
+
+
+    def set_green_led(self, state: bool):
+        '''
+        Turn on/off green led
+
+        Parameters:
+        state (bool) : On/off
+        '''
+        if state:
+            GPIO.output(self.green_led, GPIO.HIGH)
+        else:
+            GPIO.output(self.green_led, GPIO.LOW)
+
+
+
+    def set_red_led(self, state: bool):
+        '''
+        Turn on/off red led
+
+        Parameters:
+        state (bool) : On/off
+        '''
+        if state:
+            GPIO.output(self.red_led, GPIO.HIGH)
+        else:
+            GPIO.output(self.red_led, GPIO.LOW)
 
 
     #############################################
@@ -371,21 +402,19 @@ class Machine:
 
 
 
-    def signal_green_led(self):
+    def activate_heater(self):
         '''
-        Explicit function for signalGreenLed on Arduino
+        Explicit function for activateHeater on Arduino
         '''
         self.send_command(20)
-        time.sleep(3.5)
 
 
 
-    def signal_red_led(self):
+    def deactivate_heater(self):
         '''
-        Explicit function for signalRedLed on Arduino
+        Explicit function for deactivateHeater on Arduino
         '''
         self.send_command(21)
-        time.sleep(3.5)
 
 
 
@@ -426,22 +455,6 @@ class Machine:
         Explicit function for deactivateSlicer on Arduino
         '''
         self.send_command(3)
-
-
-
-    def activate_heat(self):
-        '''
-        Explicit function for activateHeat on Arduino
-        '''
-        self.send_command(4)
-
-
-
-    def deactivate_heat(self):
-        '''
-        Explicit function for deactivateHeat on Arduino
-        '''
-        self.send_command(5)
 
 
 

@@ -12,9 +12,9 @@ Servo myservo;
 float calibrationFactor1 = -412;
 float calibrationFactor2 = -440;
 
-// LED
-const int greenLed = A5;
-const int redLed = 22;
+// Heater 
+const int heatRelay1 = 8;
+const int heatRelay2 = 9;
 
 // Fan
 const int fanRelay1 = 10;
@@ -33,9 +33,6 @@ const int thermoCS = A2;
 const int thermoCLK = A3;
 
 MAX6675 thermocouple(thermoCLK, thermoCS, thermoDO);
-
-// Heater and Fan
-const int inArr[NUM_R2] = {8, 9};
 
 int current_command = -1;
 
@@ -67,12 +64,8 @@ void setup() {
   pinMode(fanRelay1, OUTPUT);
   pinMode(fanRelay2, OUTPUT);
 
-  for (int i = 0; i < NUM_R2; i++) {
-    pinMode(inArr[i], OUTPUT);
-  }
-  for (int i = 0; i < NUM_R2; i++) {
-    digitalWrite(inArr[i], HIGH);
-  }
+  pinMode(heatRelay1, OUTPUT);
+  pinMode(heatRelay2, OUTPUT);
 }
 
 void loop() {
@@ -125,34 +118,20 @@ void loop() {
     current_command = -1;
   } 
 
-  else if (current_command == 20) {
-    signalGreenLed();
-    current_command = -1;
-  } 
-
-  else if (current_command == 21) {
-    signalRedLed();
-    current_command = -1;
-  } 
-  
-  else if(current_command == 4){
+  else if(current_command == 20){
     activateHeat();
     current_command = -1;
   }
 
-  else if(current_command == 5){
+  else if(current_command == 21){
     deactivateHeat();
     current_command = -1;
   }
 
-  else if (current_command == 22) {
-    spinServo();
+  else if (current_command == 20) {
+    signalGreenLed();
     current_command = -1;
   } 
-
-  else {
-    current_command = -1;
-  }
 }
 
 void sendResponse(String response) {
@@ -169,15 +148,6 @@ void receiveCommand() {
 
 void getTemp() {
   float heater = thermocouple.readCelsius();
-  if (heater >= 30) {
-    for (int i = 0; i < NUM_R2; i++) {
-      digitalWrite(inArr[i], LOW);
-    }
-  } else if (heater >= 45) {
-    for (int i = 0; i < NUM_R2; i++) {
-      digitalWrite(inArr[i], HIGH);
-    }
-  }
   sendResponse(String(heater));
 }
 
@@ -238,18 +208,6 @@ void activateBuzzer() {
   noTone(buzzer);
 }
 
-void signalGreenLed() {
-  digitalWrite(greenLed, HIGH);
-  delay(3000);
-  digitalWrite(greenLed, LOW);
-}
-
-void signalRedLed() {
-  digitalWrite(greenLed, HIGH);
-  delay(3000);
-  digitalWrite(greenLed, LOW);
-}
-
 void turnOnFan() {
   digitalWrite(fanRelay1, HIGH);
   digitalWrite(fanRelay2, HIGH);
@@ -258,4 +216,14 @@ void turnOnFan() {
 void turnOffFan() {
   digitalWrite(fanRelay1, LOW);
   digitalWrite(fanRelay2, LOW);
+}
+
+void activateHeat(){
+  digitalWrite(heatRelay1, HIGH);
+  digitalWrite(heatRelay2, HIGH);
+}
+
+void deactivateHeat(){
+  digitalWrite(heatRelay1, LOW);
+  digitalWrite(heatRelay2, LOW);
 }
