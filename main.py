@@ -50,6 +50,8 @@ if __name__ == '__main__':
                 time.sleep(0.1)
 
                 if weight >= 0.9 and weight <= 1.1:
+                    machine.set_green_led(True)
+                    machine.set_red_led(True)
                     if not slicer_started and not conveyor_started:
                         machine.switch_arduino_2()
 
@@ -62,6 +64,9 @@ if __name__ == '__main__':
                     machine.extend_actuator()
                     actuator_ready = False
                     actuator_last_extended = datetime.now()
+                else:
+                    machine.set_green_led(False)
+                    machine.set_red_led(True)
 
             if not actuator_ready \
                 and datetime.now() - actuator_last_extended >= timedelta(seconds=11):
