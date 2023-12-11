@@ -21,8 +21,8 @@ void setup() {
   pinMode(pulPin2, OUTPUT);
   pinMode(dirPin2, OUTPUT);
 
-  digitalWrite(dirPin1, HIGH);
-  digitalWrite(dirPin2, HIGH);
+  digitalWrite(dirPin1, LOW);
+  digitalWrite(dirPin2, LOW);
 
   pinMode(motorRelay, OUTPUT);
   pinMode(pulverizerRelay, OUTPUT);
