@@ -126,8 +126,8 @@ void loop() {
     current_command = -1;
   }
 
-  else if (current_command == 20) {
-    signalGreenLed();
+  else if (current_command == 22) {
+    spinServo();
     current_command = -1;
   } 
 }
