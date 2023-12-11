@@ -1,13 +1,14 @@
-#define pulPin1 6
-#define dirPin1 7
-#define pulPin2 8
-#define dirPin2 9
-
 int stepCount = 500;
 
 const int motorRelay = 2;
 const int pulverizerRelay = 10;
 const int heatRelay = 11;
+
+bool conveyorOn = false;
+const int pulPin1 = 6;
+const int dirPin1 = 7;
+const int pulPin2 = 8;
+const int dirPin2 = 9;
 
 String command = "";
 int current_command = -1;
@@ -63,6 +64,8 @@ void loop() {
     current_command = -1;
   }
 
+  runBackground();
+
 }
 
 void sendResponse(String response){
@@ -77,9 +80,19 @@ void receiveCommand(){
   }
 }
 
+void runBackground(){
+  if(conveyorOn){
+    digitalWrite(pulPin1,HIGH);
+    digitalWrite(pulPin2,HIGH);
+    delayMicroseconds(500);
+    digitalWrite(pulPin1,LOW);
+    digitalWrite(pulPin2,LOW);
+    delayMicroseconds(500);
+  }
+}
+
 void activateConveyor() { 
-  digitalWrite(pulPin1, HIGH);
-  digitalWrite(pulPin2, HIGH);
+  conveyorOn = true;
 }
 
 void activateSlicer(){
@@ -95,8 +108,7 @@ void activatePulverizer(){
 }
 
 void deactivateConveyor() { 
-  digitalWrite(pulPin1, LOW);
-  digitalWrite(pulPin2, LOW);
+  conveyorOn = false;
 }
 
 void deactivateSlicer(){

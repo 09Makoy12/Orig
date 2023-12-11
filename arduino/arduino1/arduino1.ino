@@ -3,8 +3,6 @@
 #include <Servo.h>
 #include "HX711.h"
 
-#define NUM_R2 2
-
 HX711 scale1(3, 2);
 HX711 scale2(12, 13);
 Servo myservo;
