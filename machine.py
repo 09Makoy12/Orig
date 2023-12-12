@@ -11,7 +11,7 @@ class Machine:
 
     def __init__(self):
         self.ws = None
-        self.ws_host = "ws://192.168.1.22:8000/ws/socket-server/"
+        self.ws_host = "ws://192.168.1.21:8000/ws/socket-server/"
         self.ws_initialized = False
         
         self.arduino = Serial('/dev/ttyACM0', 9600, timeout = 1)
@@ -23,19 +23,19 @@ class Machine:
 
         self.lcd = LCD()
 
-        power_pin = 10
-        fan_pin = 12
-        self.green_led = 10
-        self.red_led = 15
-        self.fan_led_1 = 24
-        self.fan_led_2 = 23
+        power_pin = 25
+        fan_pin = 17
+        self.green_led = 26
+        self.red_led = 16
+        self.fan_led_1 = 23
+        self.fan_led_2 = 22
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.green_led, GPIO.OUT)
         GPIO.setup(self.red_led, GPIO.OUT)
         GPIO.setup(power_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-        GPIO.setup(fan_pin, GPIO.IN)
-        GPIO.setup(self.fan_led_1, GPIO.IN)
-        GPIO.setup(self.fan_led_2, GPIO.IN)
+        GPIO.setup(fan_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.setup(self.fan_led_1, GPIO.OUT, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.setup(self.fan_led_2, GPIO.OUT, pull_up_down=GPIO.PUD_DOWN)
         GPIO.add_event_detect(power_pin, GPIO.RISING, callback=self._switch_state)
         GPIO.add_event_detect(fan_pin, GPIO.RISING, callback=self._switch_fan)
       
@@ -62,7 +62,7 @@ class Machine:
         Callback function for fan pin
         '''
         self.fan_on = not self.fan_on
-        self.turn_on_fan if self.fan_on else self.turn_off_fan()
+        self.turn_on_fan()if self.fan_on else self.turn_off_fan()
         self._set_fan_led(self.fan_on)
         self.update_fan(self.fan_on)
 
