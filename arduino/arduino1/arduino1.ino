@@ -7,6 +7,14 @@ HX711 scale1;
 HX711 scale2;
 Servo myservo;
 
+//Weight_sensor1
+int dataPin = 2;
+int clockPin = 3;
+
+//Weight_sensor2
+int dataPin2 = 12;
+int clockPin2 = 13;
+
 float calibrationFactor1 = -412;
 float calibrationFactor2 = -440;
 
