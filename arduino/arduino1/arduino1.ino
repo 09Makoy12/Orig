@@ -1,10 +1,10 @@
 #include "max6675.h"
 #include <Wire.h>
 #include <Servo.h>
-#include "HX711.h"
+#include <HX711.h>
 
-HX711 scale1(3, 2);
-HX711 scale2(12, 13);
+HX711 scale1;
+HX711 scale2;
 Servo myservo;
 
 float calibrationFactor1 = -412;
@@ -37,9 +37,11 @@ int current_command = -1;
 void setup() {
   Serial.begin(9600);
 
-  scale1.set_scale(calibrationFactor1);
-  scale2.set_scale(calibrationFactor2);
+  scale1.begin(dataPin, clockPin);
+  scale1.set_scale(480.904545);
   scale1.tare();
+  scale2.begin(dataPin2, clockPin2);
+  scale2.set_scale(137.45);
   scale2.tare();
 
   // Actuator 
@@ -158,22 +160,29 @@ void getMoisture() {
 }
 
 void getWeight(int scale) {
-  float units = 0.00;
   if(scale == 1) {
-    units = scale1.get_units(), 10;
+    float w1 = scale1.get_units(10);
+    delay(100);
+    float w2 = scale1.get_units();
   }
-  else if(scale == 2) {
-    units = scale1.get_units(), 10;
+  else if(scale == 2){
+    float w1 = scale2.get_units(10);
+    delay(100);
+    float w2 = scale2.get_units();
   }
   else {
-    units = scale1.get_units(), 10;
+    float w1 = scale1.get_units(10);
+    delay(100);
+    float w2 = scale1.get_units();
   }
 
-  if (units < 0) {
-    units = 0.00;
+  while (abs(w1 - w2) > 10) {
+    w1 = w2;
+    w2 = scale1.get_units();
+    delay(100);
   }
-  float weight = units * 0.001;
-  sendResponse(String(weight));
+  double kilogram = w1/1000;
+  Serial.println(String(kilogram));
 }
 
 void extendActuator() {
