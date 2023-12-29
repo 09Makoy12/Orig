@@ -63,17 +63,7 @@ void setup() {
 
   // Buzzer 
   pinMode(buzzer, OUTPUT);
-
-  // LED 
-  pinMode(greenLed, OUTPUT);
-  pinMode(redLed, OUTPUT);
-
-  // LED FAN
-  pinMode(fanRelay1, OUTPUT);
-  pinMode(fanRelay2, OUTPUT);
-
-  pinMode(heatRelay1, OUTPUT);
-  pinMode(heatRelay2, OUTPUT);
+  
 }
 
 void loop() {
@@ -92,7 +82,7 @@ void loop() {
   } 
   
   else if (current_command == 13) {
-    getWeight1();
+    getWeight();
     current_command = -1;
   } 
 
