@@ -184,13 +184,13 @@ void getWeight() {
 void extendActuator() {
   digitalWrite(in1Pin, HIGH);
   digitalWrite(in2Pin, LOW);
-  delay(10000);
+  delay(1000);
 }
 
 void retractActuator() {
   digitalWrite(in1Pin, LOW);
   digitalWrite(in2Pin, HIGH);
-  delay(10000);
+  delay(5000);
 }
 
 void spinServo() {

@@ -64,9 +64,6 @@ void setup() {
   // Buzzer 
   pinMode(buzzer, OUTPUT);
 
-  // LED 
-  pinMode(greenLed, OUTPUT);
-  pinMode(redLed, OUTPUT);
 
   // LED FAN
   pinMode(fanRelay1, OUTPUT);
@@ -168,20 +165,22 @@ void getMoisture() {
 }
 
 void getWeight(int scale) {
+  float w1;
+  float w2;
   if(scale == 1) {
-    float w1 = scale1.get_units(10);
+    w1 = scale1.get_units(10);
     delay(100);
-    float w2 = scale1.get_units();
+    w2 = scale1.get_units();
   }
   else if(scale == 2){
-    float w1 = scale2.get_units(10);
+    w1 = scale2.get_units(10);
     delay(100);
-    float w2 = scale2.get_units();
+    w2 = scale2.get_units();
   }
   else {
-    float w1 = scale1.get_units(10);
+    w1 = scale1.get_units(10);
     delay(100);
-    float w2 = scale1.get_units();
+    w2 = scale1.get_units();
   }
 
   while (abs(w1 - w2) > 10) {
@@ -190,7 +189,7 @@ void getWeight(int scale) {
     delay(100);
   }
   double kilogram = w1/1000;
-  Serial.println(String(kilogram));
+  sendResponse(String(kilogram));
 }
 
 void extendActuator() {

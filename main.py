@@ -20,20 +20,22 @@ if __name__ == '__main__':
     pulverizer_last_stopped = datetime.now() - timedelta(minutes=10)
 
     machine.lcd.text("Press the Button", 1)
-
+    
     while True: 
         if machine.started and not initialized:
             machine.lcd.text("System", 1)
             machine.lcd.text("Initializing...", 2)
             time.sleep(2)
             machine.lcd.clear()
-            state = 1
+            initialized = True
             
         if machine.started and initialized:
+            weight = machine.get_weight()
+            print('K')
+            machine.lcd.text(f'Weight: {weight:.2f} kg', 1)
             temperature = machine.get_temperature()
-            machine.lcd.text(f'Temp: {temperature:.2f} C', 1)
+            machine.lcd.text(f'Temp: {temperature:.2f} C', 2)
             moisture = machine.get_moisture()
-            machine.lcd.text(f'Moisture: {moisture:.2f} %', 2)
             time.sleep(2)
 
             if temperature >= 30:
@@ -43,10 +45,9 @@ if __name__ == '__main__':
                 machine.set_fan(False)
                 machine.deactivate_heater()
 
-            if actuator_ready \
-                and datetime.now() - actuator_last_retracted >= timedelta(seconds=11):
+            if actuator_ready and datetime.now() - actuator_last_retracted >= timedelta(seconds=11):
                 machine.lcd.clear()
-                weight =  machine.get_weight()
+                weight =  machine.get_harvest_weight()
                 machine.lcd.text(f'Weight: {weight:.2f} kg', 1)
                 time.sleep(0.1)
 
@@ -90,7 +91,7 @@ if __name__ == '__main__':
             machine.update_parameters(harvested_amount, temperature)
             machine.update_moisture(moisture)
 
-            if harvested_amount >= 15:
+            if harvested_amount >= 1:
                 machine.activate_buzzer()
                 machine.spin_servo()
                 machine.lcd.clear()

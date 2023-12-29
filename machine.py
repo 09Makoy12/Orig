@@ -11,7 +11,7 @@ class Machine:
 
     def __init__(self):
         self.ws = None
-        self.ws_host = "ws://192.168.1.21:8000/ws/socket-server/"
+        self.ws_host = "ws://192.168.1.32:8000/ws/socket-server/"
         self.ws_initialized = False
         
         self.arduino = Serial('/dev/ttyACM0', 9600, timeout = 1)
@@ -34,8 +34,8 @@ class Machine:
         GPIO.setup(self.red_led, GPIO.OUT)
         GPIO.setup(power_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
         GPIO.setup(fan_pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
-        GPIO.setup(self.fan_led_1, GPIO.OUT, pull_up_down=GPIO.PUD_DOWN)
-        GPIO.setup(self.fan_led_2, GPIO.OUT, pull_up_down=GPIO.PUD_DOWN)
+        GPIO.setup(self.fan_led_1, GPIO.OUT)
+        GPIO.setup(self.fan_led_2, GPIO.OUT)
         GPIO.add_event_detect(power_pin, GPIO.RISING, callback=self._switch_state)
         GPIO.add_event_detect(fan_pin, GPIO.RISING, callback=self._switch_fan)
       
