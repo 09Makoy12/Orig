@@ -54,6 +54,7 @@ class Machine:
         '''
         self.started = not self.started
         self.update_state(self.started)
+        print(self.started)
 
 
 
@@ -65,6 +66,7 @@ class Machine:
         self.turn_on_fan()if self.fan_on else self.turn_off_fan()
         self._set_fan_led(self.fan_on)
         self.update_fan(self.fan_on)
+        print(self.fan_on)
 
 
 

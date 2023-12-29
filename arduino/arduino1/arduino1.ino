@@ -63,7 +63,6 @@ void setup() {
 
   // Buzzer 
   pinMode(buzzer, OUTPUT);
-  
 }
 
 void loop() {
@@ -82,7 +81,7 @@ void loop() {
   } 
   
   else if (current_command == 13) {
-    getWeight();
+    getWeight(1);
     current_command = -1;
   } 
 
@@ -157,7 +156,7 @@ void getMoisture() {
   sendResponse(String(soilMoisturePercent));
 }
 
-void getWeight(int scale) {
+void getWeight(1)(int scale) {
   if(scale == 1) {
     float w1 = scale1.get_units(10);
     delay(100);
