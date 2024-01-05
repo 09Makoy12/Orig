@@ -30,12 +30,10 @@ if __name__ == '__main__':
             initialized = True
             
         if machine.started and initialized:
-            weight = machine.get_weight()
-            print('K')
-            machine.lcd.text(f'Weight: {weight:.2f} kg', 1)
             temperature = machine.get_temperature()
             machine.lcd.text(f'Temp: {temperature:.2f} C', 2)
             moisture = machine.get_moisture()
+            machine.lcd.text(f'Moisture: {moisture} %', 2)
             time.sleep(2)
 
             if temperature >= 30:
