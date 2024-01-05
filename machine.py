@@ -20,6 +20,10 @@ class Machine:
         self.started = False
         self.fan_on = False
         self.start_websocket_listener()
+        time.sleep(5)
+        self.update_state(False)
+        time.sleep(3)
+        self.update_fan(False)
 
         self.lcd = LCD()
 
@@ -57,14 +61,16 @@ class Machine:
 
 
 
-    def _switch_fan(self, channel):
+    def _switch_fan(self, channel, update=True):
         '''
         Callback function for fan pin
         '''
-        self.fan_on = not self.fan_on
-        self.turn_on_fan()if self.fan_on else self.turn_off_fan()
-        self._set_fan_led(self.fan_on)
-        self.update_fan(self.fan_on)
+        if self.started:
+            self.fan_on = not self.fan_on
+            self.turn_on_fan()if self.fan_on else self.turn_off_fan()
+            self._set_fan_led(self.fan_on)
+            if update:
+                self.update_fan(self.fan_on)
 
 
 
@@ -146,6 +152,9 @@ class Machine:
             if not self.ws_initialized:
                 self.update_state(False)
                 self.ws_initialized = True
+        elif data['type'] == 'get_fan':
+            if data['fan'] != self.fan_on:
+                self._switch_fan(None, update=False)
 
 
 
