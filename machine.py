@@ -6,10 +6,13 @@ import RPi.GPIO as GPIO
 import websocket
 import json
 import time
+import logging
 
 class Machine:
 
     def __init__(self):
+        self.__initialize_logger()
+
         self.ws = None
         self.ws_host = "ws://192.168.1.32:8000/ws/socket-server/"
         self.ws_initialized = False
@@ -42,7 +45,18 @@ class Machine:
         GPIO.setup(self.fan_led_2, GPIO.OUT)
         GPIO.add_event_detect(power_pin, GPIO.RISING, callback=self._switch_state)
         GPIO.add_event_detect(fan_pin, GPIO.RISING, callback=self._switch_fan)
+        self.logger.info('Machine initialized')
       
+
+
+    def __initialize_logger(self):
+        format = logging.Formatter('%(asctime)s [%(levelname)s] - %(message)s.')
+        main_handler = logging.FileHandler('machine.log')
+        main_handler.setFormatter(format)
+        self.logger = logging.getLogger(__name__)
+        self.logger.addHandler(main_handler)
+        self.logger.setLevel(logging.INFO)
+
 
 
     #############################################
@@ -58,6 +72,7 @@ class Machine:
         '''
         self.started = not self.started
         self.update_state(self.started)
+        self.logger.info(f'GPIO trigger, machine power state switched to {self.started}')
 
 
 
@@ -65,12 +80,15 @@ class Machine:
         '''
         Callback function for fan pin
         '''
-        if self.started:
-            self.fan_on = not self.fan_on
-            self.turn_on_fan()if self.fan_on else self.turn_off_fan()
-            self._set_fan_led(self.fan_on)
-            if update:
-                self.update_fan(self.fan_on)
+        if not self.started:
+            return
+        
+        self.fan_on = not self.fan_on
+        self.turn_on_fan()if self.fan_on else self.turn_off_fan()
+        self._set_fan_led(self.fan_on)
+        if update:
+            self.update_fan(self.fan_on)
+        self.logger.info(f'GPIO trigger, machine fan state switched to {self.fan_on}')    
 
 
 
@@ -81,12 +99,16 @@ class Machine:
         Parameters:
         state (bool) : Fan led state
         '''
+        if not self.started or not self.fan_on:
+            return
+        
         if state:
             GPIO.output(self.fan_led_1, GPIO.HIGH)
             GPIO.output(self.fan_led_2, GPIO.HIGH)
         else:
             GPIO.output(self.fan_led_1, GPIO.LOW)
             GPIO.output(self.fan_led_2, GPIO.LOW)
+        self.logger.info(f'Fan LED switched to {state}')
         
 
 
@@ -97,10 +119,14 @@ class Machine:
         Parameters:
         state (bool) : On/off
         '''
+        if not self.started:
+            return
+        
         if state:
             GPIO.output(self.green_led, GPIO.HIGH)
         else:
             GPIO.output(self.green_led, GPIO.LOW)
+        self.logger.info(f'Green LED switched to {state}')
 
 
 
@@ -111,10 +137,15 @@ class Machine:
         Parameters:
         state (bool) : On/off
         '''
+        if not self.started:
+            return
+        
         if state:
             GPIO.output(self.red_led, GPIO.HIGH)
         else:
             GPIO.output(self.red_led, GPIO.LOW)
+        self.logger.info(f'Red LED switched to {state}')
+
 
 
     #############################################
@@ -155,6 +186,7 @@ class Machine:
         elif data['type'] == 'get_fan':
             if data['fan'] != self.fan_on:
                 self._switch_fan(None, update=False)
+        self.logger.info(f'Got server message: {data}')
 
 
 
@@ -171,6 +203,7 @@ class Machine:
         }
         json_data = json.dumps(data)
         self.ws.send(json_data)
+        self.logger.info(f'Sent data to server: {data}')
 
 
 
@@ -189,6 +222,7 @@ class Machine:
         }
         json_data = json.dumps(data)
         self.ws.send(json_data)
+        self.logger.info(f'Sent data to server: {data}')
      
 
 
@@ -205,6 +239,7 @@ class Machine:
         }
         json_data = json.dumps(data)
         self.ws.send(json_data)
+        self.logger.info(f'Sent data to server: {data}')
 
 
 
@@ -220,6 +255,7 @@ class Machine:
         }
         json_data = json.dumps(data)
         self.ws.send(json_data)
+        self.logger.info(f'Sent data to server: {data}')
 
 
         
@@ -237,6 +273,7 @@ class Machine:
         }
         json_data = json.dumps(data)
         self.ws.send(json_data)
+        self.logger.info(f'Sent data to server: {data}')
 
 
 
@@ -254,6 +291,7 @@ class Machine:
         self.arduino.close()
         self.arduino = Serial('/dev/ttyACM0', 9600, timeout = 1)
         self.arduino.flush()
+        self.logger.info('Switched to Arduino 1.')
 
 
 
@@ -264,6 +302,7 @@ class Machine:
         self.arduino.close()
         self.arduino = Serial('/dev/ttyACM1', 9600, timeout = 1)
         self.arduino.flush()
+        self.logger.info('Switched to Arduino 2.')
 
 
 
@@ -279,7 +318,7 @@ class Machine:
             response = self.get_arduino_response()
             if(response == 'ok'):
                 break
- 
+        self.logger.info(f'Sent command to {self.arduino.port}: {command}')
 
 
     def get_arduino_response(self) -> str:
@@ -293,6 +332,7 @@ class Machine:
             response = self.arduino.readline().decode('utf-8').rstrip()
         except UnicodeDecodeError:
             response = self.arduino.readline().decode('utf-8').rstrip()
+        self.logger.info(f'Got response from {self.arduino.port}: {response}')
         return response
     
 
@@ -309,6 +349,7 @@ class Machine:
         while not response:
             response = self.get_arduino_response()
         temperature = float(response)
+        self.logger.info(f'Got temperature: {temperature}')
         return temperature
 
 
@@ -325,6 +366,7 @@ class Machine:
         while not response:
             response = self.get_arduino_response()
         moisture = float(response)
+        self.logger.info(f'Got moisture: {moisture}')
         return moisture
     
 
@@ -341,8 +383,10 @@ class Machine:
         while not response:
             response = self.get_arduino_response()
         weight = float(response)
+        self.logger.info(f'Got weight: {weight}')
         return weight
     
+
 
     def get_harvest_weight(self) -> float:
         '''
@@ -356,6 +400,7 @@ class Machine:
         while not response:
             response = self.get_arduino_response()
         weight = float(response)
+        self.logger.info(f'Got harvest weight: {weight}')
         return weight
     
 
