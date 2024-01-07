@@ -286,6 +286,7 @@ class Machine:
             response = self.arduino.readline().decode('utf-8').rstrip()
         except UnicodeDecodeError:
             response = self.arduino.readline().decode('utf-8').rstrip()
+        print(response)
         return response
     
 

@@ -5,4 +5,4 @@ if __name__ == '__main__':
     machine = Machine()
 
   
-    machine.display_text('Hello World', 1)
+    machine.get_temperature()

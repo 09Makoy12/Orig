@@ -48,7 +48,6 @@ if __name__ == '__main__':
             if actuator_ready and datetime.now() - actuator_last_retracted >= timedelta(seconds=11):
                 machine.lcd.clear()
                 weight =  machine.get_harvest_weight()
-                machine.lcd.text(f'Weight: {weight:.2f} kg', 1)
                 time.sleep(0.1)
 
                 if weight >= 0.9 and weight <= 1.1:
