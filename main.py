@@ -34,7 +34,7 @@ if __name__ == '__main__':
             machine.lcd.text(f'Temp: {temperature:.2f} C', 2)
             moisture = machine.get_moisture()
             machine.lcd.text(f'Moisture: {moisture} %', 2)
-            time.sleep(2)
+            time.sleep(1)
 
             if temperature >= 30:
                 machine.set_fan(True)

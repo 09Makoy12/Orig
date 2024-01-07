@@ -1,0 +1,243 @@
+2024-01-08 02:37:02,146 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 02:37:02,147 [INFO] - Got server message: {'type': 'initialize_parameters', 'state': False, 'fan': False, 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0, 'moisture': 0.0, 'harvests': {'daily': [], 'weekly': [], 'monthly': []}, 'notifications': {}}.
+2024-01-08 02:37:02,162 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 02:37:07,099 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 02:37:07,111 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 02:37:10,103 [INFO] - Sent data to server: {'type': 'update_fan', 'value': False}.
+2024-01-08 02:37:10,127 [INFO] - Got server message: {'type': 'get_fan', 'fan': True}.
+2024-01-08 02:37:10,130 [INFO] - Machine initialized.
+2024-01-08 02:56:06,913 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 02:56:06,914 [INFO] - Got server message: {'type': 'initialize_parameters', 'state': False, 'fan': True, 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0, 'moisture': 0.0, 'harvests': {'daily': [], 'weekly': [], 'monthly': []}, 'notifications': {}}.
+2024-01-08 02:56:06,950 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 02:56:11,826 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 02:56:11,858 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 02:56:14,830 [INFO] - Sent data to server: {'type': 'update_fan', 'value': False}.
+2024-01-08 02:56:14,898 [INFO] - Got server message: {'type': 'get_fan', 'fan': False}.
+2024-01-08 02:56:14,901 [INFO] - Machine initialized.
+2024-01-08 02:56:37,564 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-08 02:56:37,564 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-08 02:56:37,666 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 02:56:37,702 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 02:56:37,703 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-08 02:56:37,735 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 02:56:37,736 [INFO] - GPIO trigger, machine power state switched to False.
+2024-01-08 02:56:37,737 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-08 02:56:37,737 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-08 02:56:37,785 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 02:56:37,833 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 02:56:37,847 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 02:56:37,859 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 02:56:37,878 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 02:56:37,885 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-08 02:56:39,758 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 02:56:39,758 [INFO] - Sent command to /dev/ttyACM0: 11.
+2024-01-08 02:56:39,762 [INFO] - Got response from /dev/ttyACM0: 28.50.
+2024-01-08 02:56:39,763 [INFO] - Got temperature: 28.5.
+2024-01-08 02:56:39,848 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 02:56:39,849 [INFO] - Sent command to /dev/ttyACM0: 11.
+2024-01-08 02:56:39,857 [INFO] - Got response from /dev/ttyACM0: 28.50.
+2024-01-08 02:56:39,857 [INFO] - Got moisture: 28.5.
+2024-01-08 02:56:40,946 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 02:56:40,946 [INFO] - Sent command to /dev/ttyACM0: 21.
+2024-01-08 02:56:40,958 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 02:56:40,958 [INFO] - Sent command to /dev/ttyACM0: 14.
+2024-01-08 02:56:41,835 [INFO] - Got response from /dev/ttyACM0: -0.00.
+2024-01-08 02:56:41,835 [INFO] - Got harvest weight: -0.0.
+2024-01-08 02:56:42,015 [INFO] - Green LED switched to False.
+2024-01-08 02:56:42,015 [INFO] - Red LED switched to True.
+2024-01-08 02:56:42,023 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 02:56:42,023 [INFO] - Sent command to /dev/ttyACM0: 6.
+2024-01-08 02:56:43,025 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:44,027 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:45,028 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:46,030 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:47,032 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:48,035 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:49,037 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:50,039 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:51,040 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:52,042 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:53,044 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:54,045 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:55,048 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:56,049 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:57,051 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:58,053 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:56:59,054 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:00,057 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:01,058 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:02,060 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:03,062 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:04,063 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:05,065 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:06,067 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:07,069 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:08,071 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:09,072 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:10,074 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:11,077 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:12,079 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:13,081 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:14,083 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:15,085 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:16,087 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:17,089 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:18,091 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:19,093 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:20,095 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:21,097 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:22,100 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:23,103 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:24,105 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:25,106 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:26,108 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:27,110 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:28,112 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:29,114 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:30,115 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:31,117 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:32,119 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:33,121 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:34,123 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:35,126 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:36,128 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:37,130 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:38,132 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:39,134 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:40,137 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:41,139 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:42,141 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:43,144 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:44,146 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:45,148 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:46,150 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:47,153 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:48,156 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:49,157 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:50,159 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:51,161 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 02:57:52,163 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:01:11,972 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 03:01:11,973 [INFO] - Got server message: {'type': 'initialize_parameters', 'state': True, 'fan': False, 'time': '04:34', 'harvested': 0.0, 'temperature': 0.0, 'moisture': 0.0, 'harvests': {'daily': [], 'weekly': [], 'monthly': []}, 'notifications': {}}.
+2024-01-08 03:01:12,024 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:01:12,066 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:01:12,068 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 03:01:16,914 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 03:01:16,928 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 03:01:19,918 [INFO] - Sent data to server: {'type': 'update_fan', 'value': False}.
+2024-01-08 03:01:19,943 [INFO] - Machine initialized.
+2024-01-08 03:01:19,945 [INFO] - Got server message: {'type': 'get_fan', 'fan': True}.
+2024-01-08 03:01:25,411 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-08 03:01:25,412 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-08 03:01:25,437 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:01:25,440 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:01:25,445 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-08 03:01:25,566 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 03:01:25,566 [INFO] - GPIO trigger, machine power state switched to False.
+2024-01-08 03:01:25,568 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-08 03:01:25,568 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-08 03:01:25,609 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:01:25,691 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:01:25,711 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 03:01:25,721 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:01:25,734 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:01:25,743 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-08 03:01:27,605 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 03:01:27,606 [INFO] - Sent command to /dev/ttyACM0: 11.
+2024-01-08 03:01:27,614 [INFO] - Got response from /dev/ttyACM0: 28.75.
+2024-01-08 03:01:27,614 [INFO] - Got temperature: 28.75.
+2024-01-08 03:01:27,700 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 03:01:27,700 [INFO] - Sent command to /dev/ttyACM0: 11.
+2024-01-08 03:01:27,708 [INFO] - Got response from /dev/ttyACM0: 28.75.
+2024-01-08 03:01:27,708 [INFO] - Got moisture: 28.75.
+2024-01-08 03:01:45,155 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 03:01:45,155 [INFO] - GPIO trigger, machine power state switched to False.
+2024-01-08 03:01:45,191 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:01:45,204 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:01:45,217 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 03:01:48,085 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-08 03:01:48,085 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-08 03:01:48,116 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:01:48,119 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:01:48,123 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-08 03:01:50,932 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 03:01:50,932 [INFO] - GPIO trigger, machine power state switched to False.
+2024-01-08 03:01:50,993 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:01:51,000 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:01:51,008 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 03:01:54,610 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-08 03:01:54,610 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-08 03:01:54,638 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:01:54,642 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:01:54,649 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-08 03:02:23,707 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 03:02:23,708 [INFO] - Got server message: {'type': 'initialize_parameters', 'state': True, 'fan': False, 'time': '00:29', 'harvested': 0.0, 'temperature': 0.0, 'moisture': 0.0, 'harvests': {'daily': [], 'weekly': [], 'monthly': []}, 'notifications': {}}.
+2024-01-08 03:02:23,762 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:02:23,802 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:02:23,803 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 03:02:28,641 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 03:02:28,661 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 03:02:31,645 [INFO] - Sent data to server: {'type': 'update_fan', 'value': False}.
+2024-01-08 03:02:31,679 [INFO] - Machine initialized.
+2024-01-08 03:02:31,688 [INFO] - Got server message: {'type': 'get_fan', 'fan': True}.
+2024-01-08 03:02:36,428 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-08 03:02:36,429 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-08 03:02:36,580 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 03:02:36,581 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-08 03:02:36,581 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-08 03:02:36,583 [INFO] - GPIO trigger, machine power state switched to False.
+2024-01-08 03:02:36,584 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-08 03:02:36,585 [INFO] - GPIO trigger, machine power state switched to False.
+2024-01-08 03:02:36,667 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:02:36,801 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:02:36,900 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-08 03:02:36,982 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:02:36,991 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:02:37,001 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 03:02:37,006 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:02:37,011 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:02:37,021 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-08 03:02:37,027 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:02:37,033 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:02:37,041 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-08 03:02:41,468 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-08 03:02:41,468 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-08 03:02:41,479 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 03:02:41,479 [INFO] - Sent command to /dev/ttyACM0: 11.
+2024-01-08 03:02:41,483 [INFO] - Got response from /dev/ttyACM0: 28.75.
+2024-01-08 03:02:41,485 [INFO] - Got temperature: 28.75.
+2024-01-08 03:02:41,501 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-08 03:02:41,505 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-08 03:02:41,510 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-08 03:02:41,582 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 03:02:41,583 [INFO] - Sent command to /dev/ttyACM0: 11.
+2024-01-08 03:02:41,590 [INFO] - Got response from /dev/ttyACM0: 28.75.
+2024-01-08 03:02:41,590 [INFO] - Got moisture: 28.75.
+2024-01-08 03:02:42,683 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 03:02:42,683 [INFO] - Sent command to /dev/ttyACM0: 21.
+2024-01-08 03:02:42,695 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 03:02:42,696 [INFO] - Sent command to /dev/ttyACM0: 14.
+2024-01-08 03:02:43,637 [INFO] - Got response from /dev/ttyACM0: -0.00.
+2024-01-08 03:02:43,638 [INFO] - Got harvest weight: -0.0.
+2024-01-08 03:02:43,816 [INFO] - Green LED switched to False.
+2024-01-08 03:02:43,816 [INFO] - Red LED switched to True.
+2024-01-08 03:02:43,826 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-08 03:02:43,826 [INFO] - Sent command to /dev/ttyACM0: 6.
+2024-01-08 03:02:44,827 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:45,829 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:46,831 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:47,833 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:48,835 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:49,837 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:50,839 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:51,841 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:52,843 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:53,844 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:54,846 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:55,848 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:56,851 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:57,853 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:58,854 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:02:59,855 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:03:00,857 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-08 03:03:01,859 [INFO] - Got response from /dev/ttyACM0: .
