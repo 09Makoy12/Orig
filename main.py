@@ -31,8 +31,9 @@ if __name__ == '__main__':
             
         if machine.started and initialized:
             temperature = machine.get_temperature()
-            machine.lcd.text(f'Temp: {temperature:.2f} C', 2)
             moisture = machine.get_moisture()
+            machine.lcd.clear()
+            machine.lcd.text(f'Temp: {temperature:.2f} C', 2)
             machine.lcd.text(f'Moisture: {moisture} %', 2)
             time.sleep(2)
 
@@ -44,8 +45,8 @@ if __name__ == '__main__':
                 machine.deactivate_heater()
 
             if actuator_ready and datetime.now() - actuator_last_retracted >= timedelta(seconds=11):
+                weight =  machine.get_weight()
                 machine.lcd.clear()
-                weight =  machine.get_harvest_weight()
                 machine.lcd.text(f'Weight: {weight:.2f} kg', 1)
                 time.sleep(0.1)
 
