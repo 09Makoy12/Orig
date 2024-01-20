@@ -84,7 +84,9 @@ if __name__ == '__main__':
                 pulverizer_last_started = datetime.now()
 
             if pulverizer_started and datetime.now() - pulverizer_last_started >= timedelta(minutes=10):
+                machine.switch_arduino_2()
                 machine.deactivate_pulverizer()
+                machine.switch_arduino_1()
                 pulverizer_started = False
                 pulverizer_last_stopped = datetime.now()
 
@@ -101,5 +103,7 @@ if __name__ == '__main__':
                 machine.set_state(False)
 
         if not machine.started and initialized:
-            pass
-        
+            machine.switch_arduino_2()
+            machine.deactivate_conveyor()
+            machine.deactivate_slicer()
+            machine.switch_arduino_1()
