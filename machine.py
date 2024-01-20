@@ -176,7 +176,10 @@ class Machine:
         Mainly for listening to state updates
         '''
         data = json.loads(message)
-        print(data)
+        if data['type'] == 'get_notifications':
+            self.logger.info(f'Got server message for notification query')
+            return
+        
         if data['type'] == 'get_state':
             self.started = data['state']
         elif data['type'] == 'initialize_parameters':
@@ -270,6 +273,22 @@ class Machine:
             'type': 'update_harvest',
             'amount': amount,
             'last_temperature': last_temperature
+        }
+        json_data = json.dumps(data)
+        self.ws.send(json_data)
+        self.logger.info(f'Sent data to server: {data}')
+
+
+
+    def notify_pulverizer_finished(self):
+        '''
+        Add a new harvest record to the database
+
+        amount (float) : Harvest amount
+        last_temperature (float) : Last recorded temperature
+        '''
+        data = {
+            'type': 'pulverizer_finished'
         }
         json_data = json.dumps(data)
         self.ws.send(json_data)

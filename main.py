@@ -89,6 +89,7 @@ if __name__ == '__main__':
                 machine.switch_arduino_1()
                 pulverizer_started = False
                 pulverizer_last_stopped = datetime.now()
+                machine.notify_pulverizer_finished()
 
             harvested_amount = machine.get_harvest_weight()
             machine.update_parameters(harvested_amount, temperature)
