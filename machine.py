@@ -14,7 +14,7 @@ class Machine:
         self.__initialize_logger()
 
         self.ws = None
-        self.ws_host = "ws://192.168.1.32:8000/ws/socket-server/"
+        self.ws_host = "ws://192.168.1.35:8000/ws/socket-server/"
         self.ws_initialized = False
         
         self.arduino = Serial('/dev/ttyACM0', 9600, timeout = 1)
@@ -361,7 +361,7 @@ class Machine:
         Returns:
         moisture (float) : Moisture
         '''
-        self.send_command(11)
+        self.send_command(12)
         response = self.get_arduino_response()
         while not response:
             response = self.get_arduino_response()

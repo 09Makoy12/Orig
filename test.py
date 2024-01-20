@@ -1,8 +1,4 @@
-from machine import Machine
-import time
+from serial import Serial
 
-if __name__ == '__main__':
-    machine = Machine()
-
-  
-    machine.display_text('Hello World', 1)
+arduino1 = Serial('/dev/ttyACM0', 9600, timeout=1)
+arduino2 = Serial('/dev/ttyACM1', 9600, timeout=1)

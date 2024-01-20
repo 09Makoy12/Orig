@@ -33,7 +33,7 @@ if __name__ == '__main__':
             temperature = machine.get_temperature()
             moisture = machine.get_moisture()
             machine.lcd.clear()
-            machine.lcd.text(f'Temp: {temperature:.2f} C', 2)
+            machine.lcd.text(f'Temp: {temperature:.2f} C', 1)
             machine.lcd.text(f'Moisture: {moisture} %', 2)
             time.sleep(1)
 
@@ -52,7 +52,7 @@ if __name__ == '__main__':
 
                 if weight >= 0.9 and weight <= 1.1:
                     machine.set_green_led(True)
-                    machine.set_red_led(True)
+                    machine.set_red_led(False)
                     if not slicer_started and not conveyor_started:
                         machine.switch_arduino_2()
 
@@ -77,7 +77,9 @@ if __name__ == '__main__':
 
             if not pulverizer_started \
                 and datetime.now() - pulverizer_last_stopped >= timedelta(minutes=10):
+                machine.switch_arduino_2()
                 machine.activate_pulverizer()
+                machine.switch_arduino_1()
                 pulverizer_started = True
                 pulverizer_last_started = datetime.now()
 
