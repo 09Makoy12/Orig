@@ -54,11 +54,9 @@ if __name__ == '__main__':
                     machine.set_green_led(True)
                     machine.set_red_led(False)
                     if not slicer_started and not conveyor_started:
-                        machine.switch_arduino_2()
 
                         machine.activate_slicer()
                         machine.activate_conveyor()
-                        machine.switch_arduino_1()
                         slicer_started = True
                         conveyor_started = True
                     
@@ -77,16 +75,12 @@ if __name__ == '__main__':
 
             if not pulverizer_started \
                 and datetime.now() - pulverizer_last_stopped >= timedelta(minutes=10):
-                machine.switch_arduino_2()
                 machine.activate_pulverizer()
-                machine.switch_arduino_1()
                 pulverizer_started = True
                 pulverizer_last_started = datetime.now()
 
             if pulverizer_started and datetime.now() - pulverizer_last_started >= timedelta(minutes=10):
-                machine.switch_arduino_2()
                 machine.deactivate_pulverizer()
-                machine.switch_arduino_1()
                 pulverizer_started = False
                 pulverizer_last_stopped = datetime.now()
                 machine.notify_pulverizer_finished()
@@ -104,7 +98,5 @@ if __name__ == '__main__':
                 machine.set_state(False)
 
         if not machine.started and initialized:
-            machine.switch_arduino_2()
             machine.deactivate_conveyor()
             machine.deactivate_slicer()
-            machine.switch_arduino_1()
