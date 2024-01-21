@@ -40,6 +40,7 @@ const int thermoCLK = A3;
 
 MAX6675 thermocouple(thermoCLK, thermoCS, thermoDO);
 
+bool actuatorExtended = false;
 String UUID = "ARDUINO1";
 int current_command = -1;
 
@@ -57,7 +58,6 @@ void setup() {
   pinMode(enaPin, OUTPUT);
   pinMode(in1Pin, OUTPUT);
   pinMode(in2Pin, OUTPUT);
-  actuatorExtended = false;
 
   digitalWrite(enaPin, HIGH);
 
