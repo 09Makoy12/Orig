@@ -6,7 +6,9 @@ import time
 
 if __name__ == '__main__':
 
-    machine = Machine()
+    machine = Machine(arduino_ports=(
+        '/dev/ttyACM0', '/dev/ttyACM1'
+    ))
 
     initialized = False
     actuator_ready = True
