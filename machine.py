@@ -34,10 +34,12 @@ class Machine:
             uuid = temp.get_uuid()
             if uuid == self.ARDUINO1_UUID and self.arduino1 is None:
                 self.arduino1 = temp
+                self.logger.info(f'Arduino 1 set to port {port}')
             elif uuid == self.ARDUINO1_UUID and self.arduino1 is not None:
                 raise Exception(f'Arduino 1 is already set to port: {self.arduino1.port}, tried setting to {port}')
             elif uuid == self.ARDUINO2_UUID and self.arduino2 is None:
                 self.arduino2 = temp
+                self.logger.info(f'Arduino 2 set to port {port}')
             elif uuid == self.ARDUINO2_UUID and self.arduino2 is not None:
                 raise Exception(f'Arduino 2 is already set to port: {self.arduino2.port}, tried setting to {port}')
             else:
