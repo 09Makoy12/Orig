@@ -93,12 +93,12 @@ void loop() {
   } 
   
   else if (current_command == 13) {
-    getWeight1();
+    getWeight(1);
     current_command = -1;
   } 
 
   else if (current_command == 14) {
-    getWeight2();
+    getWeight(2);
     current_command = -1;
   } 
 
