@@ -54,6 +54,8 @@ class Machine:
         main_handler = logging.FileHandler('machine.log')
         main_handler.setFormatter(format)
         self.logger = logging.getLogger(__name__)
+        for handler in self.logger.handlers[:]:
+            self.logger.removeHandler(handler)
         self.logger.addHandler(main_handler)
         self.logger.setLevel(logging.INFO)
 
