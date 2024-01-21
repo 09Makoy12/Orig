@@ -65,9 +65,6 @@ void setup() {
   // Buzzer 
   pinMode(buzzer, OUTPUT);
 
-  // LED 
-  pinMode(greenLed, OUTPUT);
-  pinMode(redLed, OUTPUT);
 
   // LED FAN
   pinMode(fanRelay1, OUTPUT);
@@ -183,25 +180,26 @@ void getWeight(int scale) {
     float w1 = scale1.get_units(10);
     delay(100);
     float w2 = scale1.get_units();
+    while (abs(w1 - w2) > 10) {
+      w1 = w2;
+      w2 = scale1.get_units();
+      delay(100);
+    }
+    double kilogram = w1/1000;
+    sendResponse(String(kilogram));
   }
   else if(scale == 2){
     float w1 = scale2.get_units(10);
     delay(100);
     float w2 = scale2.get_units();
+    while (abs(w1 - w2) > 10) {
+      w1 = w2;
+      w2 = scale2.get_units();
+      delay(100);
+    }
+    double kilogram = w1/1000;
+    sendResponse(String(kilogram));
   }
-  else {
-    float w1 = scale1.get_units(10);
-    delay(100);
-    float w2 = scale1.get_units();
-  }
-
-  while (abs(w1 - w2) > 10) {
-    w1 = w2;
-    w2 = scale1.get_units();
-    delay(100);
-  }
-  double kilogram = w1/1000;
-  sendResponse(String(kilogram));
 }
 
 void getWeight2() {
