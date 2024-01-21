@@ -57,6 +57,7 @@ void setup() {
   pinMode(enaPin, OUTPUT);
   pinMode(in1Pin, OUTPUT);
   pinMode(in2Pin, OUTPUT);
+  actuatorExtended = false;
 
   digitalWrite(enaPin, HIGH);
 
@@ -219,12 +220,14 @@ void getWeight2() {
 void extendActuator() {
   digitalWrite(in1Pin, HIGH);
   digitalWrite(in2Pin, LOW);
+  actuatorExtended = true;
   delay(10000);
 }
 
 void retractActuator() {
   digitalWrite(in1Pin, LOW);
   digitalWrite(in2Pin, HIGH);
+  actuatorExtended = false;
   delay(10000);
 }
 
@@ -271,7 +274,9 @@ void getUUID(){
 }
 
 void resetState(){
-  retractActuator();
+  if(actuatorExtended){
+    retractActuator();
+  }
   deactivateHeat();
   turnOffFan();
   sendResponse("reset");
