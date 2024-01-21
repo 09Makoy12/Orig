@@ -328,6 +328,21 @@ class Machine:
 
 
 
+    # def send_command(self, command: int):
+    #     '''
+    #     Send command to arduino
+
+    #     Parameters:
+    #     command (int) : Command to send
+    #     '''
+    #     self.logger.info(f'Sent command to {self.arduino.port}: {command}')
+    #     while True:
+    #         self.arduino.write(bytes(str(command)+'\n','utf-8'))
+    #         response = self.get_arduino_response()
+    #         if(response == 'ok'):
+    #             break
+
+
     def send_command(self, command: int):
         '''
         Send command to arduino
@@ -336,11 +351,12 @@ class Machine:
         command (int) : Command to send
         '''
         self.logger.info(f'Sent command to {self.arduino.port}: {command}')
+        self.arduino.write(bytes(str(command)+'\n','utf-8'))
         while True:
-            self.arduino.write(bytes(str(command)+'\n','utf-8'))
             response = self.get_arduino_response()
             if(response == 'ok'):
                 break
+        
 
 
     def get_arduino_response(self) -> str:
