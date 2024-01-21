@@ -186,6 +186,7 @@ class Machine:
             if not self.ws_initialized:
                 self.update_state(False)
                 self.ws_initialized = True
+            return
         elif data['type'] == 'get_fan':
             if data['fan'] != self.fan_on:
                 self._switch_fan(None, update=False)
@@ -353,6 +354,7 @@ class Machine:
             response = self.arduino.readline().decode('utf-8').rstrip()
         self.logger.info(f'Got response from {self.arduino.port}: {response}')
         return response
+    
     
 
     
