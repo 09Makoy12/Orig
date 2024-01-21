@@ -40,6 +40,7 @@ const int thermoCLK = A3;
 
 MAX6675 thermocouple(thermoCLK, thermoCS, thermoDO);
 
+String UUID = "ARDUINO1";
 int current_command = -1;
 
 void setup() {
@@ -140,6 +141,16 @@ void loop() {
     spinServo();
     current_command = -1;
   } 
+
+  else if (current_command == 98) {
+    resetState();
+    current_command = -1;
+  }
+
+  else if (current_command == 99) {
+    getUUID();
+    current_command = -1;
+  }
 }
 
 void sendResponse(String response) {
@@ -255,4 +266,15 @@ void activateHeat(){
 void deactivateHeat(){
   digitalWrite(heatRelay1, LOW);
   digitalWrite(heatRelay2, LOW);
+}
+
+void getUUID(){
+  sendResponse(UUID);
+}
+
+void resetState(){
+  retractActuator();
+  deactivateHeat();
+  turnOffFan();
+  sendResponse("reset");
 }

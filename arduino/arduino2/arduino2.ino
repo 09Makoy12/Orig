@@ -10,7 +10,7 @@ const int dirPin1 = 7;
 const int pulPin2 = 8;
 const int dirPin2 = 9;
 
-String command = "";
+String UUID = "ARDUINO2";
 int current_command = -1;
 
 void setup() {
@@ -64,6 +64,16 @@ void loop() {
     current_command = -1;
   }
 
+  else if (current_command == 98) {
+    resetState();
+    current_command = -1;
+  }
+
+  else if (current_command == 99) {
+    getUUID();
+    current_command = -1;
+  }
+
   runBackground();
 
 }
@@ -99,10 +109,6 @@ void activateSlicer(){
   digitalWrite(motorRelay, HIGH);
 }
 
-void activateHeat(){
-  digitalWrite(heatRelay, HIGH);
-}
-
 void activatePulverizer(){
   digitalWrite(pulverizerRelay, HIGH);
 }
@@ -115,10 +121,17 @@ void deactivateSlicer(){
   digitalWrite(motorRelay, LOW);
 }
 
-void deactivateHeat(){
-  digitalWrite(heatRelay, LOW);
-}
-
 void deactivatePulverizer(){
   digitalWrite(pulverizerRelay, LOW);
+}
+
+void getUUID(){
+  sendResponse(UUID);
+}
+
+void resetState(){
+  deactivateConveyor();
+  deactivatePulverizer();
+  deactivateSlicer();
+  sendResponse("reset");
 }

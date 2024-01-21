@@ -1,5 +1,6 @@
 from threading import Thread
 from serial import Serial
+from arduino import Arduino
 from rpi_lcd import LCD
 
 import RPi.GPIO as GPIO
@@ -9,16 +10,41 @@ import time
 import logging
 
 class Machine:
+    ARDUINO1_UUID = 'ARDUINO1'
+    ARDUINO2_UUID = 'ARDUINO2'
 
-    def __init__(self):
+
+    def __init__(self, arduino_ports: tuple = (None, None)):
         self.__initialize_logger()
 
         self.ws = None
         self.ws_host = "ws://192.168.1.35:8000/ws/socket-server/"
         self.ws_initialized = False
         
-        self.arduino = Serial('/dev/ttyACM0', 9600, timeout = 1)
-        self.arduino.reset_input_buffer()
+        common_commands = [98, 99]
+        arduino_1_commands = list(range(11, 23))
+        arduino_1_commands.extend(common_commands)
+        arduino_2_commands = list(range(0, 8))
+        arduino_2_commands.extend(common_commands)
+
+        self.arduino1 = None
+        self.arduino2 = None
+        for port in arduino_ports:
+            temp = Arduino(port, baudrate=9600, commands=common_commands)
+            uuid = temp.get_uuid(t)
+            if uuid == self.ARDUINO1_UUID and self.arduino1 is None:
+                self.arduino1 = temp
+            elif uuid == self.ARDUINO1_UUID and self.arduino1 is not None:
+                raise Exception(f'Arduino 1 is already set to port: {self.arduino1.port}, tried setting to {port}')
+            elif uuid == self.ARDUINO2_UUID and self.arduino2 is None:
+                self.arduino2 = temp
+            elif uuid == self.ARDUINO2_UUID and self.arduino2 is not None:
+                raise Exception(f'Arduino 2 is already set to port: {self.arduino2.port}, tried setting to {port}')
+            else:
+                raise Exception(f'Error initializing port {port}')
+
+        self.arduino1.reset_state()
+        self.arduino2.reset_state()
 
         self.started = False
         self.fan_on = False
@@ -53,7 +79,7 @@ class Machine:
         format = logging.Formatter('%(asctime)s [%(levelname)s] - %(message)s.')
         main_handler = logging.FileHandler('machine.log')
         main_handler.setFormatter(format)
-        self.logger = logging.getLogger(__name__)
+        self.logger = logging.getLogger('machine')
         for handler in self.logger.handlers[:]:
             self.logger.removeHandler(handler)
         self.logger.addHandler(main_handler)
@@ -305,76 +331,6 @@ class Machine:
     #                                           #
     #############################################
 
-
-    def switch_arduino_1(self): 
-        '''
-        Switch current to Arduino 1
-        '''
-        self.arduino.close()
-        self.arduino = Serial('/dev/ttyACM0', 9600, timeout = 1)
-        self.arduino.flush()
-        self.logger.info('Switched to Arduino 1.')
-
-
-
-    def switch_arduino_2(self): 
-        '''
-        Switch current to Arduino 2
-        '''
-        self.arduino.close()
-        self.arduino = Serial('/dev/ttyACM1', 9600, timeout = 1)
-        self.arduino.flush()
-        self.logger.info('Switched to Arduino 2.')
-
-
-
-    # def send_command(self, command: int):
-    #     '''
-    #     Send command to arduino
-
-    #     Parameters:
-    #     command (int) : Command to send
-    #     '''
-    #     self.logger.info(f'Sent command to {self.arduino.port}: {command}')
-    #     while True:
-    #         self.arduino.write(bytes(str(command)+'\n','utf-8'))
-    #         response = self.get_arduino_response()
-    #         if(response == 'ok'):
-    #             break
-
-
-    def send_command(self, command: int):
-        '''
-        Send command to arduino
-
-        Parameters:
-        command (int) : Command to send
-        '''
-        self.logger.info(f'Sent command to {self.arduino.port}: {command}')
-        self.arduino.write(bytes(str(command)+'\n','utf-8'))
-        while True:
-            response = self.get_arduino_response()
-            if(response == 'ok'):
-                break
-        
-
-
-    def get_arduino_response(self) -> str:
-        '''
-        Get response from arduino
-
-        Returns:
-        response (str) : Arduino response
-        '''
-        try:
-            response = self.arduino.readline().decode('utf-8').rstrip()
-        except UnicodeDecodeError:
-            response = self.arduino.readline().decode('utf-8').rstrip()
-        self.logger.info(f'Got response from {self.arduino.port}: {response}')
-        return response
-    
-    
-
     
     def get_temperature(self) -> float:
         '''
@@ -383,11 +339,14 @@ class Machine:
         Returns:
         temperature (float) : Temperature
         '''
-        self.send_command(11)
-        response = self.get_arduino_response()
-        while not response:
-            response = self.get_arduino_response()
-        temperature = float(response)
+        self.arduino1.send_command(11)
+        while True:
+            response = self.arduino1.get_response()
+            try:
+                temperature = float(response)
+                break
+            except:
+                pass
         self.logger.info(f'Got temperature: {temperature}')
         return temperature
 
@@ -400,11 +359,14 @@ class Machine:
         Returns:
         moisture (float) : Moisture
         '''
-        self.send_command(12)
-        response = self.get_arduino_response()
-        while not response:
-            response = self.get_arduino_response()
-        moisture = float(response)
+        self.arduino1.send_command(12)
+        while True:
+            response = self.arduino1.get_response()
+            try:
+                moisture = float(response)
+                break
+            except:
+                pass
         self.logger.info(f'Got moisture: {moisture}')
         return moisture
     
@@ -417,11 +379,14 @@ class Machine:
         Returns:
         weight (float) : Weight
         '''
-        self.send_command(13)
-        response = self.get_arduino_response()
-        while not response:
-            response = self.get_arduino_response()
-        weight = float(response)
+        self.arduino1.send_command(13)
+        while True:
+            response = self.arduino1.get_response()
+            try:
+                weight = float(response)
+                break
+            except:
+                pass
         self.logger.info(f'Got weight: {weight}')
         return weight
     
@@ -434,37 +399,40 @@ class Machine:
         Returns:
         weight (float) : Harvest weight
         '''
-        self.send_command(14)
-        response = self.get_arduino_response()
-        while not response:
-            response = self.get_arduino_response()
-        weight = float(response)
+        self.arduino1.send_command(14)
+        while True:
+            response = self.arduino1.get_response()
+            try:
+                weight = float(response)
+                break
+            except:
+                pass
         self.logger.info(f'Got harvest weight: {weight}')
         return weight
     
 
 
-    def extend_actuator(self, wait: bool = False):
+    def extend_actuator(self, wait: bool = True):
         '''
         Explicit function for extendActuator on Arduino
 
         Parameters:
         wait (bool) : Wait to finish (blocking)
         '''
-        self.send_command(15)
+        self.arduino1.send_command(15)
         if wait:
             time.sleep(10.5)
 
 
 
-    def retract_actuator(self, wait: bool = False):
+    def retract_actuator(self, wait: bool = True):
         '''
         Explicit function for retractActuator on Arduino
 
         Parameters:
         wait (bool) : Wait to finish (blocking)
         '''
-        self.send_command(16)
+        self.arduino1.send_command(16)
         if wait:
             time.sleep(10.5)
 
@@ -474,7 +442,7 @@ class Machine:
         '''
         Explicit function for turnOnFan on Arduino
         '''
-        self.send_command(17)
+        self.arduino1.send_command(17)
 
 
 
@@ -482,7 +450,7 @@ class Machine:
         '''
         Explicit function for turnOffFan on Arduino
         '''
-        self.send_command(18)
+        self.arduino1.send_command(18)
 
 
 
@@ -490,7 +458,7 @@ class Machine:
         '''
         Explicit function for activateBuzzer on Arduino
         '''
-        self.send_command(19)
+        self.arduino1.send_command(19)
         time.sleep(3.5)
 
 
@@ -499,7 +467,7 @@ class Machine:
         '''
         Explicit function for activateHeater on Arduino
         '''
-        self.send_command(20)
+        self.arduino1.send_command(20)
 
 
 
@@ -507,7 +475,7 @@ class Machine:
         '''
         Explicit function for deactivateHeater on Arduino
         '''
-        self.send_command(21)
+        self.arduino1.send_command(21)
 
 
 
@@ -515,7 +483,7 @@ class Machine:
         '''
         Explicit function for spinServo on Arduino
         '''
-        self.send_command(22)
+        self.arduino1.send_command(22)
         time.sleep(6)
 
 
@@ -524,7 +492,7 @@ class Machine:
         '''
         Explicit function for activateConveyor on Arduino
         '''
-        self.send_command(0)
+        self.arduino2.send_command(0)
 
 
 
@@ -532,14 +500,14 @@ class Machine:
         '''
         Explicit function for deactivateConveyor on Arduino
         '''
-        self.send_command(1)
+        self.arduino2.send_command(1)
 
 
     def activate_slicer(self):
         '''
         Explicit function for activateSlicer on Arduino
         '''
-        self.send_command(2)
+        self.arduino2.send_command(2)
 
 
 
@@ -547,7 +515,7 @@ class Machine:
         '''
         Explicit function for deactivateSlicer on Arduino
         '''
-        self.send_command(3)
+        self.arduino2.send_command(3)
 
 
 
@@ -555,7 +523,7 @@ class Machine:
         '''
         Explicit function for activatePulverizer on Arduino
         '''
-        self.send_command(6)
+        self.arduino2.send_command(6)
 
 
 
@@ -563,7 +531,7 @@ class Machine:
         '''
         Explicit function for deactivatePulverizer on Arduino
         '''
-        self.send_command(7)
+        self.arduino2.send_command(7)
 
 
 
