@@ -68,6 +68,7 @@ class Arduino(Serial):
         self.send_command(command)
         while True:
             response = self.get_response()
+            print(response)
             if response == 'reset':
                 break
         

@@ -30,7 +30,7 @@ class Machine:
         self.arduino1 = None
         self.arduino2 = None
         for port in arduino_ports:
-            temp = Arduino(port, baudrate=9600, commands=common_commands)
+            temp = Arduino(port, baudrate=9600, commands=common_commands,timeout=1)
             uuid = temp.get_uuid()
             if uuid == self.ARDUINO1_UUID and self.arduino1 is None:
                 self.arduino1 = temp
@@ -44,9 +44,9 @@ class Machine:
                 raise Exception(f'Arduino 2 is already set to port: {self.arduino2.port}, tried setting to {port}')
             else:
                 raise Exception(f'Error initializing port {port}')
-
-        self.arduino1.reset_state()
-        self.arduino2.reset_state()
+        
+        #self.arduino1.reset_state()
+        #self.arduino2.reset_state()
 
         self.started = False
         self.fan_on = False
@@ -573,7 +573,7 @@ class Machine:
             self.fan_on = True
             self.turn_on_fan()
             self._set_fan_led(True)
-            self.update_fan(True)
+            self.update_fan(1)
         if not state and self.fan_on:
             self.fan_on = False
             self.turn_off_fan()

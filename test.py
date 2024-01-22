@@ -1,4 +1,11 @@
-from serial import Serial
+from machine import Machine
+from datetime import datetime, timedelta
 
-arduino1 = Serial('/dev/ttyACM0', 9600, timeout=1)
-arduino2 = Serial('/dev/ttyACM1', 9600, timeout=1)
+import time
+
+if __name__ == '__main__':
+    machine = Machine(arduino_ports=('/dev/ttyACM0', '/dev/ttyACM1'))
+    
+    temperature = machine.get_temperature()
+    
+    print(temperature)
