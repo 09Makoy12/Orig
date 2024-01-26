@@ -65,12 +65,12 @@ void loop() {
   }
 
   else if (current_command == 98) {
-    resetState();
+    getUUID();
     current_command = -1;
   }
 
   else if (current_command == 99) {
-    getUUID();
+    resetState();
     current_command = -1;
   }
 
