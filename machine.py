@@ -16,9 +16,10 @@ class Machine:
 
     def __init__(self, arduino_ports: tuple = (None, None)):
         self.__initialize_logger()
+        print(1)
 
         self.ws = None
-        self.ws_host = "ws://192.168.1.35:8000/ws/socket-server/"
+        self.ws_host = "ws://192.168.254.191:8000/ws/socket-server/"
         self.ws_initialized = False
         
         common_commands = [98, 99]
@@ -30,23 +31,28 @@ class Machine:
         self.arduino1 = None
         self.arduino2 = None
         for port in arduino_ports:
+            print(port)
             temp = Arduino(port, baudrate=9600, commands=common_commands,timeout=1)
             uuid = temp.get_uuid()
             if uuid == self.ARDUINO1_UUID and self.arduino1 is None:
                 self.arduino1 = temp
                 self.logger.info(f'Arduino 1 set to port {port}')
+                self.arduino1.commands = arduino_1_commands
             elif uuid == self.ARDUINO1_UUID and self.arduino1 is not None:
                 raise Exception(f'Arduino 1 is already set to port: {self.arduino1.port}, tried setting to {port}')
             elif uuid == self.ARDUINO2_UUID and self.arduino2 is None:
                 self.arduino2 = temp
                 self.logger.info(f'Arduino 2 set to port {port}')
+                self.arduino2.commands = arduino_2_commands
             elif uuid == self.ARDUINO2_UUID and self.arduino2 is not None:
                 raise Exception(f'Arduino 2 is already set to port: {self.arduino2.port}, tried setting to {port}')
             else:
                 raise Exception(f'Error initializing port {port}')
-        
+            
+        print(1)
         #self.arduino1.reset_state()
         #self.arduino2.reset_state()
+        print(2)
 
         self.started = False
         self.fan_on = False
@@ -59,11 +65,11 @@ class Machine:
         self.lcd = LCD()
 
         power_pin = 25
-        fan_pin = 17
-        self.green_led = 26
-        self.red_led = 16
-        self.fan_led_1 = 23
-        self.fan_led_2 = 22
+        fan_pin = 27
+        self.green_led = 22
+        self.red_led = 23
+        self.fan_led_1 = 16
+        self.fan_led_2 = 26
         GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.green_led, GPIO.OUT)
         GPIO.setup(self.red_led, GPIO.OUT)
@@ -82,8 +88,6 @@ class Machine:
         main_handler = logging.FileHandler('machine.log')
         main_handler.setFormatter(format)
         self.logger = logging.getLogger('machine')
-        for handler in self.logger.handlers[:]:
-            self.logger.removeHandler(handler)
         self.logger.addHandler(main_handler)
         self.logger.setLevel(logging.INFO)
 
@@ -115,14 +119,14 @@ class Machine:
         
         self.fan_on = not self.fan_on
         self.turn_on_fan()if self.fan_on else self.turn_off_fan()
-        self._set_fan_led(self.fan_on)
+        self.set_fan_led(self.fan_on)
         if update:
             self.update_fan(self.fan_on)
         self.logger.info(f'GPIO trigger, machine fan state switched to {self.fan_on}')    
 
 
 
-    def _set_fan_led(self, state: bool):
+    def set_fan_led(self, state: bool):
         '''
         Turn on/off fan led
 
@@ -572,10 +576,10 @@ class Machine:
         if state and not self.fan_on:
             self.fan_on = True
             self.turn_on_fan()
-            self._set_fan_led(True)
-            self.update_fan(1)
+            self.set_fan_led(True)
+            self.update_fan(True)
         if not state and self.fan_on:
             self.fan_on = False
             self.turn_off_fan()
-            self._set_fan_led(False)
+            self.set_fan_led(False)
             self.update_fan(False)
