@@ -65,12 +65,14 @@ class Arduino(Serial):
         Parameters:
         command (int) - Reset command, default to 99
         '''
+        self.logger.info('Resetting arduino state')
         self.send_command(command)
         while True:
             response = self.get_response()
             print(response)
             if response == 'reset':
                 break
+        self.logger.info('Arduino state resetted.')
         
 
 

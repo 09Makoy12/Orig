@@ -16,7 +16,6 @@ class Machine:
 
     def __init__(self, arduino_ports: tuple = (None, None)):
         self.__initialize_logger()
-        print(1)
 
         self.ws = None
         self.ws_host = "ws://192.168.254.191:8000/ws/socket-server/"
@@ -31,8 +30,8 @@ class Machine:
         self.arduino1 = None
         self.arduino2 = None
         for port in arduino_ports:
-            print(port)
-            temp = Arduino(port, baudrate=9600, commands=common_commands,timeout=1)
+            print(f'Allocating port {port}...')
+            temp = Arduino(port, baudrate=9600, commands=[common_commands],timeout=1)
             uuid = temp.get_uuid()
             if uuid == self.ARDUINO1_UUID and self.arduino1 is None:
                 self.arduino1 = temp
@@ -49,10 +48,8 @@ class Machine:
             else:
                 raise Exception(f'Error initializing port {port}')
             
-        print(1)
-        #self.arduino1.reset_state()
-        #self.arduino2.reset_state()
-        print(2)
+        self.arduino1.reset_state()
+        self.arduino2.reset_state()
 
         self.started = False
         self.fan_on = False
