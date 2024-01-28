@@ -21,8 +21,8 @@ class Arduino(Serial):
         '''
         self.logger.info(f'Sending command to {self.port}: {command}')
         if command in self.commands:
-            self.write(bytes(str(command)+'\n','utf-8'))
             while True:
+                self.write(bytes(str(command)+'\n','utf-8'))
                 response = self.get_response()
                 if(response == 'ok'):
                     break

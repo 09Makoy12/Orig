@@ -1,9 +1,4 @@
-from machine import Machine
-from datetime import datetime, timedelta
+from arduino import Arduino
 
-import time
-
-if __name__ == '__main__':
-    machine = Machine(arduino_ports=('/dev/ttyACM0', '/dev/ttyACM1'))
-
-    machine.set_green_led(True)
+arduino = Arduino('/dev/ttyACM0',baudrate=9600, commands=[98,99])
+arduino.reset_state()
