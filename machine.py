@@ -31,7 +31,7 @@ class Machine:
         self.arduino2 = None
         for port in arduino_ports:
             print(f'Allocating port {port}...')
-            temp = Arduino(port, baudrate=9600, commands=[common_commands],timeout=1)
+            temp = Arduino(port, baudrate=9600, commands=common_commands,timeout=1)
             uuid = temp.get_uuid()
             if uuid == self.ARDUINO1_UUID and self.arduino1 is None:
                 self.arduino1 = temp
