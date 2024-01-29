@@ -59,7 +59,7 @@ class Machine:
         time.sleep(3)
         self.update_fan(False)
 
-        self.lcd = LCD()
+        self.lcd = LCD(address=0x3f)
 
         power_pin = 25
         fan_pin = 27
@@ -211,9 +211,9 @@ class Machine:
             self.logger.info(f'Got server message for notification query')
             return
         
-        if data['type'] == 'get_state':
+       # if data['type'] == 'get_state':
             self.started = data['state']
-        elif data['type'] == 'initialize_parameters':
+        if data['type'] == 'initialize_parameters':
             if not self.ws_initialized:
                 self.update_state(False)
                 self.ws_initialized = True

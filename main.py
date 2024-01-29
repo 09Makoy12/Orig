@@ -51,8 +51,10 @@ if __name__ == '__main__':
                 machine.lcd.clear()
                 machine.lcd.text(f'Weight: {weight:.2f} kg', 1)
                 time.sleep(0.1)
-
-                if weight >= 0.9 and weight <= 1.1:
+                
+                print(f'Weight: {weight}')
+                if weight >= 0.01 and weight <= 1.1:
+                    print('triggered')
                     machine.set_green_led(True)
                     machine.set_red_led(False)
                     if not slicer_started and not conveyor_started:
@@ -90,13 +92,14 @@ if __name__ == '__main__':
             harvested_amount = machine.get_harvest_weight()
             machine.update_parameters(harvested_amount, temperature)
             machine.update_moisture(moisture)
-
-            if harvested_amount >= 1:
+            
+            print(harvested_amount)
+            if harvested_amount >= 1000:
                 machine.activate_buzzer()
                 machine.spin_servo()
                 machine.lcd.clear()
-                machine.lcd.text('Harvest threshold reached.')
-                machine.add_harvest(harvested_amount)
+                machine.lcd.text('Harvest threshold reached.', 1)
+                machine.add_harvest(harvested_amount,temperature)
                 machine.set_state(False)
 
         if not machine.started and initialized:
