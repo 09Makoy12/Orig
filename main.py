@@ -12,6 +12,7 @@ if __name__ == '__main__':
 
     initialized = False
     actuator_ready = True
+    servo_open = False
     slicer_started = False
     conveyor_started = False
     pulverizer_started = False
@@ -57,19 +58,27 @@ if __name__ == '__main__':
                     print('triggered')
                     machine.set_green_led(True)
                     machine.set_red_led(False)
-                    if not slicer_started and not conveyor_started:
 
+                    if not slicer_started and not conveyor_started:
                         machine.activate_slicer()
                         machine.activate_conveyor()
                         slicer_started = True
                         conveyor_started = True
                     
+                    if not servo_open:
+                        machine.activate_servo()
+                        servo_open = True
+
                     machine.extend_actuator()
                     actuator_ready = False
                     actuator_last_extended = datetime.now()
                 else:
                     machine.set_green_led(False)
                     machine.set_red_led(True)
+                    
+                    if servo_open:
+                        machine.deactivate_servo()
+                        servo_open = False
 
             if not actuator_ready \
                 and datetime.now() - actuator_last_extended >= timedelta(seconds=11):

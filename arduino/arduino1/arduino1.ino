@@ -136,7 +136,12 @@ void loop() {
   }
 
   else if (current_command == 22) {
-    spinServo();
+    activateServo();
+    current_command = -1;
+  } 
+
+  else if (current_command == 23) {
+    deactivateServo();
     current_command = -1;
   } 
 
@@ -231,16 +236,12 @@ void retractActuator() {
   delay(10000);
 }
 
-void spinServo() {
-  int pos = 0;
-  for (pos = 0; pos <= 180; pos += 1) {
-    myservo.write(pos);
-    delay(15);
-  }
-  for (pos = 180; pos >= 0; pos -= 1) {
-    myservo.write(pos);
-    delay(15);
-  }
+void activateServo() {
+  myservo.write(90);
+}
+
+void deactivateServo() {
+  myservo.write(0);
 }
 
 void activateBuzzer() {

@@ -482,12 +482,21 @@ class Machine:
 
 
 
-    def spin_servo(self):
+    def activate_servo(self):
         '''
-        Explicit function for spinServo on Arduino
+        Explicit function for activateServo on Arduino
         '''
         self.arduino1.send_command(22)
-        time.sleep(6)
+        time.sleep(3)
+
+
+
+    def deactivate_servo(self):
+        '''
+        Explicit function for deactivateServo on Arduino
+        '''
+        self.arduino1.send_command(23)
+        time.sleep(3)
 
 
 
