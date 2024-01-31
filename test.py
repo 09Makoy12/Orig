@@ -9,6 +9,6 @@ if __name__ == '__main__':
     time.sleep(2)  # You may adjust the delay time based on your machine's response time
     
     # Call the deactivate_servo method
-    machine.extend_actuator()
+    machine.retract_actuator()
     
     print()

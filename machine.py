@@ -424,7 +424,8 @@ class Machine:
         '''
         self.arduino1.send_command(15)
         if wait:
-            time.sleep(10.5)
+            time.sleep(10)
+        
 
 
 
@@ -437,7 +438,7 @@ class Machine:
         '''
         self.arduino1.send_command(16)
         if wait:
-            time.sleep(10.5)
+            time.sleep(5)
 
 
 

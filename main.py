@@ -60,6 +60,7 @@ if __name__ == '__main__':
                     machine.set_red_led(False)
 
                     machine.activate_servo()
+                    time.sleep(0.1) 
                     machine.deactivate_servo()
                     if not slicer_started and not conveyor_started:
                         machine.activate_slicer()

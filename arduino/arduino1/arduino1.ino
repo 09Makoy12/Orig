@@ -223,17 +223,17 @@ void getWeight2() {
 }
 
 void extendActuator() {
-  digitalWrite(in1Pin, HIGH);
-  digitalWrite(in2Pin, LOW);
+  digitalWrite(in1Pin, LOW);
+  digitalWrite(in2Pin, HIGH);
   actuatorExtended = true;
   delay(10000);
 }
 
 void retractActuator() {
-  digitalWrite(in1Pin, LOW);
-  digitalWrite(in2Pin, HIGH);
+  digitalWrite(in1Pin, HIGH);
+  digitalWrite(in2Pin, LOW);
   actuatorExtended = false;
-  delay(10000);
+  delay(5000);
 }
 
 void activateServo() {
