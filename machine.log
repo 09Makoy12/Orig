@@ -1,0 +1,1670 @@
+2024-01-31 12:28:49,422 [INFO] - Sending command to /dev/ttyACM0: 98.
+2024-01-31 12:28:50,424 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-31 12:28:51,426 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-31 12:28:52,428 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-31 12:28:53,142 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:28:53,150 [INFO] - Got response from /dev/ttyACM0: ARDUINO1.
+2024-01-31 12:28:53,150 [INFO] - Arduino 1 set to port /dev/ttyACM0.
+2024-01-31 12:28:53,153 [INFO] - Sending command to /dev/ttyACM1: 98.
+2024-01-31 12:28:54,155 [INFO] - Got response from /dev/ttyACM1: .
+2024-01-31 12:28:55,156 [INFO] - Got response from /dev/ttyACM1: .
+2024-01-31 12:28:55,168 [INFO] - Got response from /dev/ttyACM1: ok.
+2024-01-31 12:28:55,176 [INFO] - Got response from /dev/ttyACM1: ARDUINO2.
+2024-01-31 12:28:55,176 [INFO] - Arduino 2 set to port /dev/ttyACM1.
+2024-01-31 12:28:55,176 [INFO] - Resetting arduino state.
+2024-01-31 12:28:55,176 [INFO] - Sending command to /dev/ttyACM0: 99.
+2024-01-31 12:28:55,177 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:28:55,177 [INFO] - Got response from /dev/ttyACM0: ARDUINO1.
+2024-01-31 12:28:55,186 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:28:55,194 [INFO] - Got response from /dev/ttyACM0: reset.
+2024-01-31 12:28:55,195 [INFO] - Arduino state resetted..
+2024-01-31 12:28:55,195 [INFO] - Resetting arduino state.
+2024-01-31 12:28:55,196 [INFO] - Sending command to /dev/ttyACM1: 99.
+2024-01-31 12:28:55,205 [INFO] - Got response from /dev/ttyACM1: ok.
+2024-01-31 12:28:55,213 [INFO] - Got response from /dev/ttyACM1: reset.
+2024-01-31 12:28:55,214 [INFO] - Arduino state resetted..
+2024-01-31 12:28:55,307 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-31 12:28:55,337 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-31 12:29:00,223 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-31 12:29:00,234 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-31 12:29:03,227 [INFO] - Sent data to server: {'type': 'update_fan', 'value': False}.
+2024-01-31 12:29:03,253 [INFO] - Machine initialized.
+2024-01-31 12:29:03,254 [INFO] - Got server message: {'type': 'get_fan', 'fan': True}.
+2024-01-31 12:29:23,667 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-31 12:29:23,667 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-31 12:29:23,695 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-31 12:29:23,700 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-31 12:29:23,703 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-31 12:29:23,836 [INFO] - Sent data to server: {'type': 'update_state', 'state': False}.
+2024-01-31 12:29:23,837 [INFO] - GPIO trigger, machine power state switched to False.
+2024-01-31 12:29:23,838 [INFO] - Sent data to server: {'type': 'update_state', 'state': True}.
+2024-01-31 12:29:23,838 [INFO] - GPIO trigger, machine power state switched to True.
+2024-01-31 12:29:23,878 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-31 12:29:23,919 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-31 12:29:23,924 [INFO] - Got server message: {'type': 'get_state', 'state': False}.
+2024-01-31 12:29:23,930 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:00', 'harvested': 0.0, 'temperature': 0.0}.
+2024-01-31 12:29:23,937 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': 0.0}.
+2024-01-31 12:29:23,942 [INFO] - Got server message: {'type': 'get_state', 'state': True}.
+2024-01-31 12:29:25,840 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:29:25,852 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:25,856 [INFO] - Got response from /dev/ttyACM0: 30.50.
+2024-01-31 12:29:25,856 [INFO] - Got temperature: 30.5.
+2024-01-31 12:29:25,856 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:29:25,868 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:25,872 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:29:25,872 [INFO] - Got moisture: -103.0.
+2024-01-31 12:29:27,029 [INFO] - Sending command to /dev/ttyACM0: 17.
+2024-01-31 12:29:27,040 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:27,040 [INFO] - Fan LED switched to True.
+2024-01-31 12:29:27,041 [INFO] - Sent data to server: {'type': 'update_fan', 'value': True}.
+2024-01-31 12:29:27,041 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:29:27,052 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:27,053 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:29:27,064 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:27,079 [INFO] - Got server message: {'type': 'get_fan', 'fan': True}.
+2024-01-31 12:29:28,006 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:29:28,007 [INFO] - Got weight: 0.0.
+2024-01-31 12:29:28,187 [INFO] - Green LED switched to False.
+2024-01-31 12:29:28,187 [INFO] - Red LED switched to True.
+2024-01-31 12:29:28,187 [INFO] - Sending command to /dev/ttyACM1: 6.
+2024-01-31 12:29:28,197 [INFO] - Got response from /dev/ttyACM1: ok.
+2024-01-31 12:29:28,198 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:29:28,207 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:28,908 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:29:28,908 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:29:28,909 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:29:28,909 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:29:28,910 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:29:28,920 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:28,928 [INFO] - Got response from /dev/ttyACM0: 30.50.
+2024-01-31 12:29:28,929 [INFO] - Got temperature: 30.5.
+2024-01-31 12:29:28,929 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:29:28,937 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:05', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:29:28,941 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:28,945 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:29:28,945 [INFO] - Got moisture: -104.0.
+2024-01-31 12:29:28,965 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:29:30,137 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:29:30,149 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:30,149 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:29:30,157 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:31,046 [INFO] - Got response from /dev/ttyACM0: 0.03.
+2024-01-31 12:29:31,047 [INFO] - Got weight: 0.03.
+2024-01-31 12:29:31,227 [INFO] - Green LED switched to True.
+2024-01-31 12:29:31,228 [INFO] - Red LED switched to False.
+2024-01-31 12:29:31,228 [INFO] - Sending command to /dev/ttyACM1: 2.
+2024-01-31 12:29:31,237 [INFO] - Got response from /dev/ttyACM1: ok.
+2024-01-31 12:29:31,238 [INFO] - Sending command to /dev/ttyACM1: 0.
+2024-01-31 12:29:31,246 [INFO] - Got response from /dev/ttyACM1: ok.
+2024-01-31 12:29:31,246 [INFO] - Sending command to /dev/ttyACM0: 22.
+2024-01-31 12:29:31,256 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:34,259 [INFO] - Sending command to /dev/ttyACM0: 15.
+2024-01-31 12:29:34,271 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:44,779 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:29:44,787 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:45,590 [INFO] - Got response from /dev/ttyACM0: 61.03.
+2024-01-31 12:29:45,590 [INFO] - Got harvest weight: 61.03.
+2024-01-31 12:29:45,591 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 61.03, 'temperature': 30.5}.
+2024-01-31 12:29:45,591 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:29:45,592 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:29:45,602 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:45,611 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:29:45,611 [INFO] - Got temperature: 30.75.
+2024-01-31 12:29:45,612 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:29:45,620 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:21', 'harvested': 61.03, 'temperature': 30.5}.
+2024-01-31 12:29:45,623 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:45,627 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:29:45,628 [INFO] - Got moisture: -103.0.
+2024-01-31 12:29:45,653 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:29:46,808 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:29:46,819 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:46,819 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:29:46,831 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:47,532 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:29:47,532 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:29:47,533 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:29:47,533 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:29:47,534 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:29:47,544 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:47,552 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:29:47,553 [INFO] - Got temperature: 30.75.
+2024-01-31 12:29:47,553 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:29:47,560 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:23', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:29:47,564 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:47,569 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:29:47,569 [INFO] - Got moisture: -104.0.
+2024-01-31 12:29:47,588 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:29:48,752 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:29:48,761 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:48,761 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:29:48,773 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:49,592 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:29:49,592 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:29:49,593 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:29:49,594 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:29:49,594 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:29:49,605 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:49,608 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:25', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:29:49,615 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:29:49,616 [INFO] - Got temperature: 31.0.
+2024-01-31 12:29:49,616 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:29:49,625 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:49,633 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:29:49,634 [INFO] - Got moisture: -104.0.
+2024-01-31 12:29:49,642 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:29:50,840 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:29:50,850 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:50,850 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:29:50,858 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:51,653 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:29:51,653 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:29:51,654 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:29:51,654 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:29:51,655 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:29:51,665 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:51,673 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:29:51,674 [INFO] - Got temperature: 30.75.
+2024-01-31 12:29:51,675 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:29:51,682 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:27', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:29:51,687 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:51,690 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:29:51,690 [INFO] - Got moisture: -103.0.
+2024-01-31 12:29:51,703 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:29:52,870 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:29:52,878 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:52,878 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:29:52,890 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:53,709 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:29:53,710 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:29:53,710 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:29:53,711 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:29:53,712 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:29:53,722 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:53,730 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:29:53,731 [INFO] - Got temperature: 30.75.
+2024-01-31 12:29:53,731 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:29:53,742 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:53,744 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:29', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:29:53,746 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:29:53,747 [INFO] - Got moisture: -104.0.
+2024-01-31 12:29:53,781 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:29:54,927 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:29:54,939 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:54,940 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:29:54,951 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:55,676 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:29:55,677 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:29:55,678 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:29:55,679 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:29:55,680 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:29:55,692 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:55,697 [INFO] - Got response from /dev/ttyACM0: 30.50.
+2024-01-31 12:29:55,698 [INFO] - Got temperature: 30.5.
+2024-01-31 12:29:55,698 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:29:55,709 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:55,711 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:31', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:29:55,717 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:29:55,718 [INFO] - Got moisture: -104.0.
+2024-01-31 12:29:55,758 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:29:56,920 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:29:56,929 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:29:56,930 [INFO] - Sending command to /dev/ttyACM0: 16.
+2024-01-31 12:29:56,938 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:07,447 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:07,458 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:08,219 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:08,220 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:08,221 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:30:08,223 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:08,224 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:08,236 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:08,241 [INFO] - Got response from /dev/ttyACM0: 30.50.
+2024-01-31 12:30:08,241 [INFO] - Got temperature: 30.5.
+2024-01-31 12:30:08,242 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:08,253 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:08,261 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:30:08,262 [INFO] - Got moisture: -104.0.
+2024-01-31 12:30:08,283 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:44', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:30:08,321 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:09,457 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:09,469 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:09,469 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:09,481 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:10,182 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:10,182 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:10,182 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:30:10,183 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:10,183 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:10,194 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:10,197 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:46', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:30:10,203 [INFO] - Got response from /dev/ttyACM0: 30.50.
+2024-01-31 12:30:10,203 [INFO] - Got temperature: 30.5.
+2024-01-31 12:30:10,204 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:10,215 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:10,217 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:10,219 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:30:10,219 [INFO] - Got moisture: -103.0.
+2024-01-31 12:30:11,404 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:11,415 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:11,415 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:11,427 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:12,336 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:12,337 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:12,337 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:30:12,338 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:12,338 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:12,349 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:12,354 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:48', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:30:12,358 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:30:12,358 [INFO] - Got temperature: 30.75.
+2024-01-31 12:30:12,358 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:12,369 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:12,374 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:30:12,374 [INFO] - Got moisture: -104.0.
+2024-01-31 12:30:12,386 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:13,551 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:13,561 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:13,562 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:13,573 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:14,308 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:14,308 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:14,313 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:14,315 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:14,316 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:14,328 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:14,336 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:30:14,336 [INFO] - Got temperature: 31.0.
+2024-01-31 12:30:14,337 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:14,348 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:14,352 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:50', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:14,353 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:30:14,353 [INFO] - Got moisture: -104.0.
+2024-01-31 12:30:14,384 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:15,542 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:15,552 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:15,552 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:15,560 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:16,453 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:16,454 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:16,454 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:30:16,455 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:16,455 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:16,466 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:16,474 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:30:16,474 [INFO] - Got temperature: 30.75.
+2024-01-31 12:30:16,475 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:16,486 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:16,489 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:52', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:30:16,490 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:30:16,491 [INFO] - Got moisture: -104.0.
+2024-01-31 12:30:16,510 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:17,667 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:17,678 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:17,678 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:17,686 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:18,420 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:18,420 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:18,421 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:18,421 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:18,422 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:18,432 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:18,440 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:30:18,444 [INFO] - Got temperature: 31.25.
+2024-01-31 12:30:18,444 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:18,453 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:18,454 [INFO] - Got server message: {'type': 'get_parameter', 'time': '00:54', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:18,463 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:30:18,463 [INFO] - Got moisture: -103.0.
+2024-01-31 12:30:18,471 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:19,637 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:19,649 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:19,649 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:30:19,661 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:20,558 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:20,558 [INFO] - Got weight: 0.0.
+2024-01-31 12:30:20,738 [INFO] - Green LED switched to False.
+2024-01-31 12:30:20,739 [INFO] - Red LED switched to True.
+2024-01-31 12:30:20,739 [INFO] - Sending command to /dev/ttyACM0: 23.
+2024-01-31 12:30:20,751 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:23,754 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:23,765 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:24,597 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:24,597 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:24,598 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:30:24,599 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:24,599 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:24,610 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:24,618 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:30:24,618 [INFO] - Got temperature: 30.75.
+2024-01-31 12:30:24,619 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:24,626 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:00', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:30:24,631 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:24,634 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:30:24,635 [INFO] - Got moisture: -104.0.
+2024-01-31 12:30:24,656 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:25,853 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:25,863 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:25,863 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:30:25,875 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:26,830 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:26,830 [INFO] - Got weight: 0.0.
+2024-01-31 12:30:27,010 [INFO] - Green LED switched to False.
+2024-01-31 12:30:27,011 [INFO] - Red LED switched to True.
+2024-01-31 12:30:27,011 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:27,022 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:27,780 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:27,780 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:27,781 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:27,781 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:27,782 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:27,793 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:27,801 [INFO] - Got response from /dev/ttyACM0: 30.50.
+2024-01-31 12:30:27,801 [INFO] - Got temperature: 30.5.
+2024-01-31 12:30:27,802 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:27,813 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:27,815 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:03', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:27,817 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:30:27,818 [INFO] - Got moisture: -103.0.
+2024-01-31 12:30:27,863 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:29,003 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:29,013 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:29,013 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:30:29,021 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:29,968 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:29,968 [INFO] - Got weight: 0.0.
+2024-01-31 12:30:30,182 [INFO] - Green LED switched to False.
+2024-01-31 12:30:30,183 [INFO] - Red LED switched to True.
+2024-01-31 12:30:30,183 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:30,193 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:30,873 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:30,873 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:30,874 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:30:30,875 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:30,875 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:30,885 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:30,894 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:30:30,894 [INFO] - Got temperature: 30.75.
+2024-01-31 12:30:30,894 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:30,903 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:06', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:30:30,906 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:30,910 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:30:30,911 [INFO] - Got moisture: -103.0.
+2024-01-31 12:30:30,937 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:32,088 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:32,098 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:32,098 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:30:32,106 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:33,007 [INFO] - Got response from /dev/ttyACM0: 0.03.
+2024-01-31 12:30:33,007 [INFO] - Got weight: 0.03.
+2024-01-31 12:30:33,188 [INFO] - Green LED switched to True.
+2024-01-31 12:30:33,188 [INFO] - Red LED switched to False.
+2024-01-31 12:30:33,188 [INFO] - Sending command to /dev/ttyACM0: 22.
+2024-01-31 12:30:33,200 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:36,203 [INFO] - Sending command to /dev/ttyACM0: 15.
+2024-01-31 12:30:36,215 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:46,719 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:46,730 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:47,627 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:47,628 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:47,629 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:47,631 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:47,631 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:47,644 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:47,648 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:30:47,649 [INFO] - Got temperature: 31.0.
+2024-01-31 12:30:47,650 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:47,661 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:47,669 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:30:47,669 [INFO] - Got moisture: -104.0.
+2024-01-31 12:30:47,690 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:23', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:47,715 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:48,860 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:48,869 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:48,869 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:48,881 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:49,794 [INFO] - Got response from /dev/ttyACM0: 61.03.
+2024-01-31 12:30:49,794 [INFO] - Got harvest weight: 61.03.
+2024-01-31 12:30:49,795 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 61.03, 'temperature': 31.0}.
+2024-01-31 12:30:49,796 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:49,796 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:49,807 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:49,815 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:30:49,816 [INFO] - Got temperature: 30.75.
+2024-01-31 12:30:49,816 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:49,825 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:25', 'harvested': 61.03, 'temperature': 31.0}.
+2024-01-31 12:30:49,827 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:49,831 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:30:49,832 [INFO] - Got moisture: -104.0.
+2024-01-31 12:30:49,869 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:51,007 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:51,019 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:51,019 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:51,027 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:51,924 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:51,925 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:51,925 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:51,926 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:51,926 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:51,937 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:51,945 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:30:51,945 [INFO] - Got temperature: 30.75.
+2024-01-31 12:30:51,946 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:51,952 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:28', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:51,963 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:51,964 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:30:51,964 [INFO] - Got moisture: -103.0.
+2024-01-31 12:30:51,975 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:30:53,140 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:53,150 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:53,151 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:53,161 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:53,608 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:53,609 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:53,610 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:53,611 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:53,612 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:53,624 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:53,629 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:30:53,629 [INFO] - Got temperature: 30.75.
+2024-01-31 12:30:53,629 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:53,635 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:29', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:53,641 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:53,645 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:30:53,646 [INFO] - Got moisture: -103.0.
+2024-01-31 12:30:53,680 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:54,838 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:54,849 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:54,849 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:54,857 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:55,668 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:55,669 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:55,669 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:55,670 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:55,670 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:55,681 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:55,688 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:31', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:30:55,689 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:30:55,690 [INFO] - Got temperature: 31.25.
+2024-01-31 12:30:55,690 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:55,701 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:55,705 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:30:55,706 [INFO] - Got moisture: -103.0.
+2024-01-31 12:30:55,712 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:56,884 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:56,893 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:56,893 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:30:56,901 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:57,823 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:30:57,823 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:30:57,824 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:30:57,824 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:57,825 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:30:57,835 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:57,843 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:30:57,844 [INFO] - Got temperature: 30.75.
+2024-01-31 12:30:57,844 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:30:57,856 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:57,860 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:30:57,861 [INFO] - Got moisture: -104.0.
+2024-01-31 12:30:57,865 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:33', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:30:57,886 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:30:59,044 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:30:59,052 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:30:59,052 [INFO] - Sending command to /dev/ttyACM0: 16.
+2024-01-31 12:30:59,060 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:09,571 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:09,579 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:10,456 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:10,456 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:10,457 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:31:10,457 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:10,458 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:10,468 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:10,477 [INFO] - Got response from /dev/ttyACM0: 30.50.
+2024-01-31 12:31:10,477 [INFO] - Got temperature: 30.5.
+2024-01-31 12:31:10,478 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:10,485 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:46', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:31:10,489 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:10,493 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:31:10,493 [INFO] - Got moisture: -103.0.
+2024-01-31 12:31:10,511 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:11,667 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:11,677 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:11,678 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:11,689 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:12,516 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:12,517 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:12,517 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:31:12,518 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:31:12,518 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:12,529 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:12,537 [INFO] - Got response from /dev/ttyACM0: 30.50.
+2024-01-31 12:31:12,538 [INFO] - Got temperature: 30.5.
+2024-01-31 12:31:12,538 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:12,549 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:48', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:31:12,550 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:12,554 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:12,554 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:12,582 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:31:13,739 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:13,749 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:13,750 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:13,758 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:14,573 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:14,573 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:14,574 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:31:14,574 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:14,575 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:14,585 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:14,587 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:50', 'harvested': 0.0, 'temperature': 30.5}.
+2024-01-31 12:31:14,593 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:31:14,594 [INFO] - Got temperature: 30.75.
+2024-01-31 12:31:14,595 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:14,606 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:14,610 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:14,611 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:14,623 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:15,793 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:15,802 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:15,802 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:15,814 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:16,633 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:16,634 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:16,634 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:31:16,635 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:16,635 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:16,646 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:16,654 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:31:16,655 [INFO] - Got temperature: 31.0.
+2024-01-31 12:31:16,655 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:16,666 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:16,667 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:52', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:31:16,676 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:16,676 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:16,690 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:17,863 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:17,874 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:17,875 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:17,882 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:18,788 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:18,788 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:18,789 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:18,789 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:18,790 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:18,800 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:18,808 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:31:18,809 [INFO] - Got temperature: 31.0.
+2024-01-31 12:31:18,810 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:18,817 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:54', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:18,821 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:18,825 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:18,825 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:18,832 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:20,010 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:20,021 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:20,021 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:20,029 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:20,844 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:20,844 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:20,845 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:20,846 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:20,846 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:20,857 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:20,861 [INFO] - Got server message: {'type': 'get_parameter', 'time': '01:56', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:20,867 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:31:20,868 [INFO] - Got temperature: 31.0.
+2024-01-31 12:31:20,868 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:20,877 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:20,885 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:20,885 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:20,886 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:22,059 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:22,069 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:22,070 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:31:22,081 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:22,990 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:22,991 [INFO] - Got weight: 0.0.
+2024-01-31 12:31:23,171 [INFO] - Green LED switched to False.
+2024-01-31 12:31:23,171 [INFO] - Red LED switched to True.
+2024-01-31 12:31:23,171 [INFO] - Sending command to /dev/ttyACM0: 23.
+2024-01-31 12:31:23,183 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:26,184 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:26,194 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:27,021 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:27,021 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:27,022 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:27,023 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:27,023 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:27,034 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:27,037 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:03', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:27,045 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:31:27,045 [INFO] - Got temperature: 30.75.
+2024-01-31 12:31:27,046 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:27,054 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:27,055 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:27,062 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:31:27,063 [INFO] - Got moisture: -103.0.
+2024-01-31 12:31:28,285 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:28,295 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:28,295 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:31:28,303 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:29,262 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:29,262 [INFO] - Got weight: 0.0.
+2024-01-31 12:31:29,444 [INFO] - Green LED switched to False.
+2024-01-31 12:31:29,444 [INFO] - Red LED switched to True.
+2024-01-31 12:31:29,444 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:29,454 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:30,298 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:30,298 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:30,299 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:31:30,300 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:31:30,300 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:30,311 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:30,319 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:31:30,320 [INFO] - Got temperature: 31.0.
+2024-01-31 12:31:30,320 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:30,329 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:06', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:31:30,331 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:30,335 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:30,336 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:30,362 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:31:31,514 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:31,523 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:31,523 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:31:31,535 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:32,490 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:32,490 [INFO] - Got weight: 0.0.
+2024-01-31 12:31:32,676 [INFO] - Green LED switched to False.
+2024-01-31 12:31:32,677 [INFO] - Red LED switched to True.
+2024-01-31 12:31:32,678 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:32,687 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:33,571 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:33,571 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:33,572 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:33,573 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:33,573 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:33,585 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:33,592 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:31:33,592 [INFO] - Got temperature: 31.25.
+2024-01-31 12:31:33,593 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:33,604 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:33,605 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:09', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:33,608 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:33,609 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:33,645 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:34,787 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:34,796 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:34,796 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:31:34,804 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:35,722 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:35,722 [INFO] - Got weight: 0.0.
+2024-01-31 12:31:35,903 [INFO] - Green LED switched to False.
+2024-01-31 12:31:35,903 [INFO] - Red LED switched to True.
+2024-01-31 12:31:35,904 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:35,914 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:36,848 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:36,848 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:36,849 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:31:36,849 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:36,850 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:36,860 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:36,869 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:31:36,869 [INFO] - Got temperature: 30.75.
+2024-01-31 12:31:36,870 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:36,879 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:12', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:31:36,881 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:36,885 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:36,886 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:36,896 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:38,064 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:38,073 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:38,073 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:31:38,085 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:38,953 [INFO] - Got response from /dev/ttyACM0: 0.01.
+2024-01-31 12:31:38,954 [INFO] - Got weight: 0.01.
+2024-01-31 12:31:39,134 [INFO] - Green LED switched to True.
+2024-01-31 12:31:39,134 [INFO] - Red LED switched to False.
+2024-01-31 12:31:39,134 [INFO] - Sending command to /dev/ttyACM0: 22.
+2024-01-31 12:31:39,146 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:42,150 [INFO] - Sending command to /dev/ttyACM0: 15.
+2024-01-31 12:31:42,161 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:52,671 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:52,680 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:53,413 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:53,414 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:53,414 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:31:53,416 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:53,416 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:53,426 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:53,434 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:31:53,435 [INFO] - Got temperature: 31.0.
+2024-01-31 12:31:53,435 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:53,446 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:53,451 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:53,451 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:53,458 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:29', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:31:53,480 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:54,629 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:54,638 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:54,638 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:54,650 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:55,379 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:55,379 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:55,380 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:55,380 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:55,380 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:55,392 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:55,396 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:31:55,396 [INFO] - Got temperature: 31.25.
+2024-01-31 12:31:55,397 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:55,408 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:55,410 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:31', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:31:55,412 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:55,413 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:55,434 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:56,592 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:56,600 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:56,600 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:56,612 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:57,435 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:57,436 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:57,436 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:31:57,437 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:57,437 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:57,449 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:57,456 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:31:57,456 [INFO] - Got temperature: 31.25.
+2024-01-31 12:31:57,457 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:57,468 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:57,473 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:57,473 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:57,477 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:33', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:31:57,510 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:58,652 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:31:58,664 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:58,665 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:31:58,677 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:59,504 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:31:59,505 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:31:59,506 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:31:59,507 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:31:59,508 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:31:59,517 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:59,525 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:31:59,525 [INFO] - Got temperature: 31.0.
+2024-01-31 12:31:59,526 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:31:59,529 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:35', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:31:59,537 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:31:59,541 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:31:59,542 [INFO] - Got moisture: -104.0.
+2024-01-31 12:31:59,557 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:00,734 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:00,745 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:00,745 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:00,753 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:01,755 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-31 12:32:01,855 [INFO] - Got response from /dev/ttyACM0: 61.03.
+2024-01-31 12:32:01,855 [INFO] - Got harvest weight: 61.03.
+2024-01-31 12:32:01,856 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 61.03, 'temperature': 31.0}.
+2024-01-31 12:32:01,856 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:01,857 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:01,867 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:01,876 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:32:01,876 [INFO] - Got temperature: 30.75.
+2024-01-31 12:32:01,877 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:01,888 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:37', 'harvested': 61.03, 'temperature': 31.0}.
+2024-01-31 12:32:01,889 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:01,892 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:32:01,893 [INFO] - Got moisture: -104.0.
+2024-01-31 12:32:01,909 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:03,079 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:03,088 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:03,088 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:03,096 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:03,801 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:03,801 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:03,801 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:03,802 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:03,802 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:03,813 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:03,821 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:32:03,822 [INFO] - Got temperature: 30.75.
+2024-01-31 12:32:03,822 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:03,832 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:39', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:03,834 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:03,838 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:32:03,838 [INFO] - Got moisture: -104.0.
+2024-01-31 12:32:03,851 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:05,012 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:05,022 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:05,022 [INFO] - Sending command to /dev/ttyACM0: 16.
+2024-01-31 12:32:05,034 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:15,545 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:15,557 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:16,458 [INFO] - Got response from /dev/ttyACM0: 61.03.
+2024-01-31 12:32:16,458 [INFO] - Got harvest weight: 61.03.
+2024-01-31 12:32:16,458 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 61.03, 'temperature': 30.75}.
+2024-01-31 12:32:16,459 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:16,460 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:16,470 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:16,479 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:32:16,480 [INFO] - Got temperature: 31.25.
+2024-01-31 12:32:16,480 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:16,487 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:52', 'harvested': 61.03, 'temperature': 30.75}.
+2024-01-31 12:32:16,491 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:16,499 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:32:16,499 [INFO] - Got moisture: -104.0.
+2024-01-31 12:32:16,504 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:17,676 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:17,687 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:17,687 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:17,699 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:18,399 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:18,400 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:18,400 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:18,401 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:18,401 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:18,412 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:18,420 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:32:18,420 [INFO] - Got temperature: 31.25.
+2024-01-31 12:32:18,421 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:18,429 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:54', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:18,432 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:18,436 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:32:18,437 [INFO] - Got moisture: -104.0.
+2024-01-31 12:32:18,449 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:19,624 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:19,632 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:19,633 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:19,640 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:20,460 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:20,460 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:20,460 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:20,461 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:20,461 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:20,472 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:20,474 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:56', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:20,480 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:32:20,481 [INFO] - Got temperature: 31.25.
+2024-01-31 12:32:20,481 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:20,493 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:20,495 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:20,497 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:32:20,497 [INFO] - Got moisture: -104.0.
+2024-01-31 12:32:21,698 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:21,709 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:21,709 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:21,717 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:22,331 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:22,332 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:22,332 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:22,333 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:22,333 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:22,344 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:22,351 [INFO] - Got server message: {'type': 'get_parameter', 'time': '02:58', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:22,352 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:32:22,353 [INFO] - Got temperature: 30.75.
+2024-01-31 12:32:22,353 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:22,364 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:22,369 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:22,370 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:32:22,371 [INFO] - Got moisture: -104.0.
+2024-01-31 12:32:23,549 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:23,560 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:23,561 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:23,569 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:24,396 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:24,396 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:24,397 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:24,397 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:24,398 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:24,408 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:24,417 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:32:24,417 [INFO] - Got temperature: 31.25.
+2024-01-31 12:32:24,418 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:24,425 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:00', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:24,431 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:24,433 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:32:24,434 [INFO] - Got moisture: -104.0.
+2024-01-31 12:32:24,450 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:25,612 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:25,621 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:25,621 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:25,629 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:26,354 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:26,355 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:26,356 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:26,357 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:26,358 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:26,367 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:26,375 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:32:26,376 [INFO] - Got temperature: 31.25.
+2024-01-31 12:32:26,376 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:26,387 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:26,391 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:32:26,392 [INFO] - Got moisture: -104.0.
+2024-01-31 12:32:26,406 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:02', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:26,438 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:27,595 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:27,603 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:27,604 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:32:27,615 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:28,554 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:28,554 [INFO] - Got weight: 0.0.
+2024-01-31 12:32:28,735 [INFO] - Green LED switched to False.
+2024-01-31 12:32:28,735 [INFO] - Red LED switched to True.
+2024-01-31 12:32:28,736 [INFO] - Sending command to /dev/ttyACM0: 23.
+2024-01-31 12:32:28,746 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:31,750 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:31,761 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:32,437 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:32,437 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:32,438 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:32,438 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:32,439 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:32,449 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:32,454 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:08', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:32,457 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:32:32,458 [INFO] - Got temperature: 30.75.
+2024-01-31 12:32:32,458 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:32,470 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:32,475 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:32:32,476 [INFO] - Got moisture: -103.0.
+2024-01-31 12:32:32,478 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:33,658 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:33,669 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:33,670 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:32:33,678 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:34,636 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:34,636 [INFO] - Got weight: 0.0.
+2024-01-31 12:32:34,817 [INFO] - Green LED switched to False.
+2024-01-31 12:32:34,817 [INFO] - Red LED switched to True.
+2024-01-31 12:32:34,817 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:34,829 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:35,525 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:35,525 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:35,526 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:35,526 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:35,527 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:35,537 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:35,546 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:32:35,546 [INFO] - Got temperature: 31.25.
+2024-01-31 12:32:35,546 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:35,558 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:35,562 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:32:35,563 [INFO] - Got moisture: -103.0.
+2024-01-31 12:32:35,564 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:11', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:35,607 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:36,740 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:36,750 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:36,750 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:32:36,758 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:37,675 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:37,676 [INFO] - Got weight: 0.0.
+2024-01-31 12:32:37,856 [INFO] - Green LED switched to False.
+2024-01-31 12:32:37,856 [INFO] - Red LED switched to True.
+2024-01-31 12:32:37,856 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:37,868 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:38,614 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:38,614 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:38,615 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:38,615 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:38,616 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:38,626 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:38,634 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:32:38,635 [INFO] - Got temperature: 30.75.
+2024-01-31 12:32:38,635 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:38,646 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:14', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:38,647 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:38,651 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:32:38,652 [INFO] - Got moisture: -104.0.
+2024-01-31 12:32:38,673 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:39,830 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:39,842 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:39,842 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:32:39,850 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:40,809 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:40,809 [INFO] - Got weight: 0.0.
+2024-01-31 12:32:40,989 [INFO] - Green LED switched to False.
+2024-01-31 12:32:40,990 [INFO] - Red LED switched to True.
+2024-01-31 12:32:40,990 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:41,002 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:41,894 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:41,895 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:41,895 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:41,896 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:41,896 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:41,907 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:41,915 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:32:41,917 [INFO] - Got temperature: 31.25.
+2024-01-31 12:32:41,918 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:41,927 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:41,932 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:18', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:41,936 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:32:41,936 [INFO] - Got moisture: -103.0.
+2024-01-31 12:32:41,983 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:32:43,113 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:43,123 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:43,124 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:32:43,136 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:44,041 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:44,041 [INFO] - Got weight: 0.0.
+2024-01-31 12:32:44,221 [INFO] - Green LED switched to False.
+2024-01-31 12:32:44,221 [INFO] - Red LED switched to True.
+2024-01-31 12:32:44,221 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:44,229 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:45,069 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:45,069 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:45,070 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:45,070 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:45,071 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:45,081 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:45,090 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:32:45,090 [INFO] - Got temperature: 30.75.
+2024-01-31 12:32:45,091 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:45,098 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:21', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:32:45,102 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:45,106 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:32:45,106 [INFO] - Got moisture: -103.0.
+2024-01-31 12:32:45,130 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:46,298 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:46,310 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:46,310 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:32:46,318 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:47,272 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:47,273 [INFO] - Got weight: 0.0.
+2024-01-31 12:32:47,453 [INFO] - Green LED switched to False.
+2024-01-31 12:32:47,453 [INFO] - Red LED switched to True.
+2024-01-31 12:32:47,453 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:47,465 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:48,063 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:48,064 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:48,065 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:48,066 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:48,067 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:48,076 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:48,084 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:32:48,085 [INFO] - Got temperature: 31.0.
+2024-01-31 12:32:48,086 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:48,096 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:48,101 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:32:48,102 [INFO] - Got moisture: -103.0.
+2024-01-31 12:32:48,116 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:24', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:32:48,141 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:49,311 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:49,321 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:49,321 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:32:49,329 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:50,218 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:50,218 [INFO] - Got weight: 0.0.
+2024-01-31 12:32:50,398 [INFO] - Green LED switched to False.
+2024-01-31 12:32:50,398 [INFO] - Red LED switched to True.
+2024-01-31 12:32:50,398 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:32:50,410 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:51,246 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:32:51,246 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:32:51,247 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:32:51,247 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:51,248 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:32:51,258 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:51,266 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:32:51,267 [INFO] - Got temperature: 31.25.
+2024-01-31 12:32:51,268 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:32:51,278 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:27', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:32:51,279 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:51,283 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:32:51,283 [INFO] - Got moisture: -103.0.
+2024-01-31 12:32:51,294 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:32:52,458 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:32:52,467 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:52,467 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:32:52,479 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:53,351 [INFO] - Got response from /dev/ttyACM0: 0.03.
+2024-01-31 12:32:53,352 [INFO] - Got weight: 0.03.
+2024-01-31 12:32:53,575 [INFO] - Green LED switched to True.
+2024-01-31 12:32:53,575 [INFO] - Red LED switched to False.
+2024-01-31 12:32:53,575 [INFO] - Sending command to /dev/ttyACM0: 22.
+2024-01-31 12:32:53,585 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:32:56,588 [INFO] - Sending command to /dev/ttyACM0: 15.
+2024-01-31 12:32:56,599 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:07,110 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:07,122 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:07,904 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:07,904 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:07,905 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:07,906 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:07,906 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:07,917 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:07,925 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:33:07,925 [INFO] - Got temperature: 30.75.
+2024-01-31 12:33:07,926 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:07,937 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:07,941 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:33:07,942 [INFO] - Got moisture: -103.0.
+2024-01-31 12:33:07,944 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:44', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:07,979 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:09,121 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:09,133 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:09,134 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:09,145 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:09,965 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:09,965 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:09,966 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:09,968 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:09,968 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:09,977 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:09,986 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:33:09,986 [INFO] - Got temperature: 30.75.
+2024-01-31 12:33:09,987 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:09,998 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:10,006 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:10,007 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:10,013 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:46', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:10,055 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:11,196 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:11,206 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:11,206 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:11,214 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:11,927 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:11,927 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:11,927 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:11,928 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:11,928 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:11,939 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:11,944 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:48', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:11,948 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:33:11,949 [INFO] - Got temperature: 31.25.
+2024-01-31 12:33:11,949 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:11,959 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:11,964 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:11,964 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:11,979 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:13,141 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:13,151 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:13,152 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:13,159 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:13,987 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:13,987 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:13,988 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:13,989 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:13,989 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:13,999 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:14,008 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:33:14,008 [INFO] - Got temperature: 30.75.
+2024-01-31 12:33:14,008 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:14,020 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:14,021 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:50', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:14,024 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:33:14,024 [INFO] - Got moisture: -103.0.
+2024-01-31 12:33:14,042 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:15,210 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:15,220 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:15,221 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:15,232 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:16,047 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:16,048 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:16,049 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:16,050 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:16,050 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:16,060 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:16,068 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:33:16,069 [INFO] - Got temperature: 30.75.
+2024-01-31 12:33:16,069 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:16,080 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:16,085 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:16,085 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:16,105 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:52', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:16,164 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:17,297 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:17,309 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:17,309 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:17,317 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:18,103 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:18,104 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:18,104 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:18,105 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:18,105 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:18,116 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:18,120 [INFO] - Got server message: {'type': 'get_parameter', 'time': '03:54', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:18,124 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:33:18,125 [INFO] - Got temperature: 31.0.
+2024-01-31 12:33:18,125 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:18,136 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:18,140 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:33:18,141 [INFO] - Got moisture: -103.0.
+2024-01-31 12:33:18,153 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:19,323 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:19,332 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:19,332 [INFO] - Sending command to /dev/ttyACM0: 16.
+2024-01-31 12:33:19,340 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:29,849 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:29,859 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:30,735 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:30,736 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:30,736 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:33:30,737 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:30,737 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:30,748 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:30,756 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:33:30,757 [INFO] - Got temperature: 31.25.
+2024-01-31 12:33:30,757 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:30,763 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:06', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:33:30,768 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:30,773 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:30,773 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:30,794 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:31,947 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:31,956 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:31,957 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:31,968 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:32,890 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:32,890 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:32,891 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:32,891 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:32,892 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:32,902 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:32,910 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:33:32,911 [INFO] - Got temperature: 31.0.
+2024-01-31 12:33:32,911 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:32,923 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:32,926 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:09', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:32,927 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:32,928 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:32,968 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:34,104 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:34,115 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:34,115 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:34,123 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:34,860 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:34,860 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:34,861 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:33:34,861 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:34,862 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:34,872 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:34,881 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:33:34,881 [INFO] - Got temperature: 31.0.
+2024-01-31 12:33:34,882 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:34,890 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:10', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:33:34,893 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:34,897 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:34,898 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:34,913 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:36,071 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:36,081 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:36,081 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:36,089 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:36,822 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:36,823 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:36,824 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:33:36,825 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:36,825 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:36,835 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:36,843 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:12', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:33:36,844 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:33:36,844 [INFO] - Got temperature: 30.75.
+2024-01-31 12:33:36,844 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:36,855 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:36,859 [INFO] - Got response from /dev/ttyACM0: -103.
+2024-01-31 12:33:36,860 [INFO] - Got moisture: -103.0.
+2024-01-31 12:33:36,867 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:38,038 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:38,047 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:38,047 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:38,055 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:38,784 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:38,784 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:38,785 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:38,786 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:38,786 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:38,796 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:38,805 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:33:38,806 [INFO] - Got temperature: 31.25.
+2024-01-31 12:33:38,806 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:38,817 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:38,820 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:14', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:38,821 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:38,822 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:38,868 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -103.0}.
+2024-01-31 12:33:40,024 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:40,033 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:40,034 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:40,042 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:40,844 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:40,845 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:40,845 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:40,846 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:40,846 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:40,857 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:40,865 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:33:40,866 [INFO] - Got temperature: 31.25.
+2024-01-31 12:33:40,866 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:40,876 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:16', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:40,877 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:40,881 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:40,882 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:40,914 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:42,075 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:42,085 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:42,086 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:33:42,094 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:43,048 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:43,048 [INFO] - Got weight: 0.0.
+2024-01-31 12:33:43,229 [INFO] - Green LED switched to False.
+2024-01-31 12:33:43,229 [INFO] - Red LED switched to True.
+2024-01-31 12:33:43,229 [INFO] - Sending command to /dev/ttyACM0: 23.
+2024-01-31 12:33:43,241 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:46,244 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:46,255 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:46,927 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:46,927 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:46,928 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:46,928 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:46,929 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:46,939 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:46,942 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:23', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:46,947 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:33:46,948 [INFO] - Got temperature: 31.0.
+2024-01-31 12:33:46,948 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:46,960 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:46,963 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:46,964 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:46,964 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:48,137 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:48,147 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:48,148 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:33:48,156 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:49,032 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:49,032 [INFO] - Got weight: 0.0.
+2024-01-31 12:33:49,213 [INFO] - Green LED switched to False.
+2024-01-31 12:33:49,214 [INFO] - Red LED switched to True.
+2024-01-31 12:33:49,214 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:49,225 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:50,122 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:50,122 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:50,122 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:33:50,123 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:50,123 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:50,134 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:50,142 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:33:50,143 [INFO] - Got temperature: 30.75.
+2024-01-31 12:33:50,143 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:50,153 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:26', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:33:50,155 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:50,159 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:50,159 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:50,173 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:51,341 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:51,350 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:51,351 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:33:51,359 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:52,264 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:52,264 [INFO] - Got weight: 0.0.
+2024-01-31 12:33:52,445 [INFO] - Green LED switched to False.
+2024-01-31 12:33:52,445 [INFO] - Red LED switched to True.
+2024-01-31 12:33:52,445 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:52,457 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:53,288 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:53,288 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:53,289 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:53,289 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:53,290 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:53,300 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:53,309 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:33:53,309 [INFO] - Got temperature: 31.25.
+2024-01-31 12:33:53,310 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:53,318 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:29', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:33:53,321 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:53,325 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:53,325 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:53,343 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:54,508 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:54,517 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:54,517 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:33:54,529 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:55,398 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:55,398 [INFO] - Got weight: 0.0.
+2024-01-31 12:33:55,609 [INFO] - Green LED switched to False.
+2024-01-31 12:33:55,610 [INFO] - Red LED switched to True.
+2024-01-31 12:33:55,610 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:55,619 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:56,471 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:56,471 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:56,472 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:56,472 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:56,473 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:56,483 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:56,491 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:33:56,493 [INFO] - Got temperature: 31.25.
+2024-01-31 12:33:56,494 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:56,503 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:56,511 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:56,512 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:56,513 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:32', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:56,539 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:57,689 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:33:57,699 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:57,700 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:33:57,708 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:58,629 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:58,629 [INFO] - Got weight: 0.0.
+2024-01-31 12:33:58,809 [INFO] - Green LED switched to False.
+2024-01-31 12:33:58,810 [INFO] - Red LED switched to True.
+2024-01-31 12:33:58,810 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:33:58,822 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:59,653 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:33:59,653 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:33:59,654 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:59,654 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:33:59,655 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:33:59,667 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:59,673 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:35', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:33:59,674 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:33:59,674 [INFO] - Got temperature: 31.0.
+2024-01-31 12:33:59,675 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:33:59,686 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:33:59,690 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:33:59,691 [INFO] - Got moisture: -104.0.
+2024-01-31 12:33:59,711 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:00,868 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:34:00,878 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:00,879 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:34:00,890 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:01,767 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:01,767 [INFO] - Got weight: 0.0.
+2024-01-31 12:34:01,957 [INFO] - Green LED switched to False.
+2024-01-31 12:34:01,958 [INFO] - Red LED switched to True.
+2024-01-31 12:34:01,958 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:34:01,967 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:02,832 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:02,832 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:34:02,832 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:34:02,833 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:02,833 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:34:02,844 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:02,852 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:34:02,853 [INFO] - Got temperature: 31.0.
+2024-01-31 12:34:02,853 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:34:02,861 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:38', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:34:02,864 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:02,869 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:34:02,869 [INFO] - Got moisture: -104.0.
+2024-01-31 12:34:02,884 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:04,054 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:34:04,064 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:04,065 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:34:04,073 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:04,994 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:04,994 [INFO] - Got weight: 0.0.
+2024-01-31 12:34:05,175 [INFO] - Green LED switched to False.
+2024-01-31 12:34:05,175 [INFO] - Red LED switched to True.
+2024-01-31 12:34:05,175 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:34:05,187 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:06,014 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:06,014 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:34:06,015 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:34:06,016 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:06,016 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:34:06,027 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:06,034 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:42', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:34:06,036 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:34:06,036 [INFO] - Got temperature: 31.25.
+2024-01-31 12:34:06,037 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:34:06,047 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:06,051 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:34:06,052 [INFO] - Got moisture: -104.0.
+2024-01-31 12:34:06,058 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:07,236 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:34:07,247 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:07,247 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:34:07,255 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:08,132 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:08,132 [INFO] - Got weight: 0.0.
+2024-01-31 12:34:08,312 [INFO] - Green LED switched to False.
+2024-01-31 12:34:08,312 [INFO] - Red LED switched to True.
+2024-01-31 12:34:08,313 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:34:08,324 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:09,008 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:09,009 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:34:09,009 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:34:09,010 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:09,010 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:34:09,021 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:09,029 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:34:09,030 [INFO] - Got temperature: 31.0.
+2024-01-31 12:34:09,030 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:34:09,038 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:45', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:34:09,043 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:09,045 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:34:09,046 [INFO] - Got moisture: -104.0.
+2024-01-31 12:34:09,054 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:10,223 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:34:10,233 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:10,233 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:34:10,241 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:11,171 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:11,171 [INFO] - Got weight: 0.0.
+2024-01-31 12:34:11,351 [INFO] - Green LED switched to False.
+2024-01-31 12:34:11,352 [INFO] - Red LED switched to True.
+2024-01-31 12:34:11,352 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:34:11,363 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:12,191 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:12,192 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:34:12,193 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:34:12,194 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:12,195 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:34:12,204 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:12,212 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:34:12,212 [INFO] - Got temperature: 31.25.
+2024-01-31 12:34:12,213 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:34:12,224 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:12,228 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:34:12,229 [INFO] - Got moisture: -104.0.
+2024-01-31 12:34:12,244 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:48', 'harvested': 0.0, 'temperature': 31.0}.
+2024-01-31 12:34:12,277 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:13,436 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:34:13,448 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:13,449 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:34:13,460 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:14,403 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:14,403 [INFO] - Got weight: 0.0.
+2024-01-31 12:34:14,583 [INFO] - Green LED switched to False.
+2024-01-31 12:34:14,583 [INFO] - Red LED switched to True.
+2024-01-31 12:34:14,583 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:34:14,595 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:15,373 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:15,374 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:34:15,374 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:34:15,375 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:15,375 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:34:15,386 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:15,394 [INFO] - Got response from /dev/ttyACM0: 30.25.
+2024-01-31 12:34:15,395 [INFO] - Got temperature: 30.25.
+2024-01-31 12:34:15,395 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:34:15,404 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:51', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:34:15,406 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:15,410 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:34:15,411 [INFO] - Got moisture: -104.0.
+2024-01-31 12:34:15,430 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:16,591 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:34:16,602 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:16,602 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:34:16,610 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:17,540 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:17,541 [INFO] - Got weight: 0.0.
+2024-01-31 12:34:17,760 [INFO] - Green LED switched to False.
+2024-01-31 12:34:17,761 [INFO] - Red LED switched to True.
+2024-01-31 12:34:17,761 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:34:17,770 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:18,556 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:18,556 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:34:18,557 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.25}.
+2024-01-31 12:34:18,558 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:18,558 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:34:18,568 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:18,577 [INFO] - Got response from /dev/ttyACM0: 31.25.
+2024-01-31 12:34:18,577 [INFO] - Got temperature: 31.25.
+2024-01-31 12:34:18,578 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:34:18,590 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:18,595 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:54', 'harvested': 0.0, 'temperature': 30.25}.
+2024-01-31 12:34:18,597 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:34:18,598 [INFO] - Got moisture: -104.0.
+2024-01-31 12:34:18,610 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:19,774 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:34:19,785 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:19,785 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:34:19,793 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:20,673 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:20,674 [INFO] - Got weight: 0.0.
+2024-01-31 12:34:20,854 [INFO] - Green LED switched to False.
+2024-01-31 12:34:20,855 [INFO] - Red LED switched to True.
+2024-01-31 12:34:20,855 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:34:20,866 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:21,644 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:21,644 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:34:21,645 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:34:21,646 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:21,646 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:34:21,657 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:21,665 [INFO] - Got response from /dev/ttyACM0: 30.75.
+2024-01-31 12:34:21,666 [INFO] - Got temperature: 30.75.
+2024-01-31 12:34:21,666 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:34:21,675 [INFO] - Got server message: {'type': 'get_parameter', 'time': '04:57', 'harvested': 0.0, 'temperature': 31.25}.
+2024-01-31 12:34:21,679 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:21,681 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:34:21,682 [INFO] - Got moisture: -104.0.
+2024-01-31 12:34:21,698 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:22,870 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:34:22,881 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:22,881 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:34:22,890 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:23,811 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:23,811 [INFO] - Got weight: 0.0.
+2024-01-31 12:34:23,991 [INFO] - Green LED switched to False.
+2024-01-31 12:34:23,992 [INFO] - Red LED switched to True.
+2024-01-31 12:34:23,992 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:34:24,004 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:25,005 [INFO] - Got response from /dev/ttyACM0: .
+2024-01-31 12:34:25,011 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:25,011 [INFO] - Got harvest weight: 0.0.
+2024-01-31 12:34:25,012 [INFO] - Sent data to server: {'type': 'update_parameter', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:34:25,013 [INFO] - Sent data to server: {'type': 'update_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:25,013 [INFO] - Sending command to /dev/ttyACM0: 11.
+2024-01-31 12:34:25,023 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:25,032 [INFO] - Got response from /dev/ttyACM0: 31.00.
+2024-01-31 12:34:25,032 [INFO] - Got temperature: 31.0.
+2024-01-31 12:34:25,033 [INFO] - Sending command to /dev/ttyACM0: 12.
+2024-01-31 12:34:25,041 [INFO] - Got server message: {'type': 'get_parameter', 'time': '05:01', 'harvested': 0.0, 'temperature': 30.75}.
+2024-01-31 12:34:25,044 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:25,048 [INFO] - Got response from /dev/ttyACM0: -104.
+2024-01-31 12:34:25,049 [INFO] - Got moisture: -104.0.
+2024-01-31 12:34:25,058 [INFO] - Got server message: {'type': 'get_moisture', 'moisture': -104.0}.
+2024-01-31 12:34:26,233 [INFO] - Sending command to /dev/ttyACM0: 20.
+2024-01-31 12:34:26,244 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:26,244 [INFO] - Sending command to /dev/ttyACM0: 13.
+2024-01-31 12:34:26,256 [INFO] - Got response from /dev/ttyACM0: ok.
+2024-01-31 12:34:27,133 [INFO] - Got response from /dev/ttyACM0: 0.00.
+2024-01-31 12:34:27,133 [INFO] - Got weight: 0.0.
+2024-01-31 12:34:27,318 [INFO] - Green LED switched to False.
+2024-01-31 12:34:27,319 [INFO] - Red LED switched to True.
+2024-01-31 12:34:27,319 [INFO] - Sending command to /dev/ttyACM0: 14.
+2024-01-31 12:34:27,330 [INFO] - Got response from /dev/ttyACM0: ok.

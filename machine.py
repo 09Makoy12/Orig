@@ -22,7 +22,7 @@ class Machine:
         self.ws_initialized = False
         
         common_commands = [98, 99]
-        arduino_1_commands = list(range(11, 23))
+        arduino_1_commands = list(range(11, 24))
         arduino_1_commands.extend(common_commands)
         arduino_2_commands = list(range(0, 8))
         arduino_2_commands.extend(common_commands)

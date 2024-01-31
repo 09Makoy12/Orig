@@ -7,5 +7,8 @@ if __name__ == '__main__':
 
     # Introduce a delay to allow time for the machine to gather the data
     time.sleep(2)  # You may adjust the delay time based on your machine's response time
-while True:
-    print(machine.started)
+    
+    # Call the deactivate_servo method
+    machine.deactivate_servo()
+    
+    print()

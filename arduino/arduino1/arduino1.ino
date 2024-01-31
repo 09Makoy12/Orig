@@ -237,7 +237,7 @@ void retractActuator() {
 }
 
 void activateServo() {
-  myservo.write(90);
+  myservo.write(180);
 }
 
 void deactivateServo() {
