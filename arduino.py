@@ -70,7 +70,7 @@ class Arduino(Serial):
         while True:
             response = self.get_response()
             print(response)
-            if response == 'reset':
+            if response:
                 break
         self.logger.info('Arduino state resetted.')
         

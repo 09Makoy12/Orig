@@ -7,8 +7,9 @@ if __name__ == '__main__':
 
     # Introduce a delay to allow time for the machine to gather the data
     time.sleep(2)  # You may adjust the delay time based on your machine's response time
-    
-    # Call the deactivate_servo method
-    machine.retract_actuator()
-    
+
+    # Call the turn_on_fan method on the machine object
+    machine.turn_on_fan()
+
+    # Print the result
     print()

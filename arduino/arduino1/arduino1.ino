@@ -221,7 +221,6 @@ void getWeight2() {
   double kilogram = w1/1000;
   Serial.println(String(kilogram));
 }
-
 void extendActuator() {
   digitalWrite(in1Pin, LOW);
   digitalWrite(in2Pin, HIGH);
@@ -251,23 +250,23 @@ void activateBuzzer() {
 }
 
 void turnOnFan() {
-  digitalWrite(fanRelay1, HIGH);
-  digitalWrite(fanRelay2, HIGH);
-}
-
-void turnOffFan() {
   digitalWrite(fanRelay1, LOW);
   digitalWrite(fanRelay2, LOW);
 }
 
+void turnOffFan() {
+  digitalWrite(fanRelay1, HIGH);
+  digitalWrite(fanRelay2, HIGH);
+}
+
 void activateHeat(){
-  digitalWrite(heatRelay1, HIGH);
-  digitalWrite(heatRelay2, HIGH);
+  digitalWrite(heatRelay1, LOW);
+  digitalWrite(heatRelay2, LOW);
 }
 
 void deactivateHeat(){
-  digitalWrite(heatRelay1, LOW);
-  digitalWrite(heatRelay2, LOW);
+  digitalWrite(heatRelay1, HIGH);
+  digitalWrite(heatRelay2, HIGH);
 }
 
 void getUUID(){

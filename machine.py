@@ -18,7 +18,7 @@ class Machine:
         self.__initialize_logger()
 
         self.ws = None
-        self.ws_host = "ws://192.168.1.11:8000/ws/socket-server/"
+        self.ws_host = "ws://192.168.1.13:8000/ws/socket-server/"
         self.ws_initialized = False
         
         common_commands = [98, 99]
@@ -31,7 +31,7 @@ class Machine:
         self.arduino2 = None
         for port in arduino_ports:
             print(f'Allocating port {port}...')
-            temp = Arduino(port, baudrate=9600, commands=common_commands,timeout=1)
+            temp = Arduino(port, baudrate=9600, commands=common_commands,timeout=5)
             uuid = temp.get_uuid()
             if uuid == self.ARDUINO1_UUID and self.arduino1 is None:
                 self.arduino1 = temp
@@ -53,6 +53,7 @@ class Machine:
 
         self.started = False
         self.fan_on = False
+        time.sleep(5)
         self.start_websocket_listener()
         time.sleep(5)
         self.update_state(False)
@@ -62,7 +63,7 @@ class Machine:
         self.lcd = LCD(address=0x3f)
 
         power_pin = 25
-        fan_pin = 27
+        fan_pin = 6
         self.green_led = 22
         self.red_led = 23
         self.fan_led_1 = 16
@@ -192,10 +193,10 @@ class Machine:
         '''
         def _start():
             self.ws = websocket.WebSocketApp(self.ws_host,
-                                        on_open = lambda ws: print('Starting websocket listener...'),
+                                        on_open = lambda ws: self.logger.info('Starting websocket listener...'),
                                         on_message=lambda ws, message: self._parse_websocket_message(ws, message),
-                                        on_error=lambda ws, error: print(error),
-                                        on_close=lambda ws, close_status_code, close_msg: print('Server closing'))
+                                        on_error=lambda ws, error: self.logger.error(error),
+                                        on_close=lambda ws, close_status_code, close_msg: self.logger.error('Server closing'))
             self.ws.run_forever()
         Thread(target=_start).start()
 

@@ -47,7 +47,7 @@ if __name__ == '__main__':
                 machine.set_fan(False)
                 machine.deactivate_heater()
 
-            if actuator_ready and datetime.now() - actuator_last_retracted >= timedelta(seconds=11):
+            if actuator_ready and datetime.now() - actuator_last_retracted >= timedelta(seconds=5):
                 weight =  machine.get_weight()
                 machine.lcd.clear()
                 machine.lcd.text(f'Weight: {weight:.2f} kg', 1)
@@ -69,6 +69,7 @@ if __name__ == '__main__':
                         conveyor_started = True
                     
                     machine.extend_actuator()
+                    time.sleep(5)
                     actuator_ready = False
                     actuator_last_extended = datetime.now()
                 else:
@@ -77,7 +78,7 @@ if __name__ == '__main__':
                     
 
             if not actuator_ready \
-                and datetime.now() - actuator_last_extended >= timedelta(seconds=11):
+                and datetime.now() - actuator_last_extended >= timedelta(seconds=5):
                 machine.retract_actuator()
                 actuator_ready = True
                 actuator_last_retracted = datetime.now()
