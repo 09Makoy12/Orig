@@ -40,6 +40,10 @@ if __name__ == '__main__':
             machine.lcd.text(f'Moisture: {moisture} %', 2)
             time.sleep(1)
 
+            if not conveyor_started:
+                machine.activate_conveyor()
+                conveyor_started = True
+
             if temperature >= 30:
                 machine.set_fan(True)
                 machine.activate_heater()
@@ -62,11 +66,9 @@ if __name__ == '__main__':
                     machine.activate_servo()
                     time.sleep(0.1) 
                     machine.deactivate_servo()
-                    if not slicer_started and not conveyor_started:
+                    if not slicer_started:
                         machine.activate_slicer()
-                        machine.activate_conveyor()
                         slicer_started = True
-                        conveyor_started = True
                     
                     machine.extend_actuator()
                     time.sleep(5)
@@ -109,5 +111,10 @@ if __name__ == '__main__':
                 machine.set_state(False)
 
         if not machine.started and initialized:
-            machine.deactivate_conveyor()
-            machine.deactivate_slicer()
+            if conveyor_started:
+                machine.deactivate_conveyor()
+                conveyor_started = False
+            
+            if slicer_started:
+                machine.deactivate_slicer()
+                slicer_started = False
