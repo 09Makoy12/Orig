@@ -18,7 +18,7 @@ class Machine:
         self.__initialize_logger()
 
         self.ws = None
-        self.ws_host = "ws://192.168.1.13:8000/ws/socket-server/"
+        self.ws_host = "ws://192.168.45.191:8000/ws/socket-server/"
         self.ws_initialized = False
         
         common_commands = [98, 99]

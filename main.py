@@ -102,9 +102,8 @@ if __name__ == '__main__':
             machine.update_moisture(moisture)
             
             print(harvested_amount)
-            if harvested_amount >= 1000:
+            if harvested_amount >= 2.00:
                 machine.activate_buzzer()
-                machine.spin_servo()
                 machine.lcd.clear()
                 machine.lcd.text('Harvest threshold reached.', 1)
                 machine.add_harvest(harvested_amount,temperature)

@@ -9,7 +9,7 @@ if __name__ == '__main__':
     time.sleep(2)  # You may adjust the delay time based on your machine's response time
 
     # Call the turn_on_fan method on the machine object
-    machine.turn_on_fan()
+    machine.activate_slicer()
 
     # Print the result
     print()
