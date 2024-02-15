@@ -44,6 +44,10 @@ if __name__ == '__main__':
                 machine.activate_conveyor()
                 conveyor_started = True
 
+            if not slicer_started:
+                machine.activate_slicer()
+                slicer_started = True
+
             if temperature >= 30:
                 machine.set_fan(True)
                 machine.activate_heater()
@@ -66,10 +70,6 @@ if __name__ == '__main__':
                     machine.activate_servo()
                     time.sleep(0.1) 
                     machine.deactivate_servo()
-                    if not slicer_started:
-                        machine.activate_slicer()
-                        slicer_started = True
-                    
                     machine.extend_actuator()
                     time.sleep(5)
                     actuator_ready = False
